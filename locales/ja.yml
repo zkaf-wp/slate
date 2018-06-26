@@ -1,0 +1,211 @@
+ja:
+  description: 説明
+  multilingual_support: 多言語対応
+  property: 物件
+  references: リファレンス
+  method: メソッド
+  request: リクエスト
+  response: レスポンス
+  parameter: パラメータ
+  required: 必須
+  data_form: データ形式
+  name: 名
+  remarks: 備考
+  format_yyyymmdd: 形式：yyyy-mm-dd
+  property_upsert:
+    request_desc: |
+      必須が`YES`であるパラメータは新規作成時に必要となります。<br>
+      `id`は新規作成か更新かに関わらずいつも必要です。<br>
+      `rebuilt_dates`の数量と`rebuilt_contents_xx`の数量は合わせないといけません。
+  property_fields:
+    id: 物件ID
+    asset_management_stopped: アセットマネジメント契約の終了
+    asset_management_stopped_desc:
+      - 'false: 終了しない'
+      - 'true: 終了した'
+    country_id: 所在国の国ID
+    property_type: 物件種別
+    property_types:
+      '0': マンション
+      '1': アパート
+      '2': ハイツ
+      '3': コーポ
+      '4': テラスハウス
+      '5': タウンハウス
+      '6': 一戸建て
+      '7': 賃家
+      '8': 下宿
+      '9': 宅地
+      '10': 店舗
+      '11': 事務所
+      '12': 店舗・事務所
+      '13': 店舗付住宅
+      '14': 事業用建物
+      '15': 事業用地
+      '16': その他土地
+      '17': 月極駐車場
+      '18': 専用駐車場
+      '19': 月極駐輪場
+      '20': 専用駐輪場
+      '27': その他
+    ownership_type: 所有種別
+    ownership_types:
+      '0': 専有
+      '1': 区分所有
+      '2': 借地権
+    postal_code: 郵便番号
+    prefecture: 都道府県
+    city: 市区町村
+    house_number: 番地など
+    property_name: 物件名
+    address: 物件住所
+    latitude: 緯度
+    longitude: 経度
+    zoning: 用途地域
+    zonings_desc: 最多数量１３個まで
+    zonings:
+      '0': 第一種低層住居専用地域
+      '1': 第二種低層住居専用地域
+      '2': 第一種中高層住居専用地域
+      '3': 第二種中高層住居専用地域
+      '4': 第一種住居地域
+      '5': 第二種住居地域
+      '6': 準住居地域
+      '7': 近隣商業地域
+      '8': 商業地域
+      '9': 準工業地域
+      '10': 工業地域
+      '11': 工業専用地域
+      '12': 用途地域の指定なし
+    building_structure: 建物構造
+    building_structures:
+      '0': 木造
+      '1': 軽量鉄骨造
+      '2': 鉄骨造
+      '3': 鉄筋コンクリート造（RC）
+      '4': 鉄骨鉄筋コンクリート造（SRC）
+      '5': 鉄骨鉄筋コンクリート造
+      '6': 木造一部RC
+      '7': 鉄筋コンクリート造
+      '9': 木造一部鉄筋コンクリート造
+      '10': その他
+    floors_above_ground: 地上階数
+    floors_under_ground: 地下階数
+    floors_xxx_ground_desc: 単位：階
+    completion_date: 築年月日
+    land_area_per_measurement: 敷地面積（実測）
+    land_area_per_register: 敷地面積（登記簿）
+    land_area_per_xxx_desc: 単位：㎡
+    land_category: 地目
+    land_categories:
+      '0': 宅地
+      '1': 田
+      '2': 畑
+      '3': 山林
+      '4': 雑種地
+      '5': 原野
+    area_classification: 区域区分
+    area_classifications:
+      '0': 市街化区域
+      '1': 市街化調整区域
+      '2': 非線引き区域
+      '3': 不明
+    newly_built: 新築フラグ
+    newly_built_desc: 
+      - 'false: 中古'
+      - 'true: 新築'
+    rebuilt_date: 増改築年月
+    rebuilt_date_desc: 最多数量１０個まで
+    rebuilt_content: 増改築年月（内容）
+    rebuilt_content_desc: 最多数量１０個まで
+    total_units: 総戸数
+    total_units_desc: 単位：戸
+    number_of_consecutive_buildings: 連棟戸数
+    number_of_consecutive_buildings_desc: 単位：棟
+    method_of_area_measurement: 面積計算方式
+    method_of_area_measurements:
+      '0': 壁芯計算
+      '1': 内法計算
+      '2': 指定なし
+    building_area_per_measurement: 延床面積（実測）
+    building_area_per_register: 延床面積（登記簿）
+    building_area_per_xxx_desc: 単位：㎡
+    building_coverage: 建ぺい率
+    building_coverage_desc: 単位：%
+    floor_area_ratio: 容積率
+    floor_area_ratio_desc: 単位：%
+    certificate_of_completion: 検査済証
+    certificate_of_completions:
+      '0': 無し
+      '1': 有り
+      '2': 不明
+    managed_by_corp: BM管理会社
+    management_type: BM管理形態
+    management_types:
+      '0': 住込管理（常駐管理）
+      '1': 日勤管理
+      '2': 巡回管理
+      '3': 無人管理（自力管理・自主管理）
+    managed_by_people: BM管理員
+    management_fee: BM管理費
+    management_fee_desc: 単位：円 / 月
+    fire_protection_specified: 防火指定
+    fire_protection_specifieds:
+      '0': 防火地域
+      '1': 準防火地域
+      '2': 屋根不燃地域
+      '3': 不明
+    land_right: 土地の権利
+    land_rights:
+      '0': 所有権
+      '1': 地上権
+      '2': 借地権
+      '3': 定期借地権
+    land_rent: 借地料（月額）
+    land_rent_desc: 単位：円 / 月
+    land_rent_start_date: 借地期間開始日
+    land_rent_end_date: 借地期間満了日
+    remarks: 備考
+  country: 国
+  countries:
+    '1': 日本
+    '2': 台湾
+    '3': 中国本土
+    '4': シンガポール
+    '5': アメリカ
+    '6': 香港
+    '7': マカオ
+    '8': マレーシア
+    '9': インドネシア
+    '10': フィリピン
+    '11': イギリス
+    '12': ベトナム
+    '13': その他
+    '14': タイ
+    '15': カンボジア
+    '16': ギリシャ
+    '17': ポルトガル
+    '18': スペイン
+  remittance_type: 送金タイプ
+  remittance_types:
+    '1': オーナーからの入金
+    '2': 預かり金
+    '3': 返却用敷金
+    '4': オーナーへの送金
+    '5': その他入金
+    '6': その他出金
+    '7': 必要預かり金
+  links:
+    references:
+      country_id: f4bba5643a
+      property_type: f10eaaba26
+      ownership_type: 4779fb87f7
+      zoning: 2aa2ba9eee
+      building_structure: 626c9874f8
+      land_category: 1214844f0c
+      area_classification: 3c6ad94ab5
+      method_of_area_measurement: 6cebd75469
+      certificate_of_completion: 155413dce6
+      management_type: bm
+      fire_protection_specified: 506d83ee9f
+      land_right: dc748d7cc4

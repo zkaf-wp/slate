@@ -498,6 +498,13 @@ html, body {
     @extend %icon-ok-sign;
   }
 
+  aside.well {
+    white-space: pre;
+    background-color: #ddd;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .search-highlight {
     padding: 2px;
     margin: -3px;
