@@ -35,6 +35,10 @@ If we need to localize parameter `remarks` in Japanese, Enlish and Chinese, we c
 - remarks_en (English)
 - remarks_zh (Traditional Chinese)
 
+### <%=t('general_md.required_parameter.header')%>
+
+<%=t('general_md.required_parameter.desc')%>
+
 ### Access-token
 
 Set access-token to authenticate your requests. You can set it in header or inline parameters
