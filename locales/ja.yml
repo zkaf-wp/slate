@@ -15,6 +15,7 @@ ja:
   unit_yen: 単位：円
   unit_yen_month: 単位：円 / 月
   unit_percentage: 単位：%
+  unit_person: 単位：人
   max_quantity_to_x_items: 最多数量%{quantity}個まで
   create: 作成
   update: 更新
@@ -130,7 +131,41 @@ ja:
           1: あり
         mortgagee: 抵当権者  
         mortgagor: 抵当権設定者  
-        remarks: 備考  
+        remarks: 備考
+  owner_income_md:
+    header: オーナー所得情報
+    upsert:
+      fields:
+        owner_id: 対象オーナー
+        general_business_income: 事業所得（営業等）
+        business_agriculture_income: 事業所得（農業）
+        off_system_realestate_income: 不動産所得
+        interest_income: 利子
+        dividend: 配当
+        salary: 給与
+        national_pension_etc: 雑（公的年金等）
+        others: 雑（その他）
+        income_from_transfer_short_term: 総合譲渡（短期）
+        income_from_transfer_long_term: 総合譲渡（長期）
+        one_off_income: 一時
+        remarks: 備考
+  owner_work_md:
+    header: オーナー勤務先情報
+    upsert:
+      fields:
+        owner_id: 対象オーナー
+        post_code: 郵便番号
+        tel: 勤務先電話番号
+        annual_income: 年収
+        company_capital: 資本金
+        staff_size: 社員数
+        annual_turnover: 年商
+        name: 会社名
+        address: 勤務先住所
+        industry: 業種
+        department: 所属
+        position: 役職
+        remarks: 備考
   property_md:
     header: 物件
     upsert:

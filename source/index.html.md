@@ -15,6 +15,8 @@ includes:
   - owner
   - owner_bank
   - owner_loan
+  - owner_income
+  - owner_work
   - property
   - property_acquisition
   - room
