@@ -14,6 +14,8 @@ includes:
   - authentication
   - owner
   - properties
+  - room
+  - am_contract
   - cashflow
   - references
 

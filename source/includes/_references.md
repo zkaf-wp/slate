@@ -1,11 +1,14 @@
 <%
-  def print_references(i18n_key)
+  def print_references(category_key, header_key, values_key)
     (
       [
+        #"## #{category_key.empty? ? '' : "[#{t(category_key)}] "}#{t(header_key)}",
+        "## #{t(header_key)}",
+        "",
         "| ID | #{t('description')} |",
         '|----|---------------------|',
       ] +
-      t(i18n_key)
+      t(values_key)
         .inject([]) {
           |arr, pair|
           arr << "| #{pair[0]} | #{pair[1]} |"
@@ -17,54 +20,39 @@
 
 # <%=t('references')%>
 
-## <%=t('country')%>
+<%= print_references('', 'country', 'countries') %>
 
-<%= print_references('countries') %>
+<%= print_references('', 'remittance_type', 'remittance_types') %>
 
-## <%=t('remittance_type')%>
+<%= print_references('', 'am_contract_md.upsert.fields.payment_type', 'am_contract_md.upsert.fields.payment_types') %>
 
-<%= print_references('remittance_types') %>
+<%=
+  t_context('property_md.upsert.fields') {
+    [
+      print_references('property_md.header', '.property_type', '.property_types'),
+      print_references('property_md.header', '.building_structure', '.building_structures'),
+      print_references('property_md.header', '.ownership_type', '.ownership_types'),
+      print_references('property_md.header', '.zoning', '.zonings'),
+      print_references('property_md.header', '.land_category', '.land_categories'),
+      print_references('property_md.header', '.area_classification', '.area_classifications'),
+      print_references('property_md.header', '.method_of_area_measurement', '.method_of_area_measurements'),
+      print_references('property_md.header', '.certificate_of_completion', '.certificate_of_completions'),
+      print_references('property_md.header', '.management_type', '.management_types'),
+      print_references('property_md.header', '.fire_protection_specified', '.fire_protection_specifieds'),
+      print_references('property_md.header', '.land_right', '.land_rights'),
+    ].join("\n")
+  }
+%>
 
-## <%=t('property_md.upsert.fields.property_type')%>
-
-<%= print_references('property_md.upsert.fields.property_types') %>
-
-## <%=t('property_md.upsert.fields.building_structure')%>
-
-<%= print_references('property_md.upsert.fields.building_structures') %>
-
-## <%=t('property_md.upsert.fields.ownership_type')%>
-
-<%= print_references('property_md.upsert.fields.ownership_types') %>
-
-## <%=t('property_md.upsert.fields.zoning')%>
-
-<%= print_references('property_md.upsert.fields.zonings') %>
-
-## <%=t('property_md.upsert.fields.land_category')%>
-
-<%= print_references('property_md.upsert.fields.land_categories') %>
-
-## <%=t('property_md.upsert.fields.area_classification')%>
-
-<%= print_references('property_md.upsert.fields.area_classifications') %>
-
-## <%=t('property_md.upsert.fields.method_of_area_measurement')%>
-
-<%= print_references('property_md.upsert.fields.method_of_area_measurements') %>
-
-## <%=t('property_md.upsert.fields.certificate_of_completion')%>
-
-<%= print_references('property_md.upsert.fields.certificate_of_completions') %>
-
-## <%=t('property_md.upsert.fields.management_type')%>
-
-<%= print_references('property_md.upsert.fields.management_types') %>
-
-## <%=t('property_md.upsert.fields.fire_protection_specified')%>
-
-<%= print_references('property_md.upsert.fields.fire_protection_specifieds') %>
-
-## <%=t('property_md.upsert.fields.land_right')%>
-
-<%= print_references('property_md.upsert.fields.land_rights') %>
+<%=
+  t_context('room_md.upsert.fields') {
+    [
+      print_references('room_md.header', '.room_category', '.room_categories'),
+      print_references('room_md.header', '.room_category_detail', '.room_category_details'),
+      print_references('room_md.header', '.balcony_direction', '.balcony_directions'),
+      print_references('room_md.header', '.management_type', '.management_types'),
+      print_references('room_md.header', '.room_type', '.room_types'),
+      print_references('room_md.header', '.tenant_status', '.tenant_statuses'),
+    ].join("\n")
+  }
+%>

@@ -39,6 +39,10 @@ If we need to localize parameter `remarks` in Japanese, Enlish and Chinese, we c
 
 <%=t('general_md.required_parameter.desc')%>
 
+### <%=t('general_md.currency_measurement_unit_etc.header')%>
+
+<%=t('general_md.currency_measurement_unit_etc.desc')%>
+
 ### Access-token
 
 Set access-token to authenticate your requests. You can set it in header or inline parameters

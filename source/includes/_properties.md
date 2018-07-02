@@ -9,7 +9,7 @@
 
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| id | <%=t('property_md.upsert.fields.id')%> | | YES | integer |
+| property_id | <%=t('property_md.upsert.fields.property_id')%> | | YES | integer |
 | owner_id | <%=t('property_md.upsert.fields.owner_id')%> | | YES | integer |
 | asset_management_stopped | <%=t('property_md.upsert.fields.asset_management_stopped')%> | <%=t('property_md.upsert.fields.asset_management_stopped_desc')%> | NO | bool |
 | country_id | [<%=t('property_md.upsert.fields.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
@@ -28,8 +28,8 @@
 | floors_above_ground | <%=t('property_md.upsert.fields.floors_above_ground')%> | <%=t('property_md.upsert.fields.floors_xxx_ground_desc')%>| NO | integer|
 | floors_under_ground | <%=t('property_md.upsert.fields.floors_under_ground')%> | | NO | integer |
 | completion_date | <%=t('property_md.upsert.fields.completion_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| land_area_per_measurement | <%=t('property_md.upsert.fields.land_area_per_measurement')%> | <%=t('property_md.upsert.fields.land_area_per_xxx_desc')%> | NO | double |
-| land_area_per_register | <%=t('property_md.upsert.fields.land_area_per_register')%> | <%=t('property_md.upsert.fields.land_area_per_xxx_desc')%> | NO | double |
+| land_area_per_measurement | <%=t('property_md.upsert.fields.land_area_per_measurement')%> | <%=t('unit_m2')%> | NO | double |
+| land_area_per_register | <%=t('property_md.upsert.fields.land_area_per_register')%> | <%=t('unit_m2')%> | NO | double |
 | land_category | [<%=t('property_md.upsert.fields.land_category')%>](#<%=get_header_link(t('references'), t('property_md.upsert.fields.land_category'))%>) | | NO | integer |
 | area_classification | [<%=t('property_md.upsert.fields.area_classification')%>](#<%=get_header_link(t('references'), t('property_md.upsert.fields.area_classification'))%>) | | NO | integer |
 | newly_built | <%=t('property_md.upsert.fields.newly_built')%> | <%=t('property_md.upsert.fields.newly_built_desc')%> | NO | bool |
@@ -38,8 +38,8 @@
 | total_units | <%=t('property_md.upsert.fields.total_units')%> | <%=t('property_md.upsert.fields.total_units_desc')%> | NO | integer |
 | number_of_consecutive_buildings | <%=t('property_md.upsert.fields.number_of_consecutive_buildings')%> | <%=t('property_md.upsert.fields.number_of_consecutive_buildings_desc')%>| NO | integer |
 | method_of_area_measurement | [<%=t('property_md.upsert.fields.method_of_area_measurement')%>](#<%=get_header_link(t('references'), t('property_md.upsert.fields.method_of_area_measurement'))%>) | | NO | integer |
-| building_area_per_measurement | <%=t('property_md.upsert.fields.building_area_per_measurement')%> | <%=t('property_md.upsert.fields.building_area_per_xxx_desc')%> | NO | double |
-| building_area_per_register | <%=t('property_md.upsert.fields.building_area_per_register')%> | <%=t('property_md.upsert.fields.building_area_per_xxx_desc')%> | NO | double |
+| building_area_per_measurement | <%=t('property_md.upsert.fields.building_area_per_measurement')%> | <%=t('unit_m2')%> | NO | double |
+| building_area_per_register | <%=t('property_md.upsert.fields.building_area_per_register')%> | <%=t('unit_m2')%> | NO | double |
 | building_coverage | <%=t('property_md.upsert.fields.building_coverage')%> | <%=t('property_md.upsert.fields.building_coverage_desc')%> | NO | double |
 | floor_area_ratio | <%=t('property_md.upsert.fields.floor_area_ratio')%> | <%=t('property_md.upsert.fields.floor_area_ratio_desc')%> | NO | double |
 | certificate_of_completion | [<%=t('property_md.upsert.fields.certificate_of_completion')%>](#<%=get_header_link(t('references'), t('property_md.upsert.fields.certificate_of_completion'))%>) | | NO | integer |
