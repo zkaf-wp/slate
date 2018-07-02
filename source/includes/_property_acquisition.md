@@ -1,16 +1,17 @@
-# <%=t('room_acquisition_md.header')%>
+# <%=t('property_acquisition_md.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
 
-- URL: `/rooms/:room_id/acquisition`
+- URL: `properties/:property_id/acquisitions/:owner_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_context('room_acquisition_md.upsert.fields') { %>
+<% t_context('property_acquisition_md.upsert.fields') { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | <%=t('one_one_relationship')%>| YES | integer |
+| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | integer | 
+| owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer | 
 | contract_date | <%=t('.contract_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | scheduled_payment_date | <%=t('.scheduled_payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
@@ -49,7 +50,7 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/rooms/1/acquisition \
+curl -v -X POST <%=BASE_PATH%>/properties/1/acquisitions/1 \
      --data-urlencode "contract_date=2016-06-16" \
      --data-urlencode "scheduled_payment_date=2016-06-01" \
      --data-urlencode "payment_date=2016-06-01" \
@@ -105,13 +106,13 @@ curl -v -X POST <%=BASE_PATH%>/rooms/1/acquisition \
 
 ## <%=t('delete')%>
 
-- URL: `/rooms/:room_id/acquisition`
+- URL: `properties/:property_id/acquisitions/:owner_id`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>
 
 ```shell
-curl -v -X DELETE <%=BASE_PATH%>/rooms/1/acquisition \
+curl -v -X DELETE <%=BASE_PATH%>/properties/1/acquisitions/1 \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

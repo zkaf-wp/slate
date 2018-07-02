@@ -10,8 +10,7 @@
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | property_id | <%=t('property_md.upsert.fields.property_id')%> | | YES | integer |
-| owner_id | <%=t('property_md.upsert.fields.owner_id')%> | | YES | integer |
-| asset_management_stopped | <%=t('property_md.upsert.fields.asset_management_stopped')%> | <%=t('property_md.upsert.fields.asset_management_stopped_desc')%> | NO | bool |
+| owner_ids | <%=t('property_md.upsert.fields.owner_id')%> | <%=t('n_n_relationship')%> | NO | integer[] |
 | country_id | [<%=t('property_md.upsert.fields.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
 | property_type | [<%=t('property_md.upsert.fields.property_type')%>](#<%=get_header_link(t('references'), t('property_md.upsert.fields.property_type'))%>) | | NO | integer |
 | ownership_type | [<%=t('property_md.upsert.fields.ownership_type')%>](#<%=get_header_link(t('references'), t('property_md.upsert.fields.ownership_type'))%>) | | NO | integer |
@@ -60,7 +59,8 @@
 
 ```shell
 curl -v -X POST <%= BASE_PATH %>/properties/1 \
-     --data-urlencode "asset_management_stopped=false" \
+     --data-urlencode "owner_ids[]=1" \
+     --data-urlencode "owner_ids[]=2" \
      --data-urlencode "country_id=1" \
      --data-urlencode "property_type=0" \
      --data-urlencode "ownership_type=1" \

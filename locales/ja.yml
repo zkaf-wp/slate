@@ -12,11 +12,16 @@ ja:
   remarks: 備考
   format_yyyymmdd: 形式：yyyy-mm-dd
   unit_m2: 単位：㎡
+  unit_yen: 単位：円
   unit_yen_month: 単位：円 / 月
+  unit_percentage: 単位：%
   max_quantity_to_x_items: 最多数量%{quantity}個まで
   create: 作成
   update: 更新
   delete: 削除
+  one_one_relationship: 1-1 関係
+  n_n_relationship: N-N 関係
+  one_n_relationship: 1-N 関係
   general_md:
     required_parameter:
       header: 必須なパラメータ
@@ -75,6 +80,57 @@ ja:
         remittance_date: 送金予定日 > 毎月●日
         pay_at_month_end: 送金予定日 > 月末支払い
         remarks: 備考
+  owner_bank_md:
+    header: オーナー銀行情報
+    upsert:
+      fields:
+        owner_id: 対象オーナー
+        bank_country_id: 銀行国
+        bank_code: 銀行コード
+        branch_code: 支店コード
+        bank_swift: SWIFTコード
+        bank_currency: 通貨
+        bank_currency_desc: |
+          3文字のコード
+          例：JPY, USD, ...
+        bank_account_type: 口座種別
+        bank_account_type_desc: |
+          1: 個人
+          2: 法人
+        account_type: 預金種目
+        account_type_desc: |
+          1: 普通
+          2: 当座
+        account_number: 口座番号
+        name: 銀行名
+        address: 銀行支店住所
+        branch_name: 支店名
+        account_holder: 口座名義
+  owner_loan_md:
+    header: オーナー借入情報
+    upsert:
+      fields:
+        owner_id:  対象オーナー
+        property_id: 対象物件
+        execution_date: 借入実行日 
+        full_repayment_date: 全額弁済日 
+        amount: 借入総額  
+        principal_outstanding: 借入残額  
+        interest: 借入利息  
+        financial_institution: 借入金融機関  
+        guarantor_type: 保証人
+        guarantor_type_desc: |
+          0: 保証人
+          1: 連帯保証人
+          2: 指定なし
+        guarantor: 保証人名 
+        mortgage_status: 抵当情報
+        mortgage_status_desc: |
+          0: なし
+          1: あり
+        mortgagee: 抵当権者  
+        mortgagor: 抵当権設定者  
+        remarks: 備考  
   property_md:
     header: 物件
     upsert:
@@ -83,10 +139,6 @@ ja:
       fields:
         property_id: 物件ID
         owner_id: 物件のオーナー
-        asset_management_stopped: アセットマネジメント契約の終了
-        asset_management_stopped_desc: |
-          false: 終了しない
-          true: 終了した
         country_id: 所在国の国ID
         property_type: 物件種別
         property_types:
@@ -228,11 +280,11 @@ ja:
         land_rent_start_date: 借地期間開始日
         land_rent_end_date: 借地期間満了日
         remarks: 備考
-  am_contract_md:
-    header: アセットマネジメント契約
+  room_am_contract_md:
+    header: 部屋アセットマネジメント契約
     upsert:
       fields:
-        room_id: 所属部屋ID
+        room_id: 対象部屋
         status: ステータス
         status_desc: |
           0: 契約終了
@@ -283,7 +335,8 @@ ja:
         その逆に`floor_plan_roomcount`と`floor_plan_type`はセットされる場合、`one_room`は不要となります。
       fields:
         room_id: 部屋ID  
-        property_id: 所属物件ID
+        property_id: 部屋が所属している物件
+        owner_id: 部屋のオーナー
         room_number: 部屋番号  
         room_category: 種別
         room_categories:
@@ -388,71 +441,50 @@ ja:
         managed_by_corp: PM管理会社  
         managed_by_people: PM管理員 
   room_acquisition_md:
-    header: 部屋取得
+    header: 部屋取得情報
+    upsert:
+      fields: &room_acquisition_md_upsert_fields
+        room_id: 対象部屋
+        contract_date: 契約日
+        scheduled_payment_date: 決済予定日
+        payment_date: 決済日
+        ownership_transfer_date: 所有権移転日
+        delivery_date: 物件引渡日
+        purchase_price: 物件購入価格
+        ct_on_purchase_price: 購入価格消費税分
+        building_sale_price: 建物売買価格
+        ct_on_building_price: 建物消費税額
+        land_price: 土地売買価格
+        earnest_money: 手付金
+        revenue_stamp_tax: 印紙税
+        registration_tax: 登録免許税
+        agency_fee: 仲介手数料（売買時）
+        judicial_scrivener_fee: 司法書士報酬
+        realestate_acquisition_tax_land: 不動産取得税（土地）
+        realestate_acquisition_tax_house: 不動産取得税（家屋）
+        trading_shortage_fee: 取引残代金（不足分）
+        fixed_property_tax: 固定資産税
+        city_plan_tax: 都市計画税
+        fixed_property_tax_evaluation_amount_land: 固定資産税評価額（土地）
+        fixed_property_tax_evaluation_amount_building: 固定資産税評価額（建物）
+        depreciation: 減価償却
+        fire_insurance_fee: 火災保険料
+        earthquake_insurance_fee: 地震保険料
+        group_credit_life_insurance_fee: 団体信用生命保険
+        other_insurance_fee: その他保険
+        other_insurance_fee_name: その他保険の保険名
+        moving_fee: 引越代
+        furniture_cost: 家具等購入代
+        other_cost: その他費用
+        other_cost_name: その他費用の費用名
+        remarks: 備考
+  property_acquisition_md:
+    header: 物件取得情報
     upsert:
       fields:
-        room_id: 所属部屋ID
-        contract_date: 新規登録 > 契約日
-        # scheduled_payment_date  新規登録 > 決済予定日
-        # payment_date  新規登録 > 決済日
-        # ownership_transfer_date 新規登録 > 所有権移転日
-        # delivery_date 新規登録 > 物件引渡日
-        # purchase_price  新規登録 > 物件購入価格
-        # ct_on_purchase_price  新規登録 > 購入価格消費税分
-        # building_sale_price 新規登録 > 建物売買価格
-        # ct_on_building_price  新規登録 > 建物消費税額
-        # land_price  新規登録 > 土地売買価格
-        # earnest_money 新規登録 > 手付金
-        # revenue_stamp_tax 取得時諸経費 > 印紙税
-        # registration_tax  取得時諸経費 > 登録免許税
-        # agency_fee  取得時諸経費 > 仲介手数料（売買時）
-        # judicial_scrivener_fee  取得時諸経費 > 司法書士報酬
-        # realestate_acquisition_tax_land 取得時諸経費 > 不動産取得税（土地）
-        # realestate_acquisition_tax_house  取得時諸経費 > 不動産取得税（家屋）
-        # trading_shortage_fee  取得時諸経費 > 取引残代金（不足分）
-        # fixed_property_tax  取得時諸経費 > 固定資産税
-        # city_plan_tax 取得時諸経費 > 都市計画税
-        # fixed_property_tax_evaluation_amount_land 取得時諸経費 > 固定資産税評価額（土地）
-        # fixed_property_tax_evaluation_amount_building 取得時諸経費 > 固定資産税評価額（建物）
-        # depreciation  取得時諸経費 > 減価償却
-        # fire_insurance_fee  取得時諸経費 > 火災保険料
-        # earthquake_insurance_fee  取得時諸経費 > 地震保険料
-        # group_credit_life_insurance_fee 取得時諸経費 > 団体信用生命保険
-        # other_insurance_fee1  取得時諸経費 > その他保険1
-        # other_insurance_fee_name1 取得時諸経費 > その他保険1 > 保険名
-        # other_insurance_fee2  取得時諸経費 > その他保険2
-        # other_insurance_fee_name2 取得時諸経費 > その他保険2 > 保険名
-        # other_insurance_fee3  取得時諸経費 > その他保険3
-        # other_insurance_fee_name3 取得時諸経費 > その他保険3 > 保険名
-        # other_insurance_fee4  取得時諸経費 > その他保険4
-        # other_insurance_fee_name4 取得時諸経費 > その他保険4 > 保険名
-        # other_insurance_fee5  取得時諸経費 > その他保険5
-        # other_insurance_fee_name5 取得時諸経費 > その他保険5 > 保険名
-        # other_insurance_count 取得時諸経費 > その他保険の数量
-        # moving_fee  取得時諸経費 > 引越代
-        # furniture_cost  取得時諸経費 > 家具等購入代
-        # other_cost1 取得時諸経費 > その他費用1
-        # other_cost_name1  取得時諸経費 > その他費用1 > 費用名
-        # other_cost2 取得時諸経費 > その他費用2
-        # other_cost_name2  取得時諸経費 > その他費用2 > 費用名
-        # other_cost3 取得時諸経費 > その他費用3
-        # other_cost_name3  取得時諸経費 > その他費用3 > 費用名
-        # other_cost4 取得時諸経費 > その他費用4
-        # other_cost_name4  取得時諸経費 > その他費用4 > 費用名
-        # other_cost5 取得時諸経費 > その他費用5
-        # other_cost_name5  取得時諸経費 > その他費用5 > 費用名
-        # other_cost6 取得時諸経費 > その他費用6
-        # other_cost_name6  取得時諸経費 > その他費用6 > 費用名
-        # other_cost7 取得時諸経費 > その他費用7
-        # other_cost_name7  取得時諸経費 > その他費用7 > 費用名
-        # other_cost8 取得時諸経費 > その他費用8
-        # other_cost_name8  取得時諸経費 > その他費用8 > 費用名
-        # other_cost9 取得時諸経費 > その他費用9
-        # other_cost_name9  取得時諸経費 > その他費用9 > 費用名
-        # other_cost10  取得時諸経費 > その他費用10
-        # other_cost_name10 取得時諸経費 > その他費用10 > 費用名
-        # other_cost_count  取得時諸経費 > その他費用の数量
-        # remarks 取得時諸経費 > 備考
+        <<: *room_acquisition_md_upsert_fields
+        owner_id: 対象オーナー
+        property_id: 対象物件
   country: 国
   countries:
     '1': 日本

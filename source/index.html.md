@@ -13,9 +13,13 @@ includes:
   - general
   - authentication
   - owner
-  - properties
+  - owner_bank
+  - owner_loan
+  - property
+  - property_acquisition
   - room
-  - am_contract
+  - room_acquisition
+  - room_am_contract
   - cashflow
   - references
 

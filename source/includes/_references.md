@@ -24,7 +24,7 @@
 
 <%= print_references('', 'remittance_type', 'remittance_types') %>
 
-<%= print_references('', 'am_contract_md.upsert.fields.payment_type', 'am_contract_md.upsert.fields.payment_types') %>
+<%= print_references('', 'room_am_contract_md.upsert.fields.payment_type', 'room_am_contract_md.upsert.fields.payment_types') %>
 
 <%=
   t_context('property_md.upsert.fields') {
