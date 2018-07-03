@@ -2,7 +2,7 @@
 
 ## <%=t('create')%> & <%=t('update')%>
 
-- URL: `properties/:property_id/acquisitions/:owner_id`
+- URL: `properties/:property_id/owners/:owner_id/acquisitions`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -50,7 +50,7 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/properties/1/acquisitions/1 \
+curl -v -X POST <%=BASE_PATH%>/properties/1/owners/1/acquisitions \
      --data-urlencode "contract_date=2016-06-16" \
      --data-urlencode "scheduled_payment_date=2016-06-01" \
      --data-urlencode "payment_date=2016-06-01" \
@@ -106,13 +106,13 @@ curl -v -X POST <%=BASE_PATH%>/properties/1/acquisitions/1 \
 
 ## <%=t('delete')%>
 
-- URL: `properties/:property_id/acquisitions/:owner_id`
+- URL: `properties/:property_id/owners/:owner_id/acquisitions`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>
 
 ```shell
-curl -v -X DELETE <%=BASE_PATH%>/properties/1/acquisitions/1 \
+curl -v -X DELETE <%=BASE_PATH%>/properties/1/owners/1/acquisitions \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

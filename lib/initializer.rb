@@ -6,12 +6,15 @@ HEADER_ACCESS_TOKEN = '-H "X-ACCESS-TOKEN: 5454ac951a4e49ca9da39a6e58589393"'
 LOCALE = 'ja'
 I18n.load_path = Dir["locales/#{LOCALE}.yml"]
 def t(key, options={})
+  ignore_new_line = options[:ignore_new_line]
   if key.start_with?('.') && !$t_context_stack.empty?
     key = ($t_context_stack + [key[1..key.length]]).join('.')
   end
   result = I18n.translate(key, options.merge(locale: LOCALE))
-  if result.include?("\n")
-    result = result.gsub("\n", '<br>')
+  unless ignore_new_line
+    if result.include?("\n")
+      result = result.gsub("\n", '<br>')
+    end
   end
   result
 end

@@ -56,3 +56,5 @@
     ].join("\n")
   }
 %>
+
+<%= print_references('tenant_md.header', 'tenant_md.upsert.fields.identity_type', 'tenant_md.upsert.fields.identity_types') %>

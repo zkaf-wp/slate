@@ -23,6 +23,8 @@ ja:
   one_one_relationship: 1-1 関係
   n_n_relationship: N-N 関係
   one_n_relationship: 1-N 関係
+  individual_field: 個人用
+  corporation_field: 法人用
   general_md:
     required_parameter:
       header: 必須なパラメータ
@@ -47,10 +49,8 @@ ja:
         first_name: オーナー名
         last_name_furi: オーナー姓（ふりがな）
         first_name_furi: オーナー名（ふりがな）
-        individual_name_desc: 個人である場合のみ
-        name:  オーナーの姓名
-        name_furi: オーナーの姓名（ふりがな）
-        corporation_name_desc: 法人である場合のみ
+        name:  会社名
+        name_furi: 会社名（ふりがな）
         admin_name: 担当者名
         admin_tel: 担当者電話番号
         gender: 性別
@@ -60,6 +60,7 @@ ja:
         tel: 電話番号（メイン）
         spare_phone_number: 電話番号（サブ）
         birth_date: 生年月日
+        establishment_date: 設立日
         social_security_number: ソーシャルセキュリティナ ンバー
         taxpayer_number: 納税者番号
         postal_code: 居住地の郵便番号
@@ -68,7 +69,7 @@ ja:
         land_lot_no: 居住地の番地など
         building_name: 居住地の建物名
         address: 居住地の住所
-        mailing_country: 郵送先の国ID
+        mailing_country: 郵送先の国
         mailing_postal_code: 郵送先の郵便番号
         mailing_prefecture: 郵送先の都道府県
         mailing_city: 郵送先の市区町村
@@ -152,7 +153,7 @@ ja:
   owner_work_md:
     header: オーナー勤務先情報
     upsert:
-      fields:
+      fields: &owner_work_md_upsert_fields
         owner_id: 対象オーナー
         post_code: 郵便番号
         tel: 勤務先電話番号
@@ -166,6 +167,135 @@ ja:
         department: 所属
         position: 役職
         remarks: 備考
+  tenant_md:
+    header: テナント
+    upsert:
+      fields:
+        tenant_id: テナントID
+        corp_flag: 個人 / 法人
+        corp_flag_desc: |
+          1: 個人
+          0: 法人
+        country_id: 国・地域
+        withholding_tax_flag: 源泉徴収税
+        withholding_tax_flag_desc: |
+          true:あり
+          false:なし
+        last_name: テナント性 
+        first_name: テナント名
+        last_name_furi: テナント性（ふりがな）
+        first_name_furi: テナント名（ふりがな）
+        name: 会社名
+        name_furi: 会社名（ふりがな）
+        gender: 性別
+        gender_desc: |
+          0: 男性
+          1: 女性
+        birth_date: 生年月日
+        establishment_date: 設立日
+        corp_registered_address: 現本社所在地
+        corp_responsible_person: 現担当者
+        corp_responsible_person_office: 現担当者勤務先
+        corp_representative_person: 代表者氏名 
+        tel_main: 電話番号（メイン）
+        tel_sub: 電話番号（サブ）
+        email: メールアドレス 
+        identity_type: 身分証区分
+        identity_types:
+          '0': 運転免許証
+          '1': 健康保険証
+          '2': パスポート
+          '3': その他"
+        identity_number: 身分証番号 
+        bank_name: 金融機関名 
+        bank_code: 金融機関コード 
+        branch_name: 支店名 
+        branch_code: 支店コード 
+        bank_account_holder: 口座名義  
+        bank_account_number: 口座番号  
+        remarks: 備考
+  tenant_work_md:
+    header: テナント勤務先情報
+    upsert:
+      fields:
+        <<: *owner_work_md_upsert_fields
+        tenant_id: テナントID
+  tenant_members_md:
+    header: テナント入居者情報
+    upsert:
+      fields:
+        index: 第〜テナント
+        index_desc: 1,2,3,など
+        tenant_id: 対象テナント
+        tenant_id_desc: |
+          テナントは実際に世帯と相当するものです。
+          テナントは複数の入居者を含みます。
+        room_id: 対象部屋
+        age: 年齢
+        tel: 電話番号
+        name: 入居者名
+        relationship: 続柄
+        company_name: 会社名
+        company_address: 勤務先住所
+        remarks: 備考
+    delete:
+      desc: |
+        `index`が`0`である場合、全ての入居情報を削除。
+        <br><br>
+        ある入居情報が削除されると、それを継ぐ入居情報のindexを1で引かれる。
+        <br><br>
+        **例えば：**
+        <br>
+        整体全員４人：
+        
+        - 本人（index=1）
+        
+        - 妻（index=2）
+        
+        - 息子（index=3）
+        
+        - 娘（index=4）
+        <br><br>
+        「妻」の情報を削除する後、こうなります：
+        
+        - 本人（index=1）
+        
+        - 息子（index=2）
+        
+        - 娘（index=3）
+  tenant_guarantor_md:
+    header: テナント保証人情報
+    upsert:
+      fields:
+        tenant_id: 対象テナント
+        room_id: 対象部屋
+        name: 保証人名  
+        name_furi: 保証人名（ふりがな）  
+        type: 保証人区分
+        type_desc: |
+          0: 個人
+          1: 保証会社
+          2: 指定なし
+        relationship: 続柄  
+        birth_date: 生年月日  
+        gender: 性別
+        gender_desc: |
+          0: 男性
+          1: 女性
+        tel: 電話番号  
+        email: メールアドレス 
+        postal_code: 郵便番号  
+        address: 住所  
+        work: 勤務先 
+        work_postal_code: 勤務先郵便番号 
+        work_address: 勤務先住所 
+        work_tel: 勤務先電話番号 
+        business: 業種  
+        unit: 所属  
+        position: 役職  
+        income: 収入  
+        capital: 資本金 
+        remarks: 備考  
   property_md:
     header: 物件
     upsert:

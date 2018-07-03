@@ -1,0 +1,14 @@
+/properties/:property_id    
+    Removed "asset_management_stopped"
+/properties/:property_id/acquisitions/:owner_id
+    Removed "other_insurance_count" and "other_cost_count"
+/owners/:owner_id/work
+    stuff_size -> staff_size
+/tenants/:tenant_id
+    add new field "establishment_date" (actually "birth_date")
+    remove "bank_account_type"
+/tenants/:tenant_id/work
+    "stuff_size" -> "staff_size"
+/owners/:owner_id
+    "post_address" -> "mailing_address"
+    add new field "establishment_date" (actually "birth_date")

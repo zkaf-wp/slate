@@ -17,6 +17,10 @@ includes:
   - owner_loan
   - owner_income
   - owner_work
+  - tenant
+  - tenant_members
+  - tenant_work
+  - tenant_guarantor
   - property
   - property_acquisition
   - room
