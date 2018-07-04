@@ -64,7 +64,8 @@ curl -v -X POST <%=BASE_PATH%>/rooms/1/am_contracts/2018-06-26
 
 ## <%=t('delete')%>
 
-- URL: `rooms/:room_id/am_contracts/:start_date`
+- URL<%=t('delete_one')%>: `rooms/:room_id/am_contracts/:start_date`
+- URL<%=t('delete_all')%>: `rooms/:room_id/am_contracts/all`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>

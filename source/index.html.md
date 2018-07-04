@@ -22,6 +22,7 @@ includes:
   - tenant_work
   - tenant_guarantor
   - tenant_rental_contract
+  - tenant_renew
   - property
   - property_acquisition
   - room

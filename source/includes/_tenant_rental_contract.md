@@ -2,7 +2,7 @@
 
 ## <%=t('create')%> & <%=t('update')%>
 
-- URL: `/tenants/:tenant_id/rooms/:room_id/contract`
+- URL: `/tenants/:tenant_id/rooms/:room_id/rental_contract`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -76,7 +76,7 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/contract \
+curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/rental_contract \
      --data-urlencode "status=1" \
      --data-urlencode "rent=85000" \
      --data-urlencode "collection_administration_fee_enabled=false" \
@@ -142,7 +142,7 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/contract \
 ```
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/tenants/2/rooms/2/contract \
+curl -v -X POST <%=BASE_PATH%>/tenants/2/rooms/2/rental_contract \
      --data-urlencode "fees_paid_by_tenant[]=gas" \
      --data-urlencode "fees_paid_by_tenant[]=electric" \
      --data-urlencode "fees_paid_by_tenant[]=water" \
@@ -164,13 +164,13 @@ curl -v -X POST <%=BASE_PATH%>/tenants/2/rooms/2/contract \
 
 ## <%=t('delete')%>
 
-- URL: `/tenants/:tenant_id/rooms/:room_id/contract`
+- URL: `/tenants/:tenant_id/rooms/:room_id/rental_contract`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>
 
 ```shell
-curl -v -X DELETE <%=BASE_PATH%>/tenants/1/rooms/1/contract \
+curl -v -X DELETE <%=BASE_PATH%>/tenants/1/rooms/1/rental_contract \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

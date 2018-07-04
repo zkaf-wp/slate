@@ -28,6 +28,8 @@ ja:
   value: 値
   for_japan_market: 日本国内用
   for_other_countries_market: 日本以外国用
+  delete_one: （単体削除の場合）
+  delete_all: （全部削除の場合）
   general_md:
     required_parameter:
       header: 必須なパラメータ
@@ -312,7 +314,6 @@ ja:
           '2': 保留中・退去済み
           '3': 退去済み
           '4': 更新済み
-        renewal_date: 更新日
         rent: 賃料 
         collection_administration_fee_enabled: 督促手数料の有無
         collection_administration_fee_enabled_desc: |
@@ -397,6 +398,37 @@ ja:
         fire_insurance: 火災保険料  
         agent: 仲介業者  
         registered_broker_name: 取引担当者 
+  tenant_renew_md:
+    header: テナント契約更新情報
+    upsert:
+      fields:
+        tenant_id: 対象テナント
+        room_id: 対象部屋
+        status: ステータス
+        status_desc: |
+          0: 保留中
+          1: 契約中
+          2: 期限切れ
+          デフォルト: 0
+        renewal_fee: 更新料
+        renewal_administration_fee: 更新事務手数料
+        renewal_commission_fee: 更新手数料
+        application_date: 更新申込日
+        renewed_period_commencement_date: 更新期間開始日
+        renewed_period_expiry_date: 更新契約期間満了日
+        payment_date: 更新料支払日
+        rent: 更新後の賃料
+        management_fee: 更新後の管理・共費等
+        parking_fee: 更新後の駐車場代
+        hot_water_bill: 更新後の給湯代
+        water_bill: 更新後の水道代
+        internet_fee: 更新後のインターネット代
+        bank_charge_fee: 更新後の送金手数料（家賃相殺)
+        sub_leasing_fee: 更新後のサブリース代
+        others_fee: 更新後のその他の費用（金額）
+        others_fee_name: 更新後のその他の費用（項目名）
+        others_fee_not_owner_income: 更新後のオーナー収入にならないその他の費用（金額）
+        others_fee_name_not_owner_income: 更新後のオーナー収入にならないその他の費用（項目名）
   property_md:
     header: 物件
     upsert:

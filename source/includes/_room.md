@@ -11,7 +11,7 @@
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | room_id | <%=t('room_md.upsert.fields.room_id')%> | | YES | integer |
 | property_id | <%=t('room_md.upsert.fields.property_id')%> | <%=t('one_n_relationship')%> | YES | integer |
-| owner_ids | <%=t('room_md.upsert.fields.owner_id')%> | <%=t('one_n_relationship')%> | YES | integers |
+| owner_ids | <%=t('room_md.upsert.fields.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer[] |
 | room_number | <%=t('room_md.upsert.fields.room_number')%> | | NO | string |
 | room_category | [<%=t('room_md.upsert.fields.room_category')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_category'))%>) | | NO | integer |
 | room_category_detail | [<%=t('room_md.upsert.fields.room_category_detail')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_category_detail'))%>) | | NO | integer |
