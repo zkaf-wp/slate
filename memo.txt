@@ -28,4 +28,7 @@
         For foreign market:
             paid_by_tenant
             paid_by_owner
-    
+/tenants/:tenant_id/rooms/:room_id/rental_contract/cancellation    
+    "other_fees" -> "others_fee"
+    "hot_water_fee" -> "proration_hot_water_fee"
+    "water_fee" -> "proration_water_fee"

@@ -52,7 +52,7 @@ Category 's parameters
 
 
 ```shell
-curl -v -X POST <%= BASE_PATH %>/cashflows/categories/allinone \
+curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
      --data '
         [
             {

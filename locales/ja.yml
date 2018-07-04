@@ -245,8 +245,6 @@ ja:
         remarks: 備考
     delete:
       desc: |
-        `index`が`0`である場合、全ての入居情報を削除。
-        <br><br>
         ある入居情報が削除されると、それを継ぐ入居情報のindexを1で引かれる。
         <br><br>
         **例えば：**
@@ -429,6 +427,28 @@ ja:
         others_fee_name: 更新後のその他の費用（項目名）
         others_fee_not_owner_income: 更新後のオーナー収入にならないその他の費用（金額）
         others_fee_name_not_owner_income: 更新後のオーナー収入にならないその他の費用（項目名）
+  tenant_cancellation_md:
+    header: テナント退去情報
+    upsert:
+      fields:
+        tenant_id: 対象テナント
+        room_id: 対象部屋
+        termination_notice_date: 解約申込日
+        movingout_date:  退去日
+        termination_date: 解約完了日
+        invoice_date: 請求月
+        invoice_due: 退去費用支払日
+        repair_fee_tenant: 現状回復工事費
+        proration_rent: 日割り賃料
+        proration_management_fee: 日割管理・共益費
+        proration_parking_fee: 駐車場代（翌月分） / 日割り分
+        proration_hot_water_fee: 給湯代（翌月分）/ 日割り分
+        proration_water_fee: 水道代（翌月分）/ 日割り分
+        others_fee: その他の費用（金額）
+        others_fee_name: その他の費用（項目名）
+        others_fee_not_owner_income: オーナー収入にならないその他の費用（金額）
+        others_fee_name_not_owner_income: オーナー収入にならないその他の費用（項目名）
+        remarks: 備考
   property_md:
     header: 物件
     upsert:
