@@ -1,47 +1,39 @@
-# General
+<% t_context('general_md') { %>
+# <%=t('.header')%>
 
-## Request
+## <%=t('request')%>
 
-### Base url
+### <%=t('.base_url')%>
 
 `<%= BASE_PATH %>`
 
-### Actions
+### <%=t('.action.header')%>
 
-A typical API may support 5 actions for certain resource: `READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`
+<%=t('.action.desc')%>
 
-This API Endpoint only support 2 actions: `UPSERT`, `DELETE`
+### <%=t('method')%>
 
-`UPSERT` is the combination of `CREATE`, `UPDATE` and `UPDATE PARTIALLY`.
+| <%=t('method')%> | <%=t('description')%> |
+|------------------|-----------------------|
+| POST   | `UPSERT` |
+| DELETE | `DELETE` |
 
-`GET` is omitted because API Endpoint is designed to import data, not to read.
+### <%=t('.multilingual_support.header')%>
 
-### Methods
+<%=t('.multilingual_support.desc', ignore_new_line: true)%>
 
-| Method | Description     |
-|------- |-----------------|
-| POST   | Upsert resource |
-| DELETE | Delete resource |
+### <%=t('.required_parameters.header')%>
 
-### <%=t('multilingual_support')%>
+<%=t('general_md.required_parameters.desc')%>
 
-API Endpoint supports localization of text data, by add language code after parameter 's name.
+### <%=t('.designated_parameters.header')%>
 
-_Example:_
+<%=t('.designated_parameters.desc') % {for_japan_market: t('for_japan_market'), for_other_countries_market: t('for_other_countries_market')} %>
 
-If we need to localize parameter `remarks` in Japanese, Enlish and Chinese, we can put 3 parameters in the request
-
-- remarks_ja (Japanese)
-- remarks_en (English)
-- remarks_zh (Traditional Chinese)
-
-### <%=t('general_md.required_parameter.header')%>
-
-<%=t('general_md.required_parameter.desc')%>
-
-### <%=t('general_md.currency_measurement_unit_etc.header')%>
+### <%=t('.currency_measurement_unit_etc.header')%>
 
 <%=t('general_md.currency_measurement_unit_etc.desc')%>
+
 
 ### Access-token
 
@@ -56,7 +48,7 @@ curl <%= BASE_PATH %>/properties \
 curl <%= BASE_PATH %>/properties?access_token=5454ac951a4e49ca9da39a6e58589393
 ```
 
-## Response
+## <%=t('response')%>
 
 ### Status code
 
@@ -111,3 +103,4 @@ All data returned from server is in JSON format
     "err_msg": "access token is invalid"
 }
 ```
+<% } %>

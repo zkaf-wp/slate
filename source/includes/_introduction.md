@@ -1,3 +1,5 @@
-# Introduction
+<% t_context('introduction_md') { %>
+# <%=t('.header')%>
 
-This is documentation for API Endpoint
+<%=t('.desc')%>
+<% } %>

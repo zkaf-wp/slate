@@ -1,0 +1,21 @@
+en:
+  general_md:
+    action:
+      header: Actions
+      desc: |
+        A typical API may support 5 actions for certain resource: `READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`
+        This API Endpoint only support 2 actions: `UPSERT`, `DELETE`
+        `UPSERT` is the combination of `CREATE`, `UPDATE` and `UPDATE PARTIALLY`.
+        `GET` is omitted because API Endpoint is designed to import data, not to read.
+    multilingual_support:
+      header: 多言語対応
+      desc: |
+        API Endpoint supports localization of text data, by add language code after parameter 's name.
+
+        _Example:_
+
+        If we need to localize parameter `remarks` in Japanese, Enlish and Chinese, we can put 3 parameters in the request
+
+        - remarks_ja (Japanese)
+        - remarks_en (English)
+        - remarks_zh (Traditional Chinese)

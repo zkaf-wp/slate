@@ -1,16 +1,19 @@
-# Authentication
+<% t_context('authentication_md') { %>
+# <%=t('.header')%>
 
-## Login
+## <%=t('.login.header')%>
 
-***Request***
+***<%=t('request')%>***
 
-- Path: `/login`
-- Method: `POST`
+- URL: `/login`
+- <%=t('method')%>: `POST`
 
-| Parameter | Required? | Type   | Description       |
-|-----------|-----------|--------|-------------------|
-| email     | YES       | string | User 's email     |
-| password  | YES       | string | User ' password   |
+| <%=t('parameter')%> | <%=t('name')%> | <%=t('required')%> | <%=t('data_form')%> |
+|---------------------|----------------|--------------------|---------------------|
+| email | <%=t('.login.request.email')%> | YES | string |
+| password | <%=t('.login.request.password')%> | YES | string |
+
+> <%=t('request')%>
 
 ```shell
 curl -v -X POST <%= BASE_PATH %>/login \
@@ -18,7 +21,7 @@ curl -v -X POST <%= BASE_PATH %>/login \
      --data-urlencode "password=Password123" \
 ```
 
-***Response***
+***<%=t('response')%>***
 
 | Field         | Type    | Description                                                                           |
 |---------------|---------|---------------------------------------------------------------------------------------|
@@ -28,7 +31,7 @@ curl -v -X POST <%= BASE_PATH %>/login \
 | priviledge    | string  | Priviledge of account. There is only one valid value for this field: `standard`       |
 | unique_id     | integer | User 's unique id                                                                     |
 
-> Sample response
+> <%=t('response')%>
 
 ```json
 {
@@ -41,7 +44,7 @@ curl -v -X POST <%= BASE_PATH %>/login \
 }
 ```
 
-## Refresh access-token
+## <%=t('.refresh_access_token.header')%>
 
 ***Request***
 
@@ -75,3 +78,4 @@ curl -v -X POST <%= BASE_PATH %>/refresh_access_token \
     "refresh_token": "5f07eea1bfb641dd807cdf90bbba8761",
 }
 ```
+<% } %>

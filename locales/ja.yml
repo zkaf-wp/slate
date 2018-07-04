@@ -1,4 +1,6 @@
 ja:
+  search: 検索
+  no_results_found: 結果が見つかりません 
   description: 説明
   multilingual_support: 多言語対応
   references: リファレンス
@@ -30,15 +32,53 @@ ja:
   for_other_countries_market: 日本以外国用
   delete_one: （単体削除の場合）
   delete_all: （全部削除の場合）
+  introduction_md:
+    header: 前書き
+    desc: This is documentation for API Endpoint
   general_md:
-    required_parameter:
+    header: 概要
+    base_url: ベースURL
+    action:
+      header: アクション
+      desc: |
+        典型的なAPIはアクシオンの５種を対応します。それらは`READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`です。
+        本APIの対応されるアクションは`UPSERT`, `DELETE`のみです。
+        `UPSERT`は`CREATE`, `UPDATE` and `UPDATE PARTIALLY`を含みます。
+        本APIはデータインポート専用のAPIなので、`GET`は対応されません。
+    multilingual_support:
+      header: 多言語対応
+      desc: |
+        [言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)をパラメータの尻に付け加えることにより、テキストデータを多言語対応します。
+
+        _例えば:_
+
+        `remarks`というテキストデータを日本語、英語、中国語の３つの言語で書き込み、次の３つのパラメータをリクエストに配置します：
+
+        - remarks_ja （日本語）
+        - remarks_en （英語）
+        - remarks_zh （中国語繁体字）
+    required_parameters:
       header: 必須なパラメータ
       desc: |
         `必須`が`YES`であるパラメータは作成時に必要となります。
         URLに入れられた`id`などのパラメータは作成か更新かに関わらずいつも必要です。
+    designated_parameters:
+      header: 専用のパラメータ
+      desc: |
+        本ドキュメントの中にはパラメータの備考に<b>「%{for_japan_market}」</b>と<b>「%{for_other_countries_market}」</b>が所々入ります。
+        <b>「%{for_japan_market}」</b>か<b>「%{for_other_countries_market}」</b>かというのは物件の所在国に基づいて決められます。
     currency_measurement_unit_etc:
       header: 通貨、物理単位などの表示
       desc: 本ドキュメントの中には通貨なら「円」、面積なら「㎡」と記されるが、実際は所属国の通貨と物理単位が扱われます。
+  authentication_md:
+    header: 認証
+    login:
+      header: ログイン
+      request:
+        email: 管理者アカウントのメールアドレス
+        password: 管理者アカウントのパスワード
+    refresh_access_token:
+      header: アクセストークン再発行
   owner_md:
     header: オーナー
     upsert:
