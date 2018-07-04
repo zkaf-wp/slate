@@ -25,6 +25,9 @@ ja:
   one_n_relationship: 1-N 関係
   individual_field: 個人用
   corporation_field: 法人用
+  value: 値
+  for_japan_market: 日本国内用
+  for_other_countries_market: 日本以外国用
   general_md:
     required_parameter:
       header: 必須なパラメータ
@@ -295,7 +298,105 @@ ja:
         position: 役職  
         income: 収入  
         capital: 資本金 
-        remarks: 備考  
+        remarks: 備考
+  tenant_rental_contract_md:
+    header: テナント賃貸契約情報
+    upsert:
+      fields:
+        tenant_id: 対象テナント
+        room_id: 対象部屋
+        status: 賃貸契約ステータス
+        statuses:
+          '0': 保留中
+          '1': 契約中
+          '2': 保留中・退去済み
+          '3': 退去済み
+          '4': 更新済み
+        renewal_date: 更新日
+        rent: 賃料 
+        collection_administration_fee_enabled: 督促手数料の有無
+        collection_administration_fee_enabled_desc: |
+          false: なし
+          true: あり
+        management_fee: 管理・共益費 
+        parking_fee: 駐車場代 
+        hot_water_bill: 給湯代  
+        hot_water_fee_paid_by: 給湯代を支払する人
+        xxx_paid_by_desc: |
+          0: テナント
+          1: オーナー
+          デフォルト: 1
+        water_bill: 水道代
+        water_fee_paid_by: 水道代を支払する人
+        internet_fee: インターネット代 
+        internet_fee_paid_by: インターネット代を支払する人
+        bank_charge_fee: 送金手数料（家賃相殺)  
+        sub_leasing_fee: サブリース代
+        others_fee: その他の費用（金額）
+        others_fee_name: その他の費用（項目名）
+        others_fee_not_owner_income: オーナー収入にならないその他の費用（金額）
+        others_fee_name_not_owner_income: オーナー収入にならないその他の費用（項目名）
+        fees_paid_by_tenant: テナント払いの費用
+        fees_paid_by_owner: オーナー払いの費用
+        fee: 賃貸契約費用
+        fees:
+          gas: ガス
+          electric: 電気
+          water: 水道
+          heat: 暖房
+          sewer: 下水道
+          trash_disposal: ゴミ処理
+          other: その他
+        initial_fee_payment_date: 初期費用支払日  
+        initial_proration_rent: 日割賃料 
+        initial_proration_management_fee:  日割管理・共益費 
+        initial_proration_parking_fee: 日割駐車場代 
+        caution_money: 敷金（金額）
+        caution_money_volume: 敷金（ヶ月分）  
+        caution_money_manager: 敷金の管理者
+        caution_money_manager_desc: |
+          0: 自社
+          1: オーナー
+          2: その他
+        caution_money_manager_other: 敷金の管理者のその他 
+        caution_money_manager_other_desc: |
+          「敷金の管理者」が「2: その他」である場合、その他の内容を指定する。
+        key_money: 礼金 （金額）
+        key_money_volume: 礼金（ヶ月分）  
+        agency_fee: 仲介手数料  
+        administration_service_fee: 契約事務手数料  
+        guarantee_commission_fee: 契約時保証委託料 
+        cleaning_charges: クリーニング代  
+        key_exchange_fee: カギ交換代  
+        initial_others_fee:  その他の初期費用（金額）
+        initial_others_fee_name: その他の初期費用（項目名）
+        initial_others_fee_not_owner_income: オーナー収入にならないその他の初期費用（金額）
+        initial_others_fee_name_not_owner_income:  オーナー収入にならないその他の初期費用（項目名）
+        application_date: 申込日  
+        contract_date: 契約日  
+        commencement_date: 契約期間開始日  
+        expiry_date: 契約期間満了日  
+        movein_planned_date: 入居予定日  
+        free_rent_start: フリーレント開始日  
+        free_rent_end: フリーレント満了日  
+        rent_payment_day: 賃料支払日（毎月●日）
+        pay_at_month_end: 賃料支払日を月末にする？
+        pay_at_month_end_desc: |
+          true: はい
+          false: いいえ
+          trueである場合、「毎月●日」が不要
+        payee_bank_name: 振込先銀行・金融機関
+        account_number: 口座情報（口座番号）
+        branch_number: 口座情報（店番）
+        account_name: 口座情報（口座名義）
+        escrow_bank_account: エスクロー口座  
+        escrow_bank_name: エスクロー名 
+        escrow_bank_address: エスクロー住所  
+        insurance_company: 保険会社名  
+        insurance_policy_no: 保険証書番号 
+        fire_insurance: 火災保険料  
+        agent: 仲介業者  
+        registered_broker_name: 取引担当者 
   property_md:
     header: 物件
     upsert:

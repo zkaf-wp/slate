@@ -11,7 +11,7 @@
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | room_id | <%=t('room_md.upsert.fields.room_id')%> | | YES | integer |
 | property_id | <%=t('room_md.upsert.fields.property_id')%> | <%=t('one_n_relationship')%> | YES | integer |
-| owner_id | <%=t('room_md.upsert.fields.owner_id')%> | <%=t('one_n_relationship')%> | NO | integer |
+| owner_ids | <%=t('room_md.upsert.fields.owner_id')%> | <%=t('one_n_relationship')%> | YES | integers |
 | room_number | <%=t('room_md.upsert.fields.room_number')%> | | NO | string |
 | room_category | [<%=t('room_md.upsert.fields.room_category')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_category'))%>) | | NO | integer |
 | room_category_detail | [<%=t('room_md.upsert.fields.room_category_detail')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_category_detail'))%>) | | NO | integer |
@@ -48,7 +48,8 @@
 ```shell
 curl -v -X POST <%=BASE_PATH%>/rooms/1 \
      --data-urlencode "property_id=1" \
-     --data-urlencode "owner_id=1" \
+     --data-urlencode "owner_ids[]=1" \
+     --data-urlencode "owner_ids[]=2" \
      --data-urlencode "room_number=103" \
      --data-urlencode "room_category=0" \
      --data-urlencode "room_category_detail=0" \

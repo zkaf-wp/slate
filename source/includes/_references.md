@@ -2,10 +2,10 @@
   def print_references(category_key, header_key, values_key)
     (
       [
-        #"## #{category_key.empty? ? '' : "[#{t(category_key)}] "}#{t(header_key)}",
+        # "## #{category_key.empty? ? '' : "[#{t(category_key)}] "}#{t(header_key)}",
         "## #{t(header_key)}",
         "",
-        "| ID | #{t('description')} |",
+        "| #{t('value')} | #{t('description')} |",
         '|----|---------------------|',
       ] +
       t(values_key)
@@ -58,3 +58,12 @@
 %>
 
 <%= print_references('tenant_md.header', 'tenant_md.upsert.fields.identity_type', 'tenant_md.upsert.fields.identity_types') %>
+
+<%=
+  t_context('tenant_rental_contract_md.upsert.fields') {
+    [
+      print_references('tenant_rental_contract_md.header', '.status', '.statuses'),
+      print_references('tenant_rental_contract_md.header', '.fee', '.fees'),
+    ].join("\n")
+  }
+%>

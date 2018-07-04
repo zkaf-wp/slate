@@ -1,6 +1,6 @@
 /properties/:property_id    
     Removed "asset_management_stopped"
-/properties/:property_id/acquisitions/:owner_id
+/properties/:property_id/owners/:owner_id/acquisitions
     Removed "other_insurance_count" and "other_cost_count"
 /owners/:owner_id/work
     stuff_size -> staff_size
@@ -12,3 +12,20 @@
 /owners/:owner_id
     "post_address" -> "mailing_address"
     add new field "establishment_date" (actually "birth_date")
+/tenants/:tenant_id/rooms/:room_id/rental_contract
+    Remove "renewal_date", "payee_bank", "remarks"
+    Add "payee_bank_name_xx"
+    "paid_by_tenant" -> "fees_paid_by_tenant"
+    "paid_by_owner" -> "fees_paid_by_owner"
+    Current:
+        For Japan market:
+            hot_water_bill
+            hot_water_fee_paid_by
+            water_bill
+            water_fee_paid_by
+            internet_fee
+            internet_fee_paid_by
+        For foreign market:
+            paid_by_tenant
+            paid_by_owner
+    
