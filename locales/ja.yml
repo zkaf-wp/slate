@@ -14,6 +14,7 @@ ja:
   name: 名
   remarks: 備考
   format_yyyymmdd: 形式：yyyy-mm-dd
+  format_yyyymm: 形式：yyyy-mm
   unit_m2: 単位：㎡
   unit_yen: 単位：円
   unit_yen_month: 単位：円 / 月
@@ -956,6 +957,55 @@ ja:
               1: オーナー向けのカテゴリー
               デフォルト: 1
             name: カテゴリーの項目名
+    property_cashflow:
+      upsert:
+        header: 物件キャッシュフロー | 作成・更新
+        fields:
+          property_id: 対象物件
+          category_id: キャッシュフローのカテゴリー
+          month: 対象月
+          amount: 金額
+          remarks: 備考
+      delete:
+        header: 物件キャッシュフロー | 削除
+        fields:
+          property_id: 対象物件
+          category_id: キャッシュフローのカテゴリー
+          month: 対象月
+    room_cashflow:
+      upsert:
+        header: 部屋キャッシュフロー | 作成・更新
+        fields:
+          room_id: 対象部屋
+          category_id: キャッシュフローのカテゴリー
+          month: 対象月
+          amount: 金額
+          remarks: 備考
+      delete:
+        header: 部屋キャッシュフロー | 削除
+        fields:
+          room_id: 対象部屋
+          category_id: キャッシュフローのカテゴリー
+          month: 対象月
+    owner_remittances:
+      upsert:
+        header: 送金 | 作成・更新
+        fields:
+          owner_id: 対象オーナー
+          remittance_type_id: 送金タイプ
+          month: 対象月
+          country_id: 対象国
+          amount: 金額
+          date: 送金日付
+          date_desc: 空白の場合、月の１日にデフォルトにセットされます。
+          remarks: 備考
+      delete:
+        header: 送金 | 削除
+        fields:
+          owner_id: 対象オーナー
+          remittance_type_id: 送金タイプ
+          month: 対象月
+          country_id: 対象国
   country: 国
   countries:
     '1': 日本
