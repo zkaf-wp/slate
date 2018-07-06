@@ -8,6 +8,7 @@ ja:
   request: リクエスト
   response: レスポンス
   parameter: パラメータ
+  field: フィルド
   required: 必須
   data_form: データ形式
   name: 名
@@ -37,48 +38,112 @@ ja:
     desc: This is documentation for API Endpoint
   general_md:
     header: 概要
-    base_url: ベースURL
-    action:
-      header: アクション
-      desc: |
-        典型的なAPIはアクシオンの５種を対応します。それらは`READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`です。
-        本APIの対応されるアクションは`UPSERT`, `DELETE`のみです。
-        `UPSERT`は`CREATE`, `UPDATE` and `UPDATE PARTIALLY`を含みます。
-        本APIはデータインポート専用のAPIなので、`GET`は対応されません。
-    multilingual_support:
-      header: 多言語対応
-      desc: |
-        [言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)をパラメータの尻に付け加えることにより、テキストデータを多言語対応します。
+    request:
+      base_url: ベースURL
+      action:
+        header: アクション
+        desc: |
+          典型的なAPIはアクシオンの５種を対応します。それらは`READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`です。
 
-        _例えば:_
+          本APIの対応されるアクションは`UPSERT`, `DELETE`のみです。
 
-        `remarks`というテキストデータを日本語、英語、中国語の３つの言語で書き込み、次の３つのパラメータをリクエストに配置します：
+          `UPSERT`は`CREATE`, `UPDATE` and `UPDATE PARTIALLY`を含みます。
 
-        - remarks_ja （日本語）
-        - remarks_en （英語）
-        - remarks_zh （中国語繁体字）
-    required_parameters:
-      header: 必須なパラメータ
-      desc: |
-        `必須`が`YES`であるパラメータは作成時に必要となります。
-        URLに入れられた`id`などのパラメータは作成か更新かに関わらずいつも必要です。
-    designated_parameters:
-      header: 専用のパラメータ
-      desc: |
-        本ドキュメントの中にはパラメータの備考に<b>「%{for_japan_market}」</b>と<b>「%{for_other_countries_market}」</b>が所々入ります。
-        <b>「%{for_japan_market}」</b>か<b>「%{for_other_countries_market}」</b>かというのは物件の所在国に基づいて決められます。
-    currency_measurement_unit_etc:
-      header: 通貨、物理単位などの表示
-      desc: 本ドキュメントの中には通貨なら「円」、面積なら「㎡」と記されるが、実際は所属国の通貨と物理単位が扱われます。
+          本APIはデータインポート専用のAPIなので、`GET`は対応されません。
+      multilingual_support:
+        header: 多言語対応
+        desc: |
+          [言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)をパラメータの尻に付け加えることにより、テキストデータを多言語対応します。
+
+          _例えば:_
+
+          `remarks`というテキストデータを日本語、英語、中国語の３つの言語で書き込み、次の３つのパラメータをリクエストに配置します：
+
+          - remarks_ja （日本語）
+          - remarks_en （英語）
+          - remarks_zh （中国語繁体字）
+      required_parameters:
+        header: 必須なパラメータ
+        desc: |
+          `必須`が`YES`であるパラメータは作成時に必要となります。
+
+          URLに入れられた`id`などのパラメータは作成か更新かに関わらずいつも必要です。
+      designated_parameters:
+        header: 専用のパラメータ
+        desc: |
+          本ドキュメントの中にはパラメータの備考に<b>「%{for_japan_market}」</b>と<b>「%{for_other_countries_market}」</b>が所々入ります。
+
+          <b>「%{for_japan_market}」</b>か<b>「%{for_other_countries_market}」</b>かというのは物件の所在国に基づいて決められます。
+      currency_measurement_unit_etc:
+        header: 通貨、物理単位などの表示
+        desc: 本ドキュメントの中には通貨なら「円」、面積なら「㎡」と記されるが、実際は所属国の通貨と物理単位が扱われます。
+      access_token:
+        header: アクセストークン
+        desc: リクエストが認証されるため、リクエストのヘッダーまたはパラメータにアクセストークンを付け加えます。
+        add_to_request_header: リクエストのヘッダーに付け加える
+        add_to_request_parameters: リクエストのパラメータに付け加える
+    response:
+      status_code: ステータスコード
+      status_codes:
+        '200': 正常に処理された。
+        '301': リダイレクトされた。
+        '404': 見つかなかった。
+        '500': サーバー側でエラーが発生した。
+      code: コード
+      error_code: エラーコード
+      error_codes:
+        '100': パラメータが不正確だ。
+        '101': 求められたデータが存在していない。
+        '102': ログインが失敗した。ユーザーがブロックされた。
+        '111': ログインが失敗した。ユーザーアカウントが無効だ。
+        '112': ログインが失敗した。ユーザーアカウントが未発行だ。
+        '104': アクセストークンが必要だ。
+        '105': アクセストークンの有効期限が満了した。
+        '106': アクセストークンが無効だ。
+        '108': 権限が不十分だ。
+      format: 
+        header: 形式
+        desc: |
+          サーバーから返されるデータは全てJSON形式です。
+
+          - `err`はエラーコードです。`0`であれば「成功」という意味です。
+          - `field_1`、`field_2`、`field_3`、などは返されたデータの内容です。
+          - `err_msg`はエラーがある時だけにエラーの詳細内容を指摘するメッセージです。このメッセージの目当てはエラーの原因を分かりやすくすることです. だから、UIに表示するものではありません。
+        success_sample: 成功のサンプル
+        failure_sample: 失敗のサンプル
   authentication_md:
     header: 認証
     login:
       header: ログイン
       request:
-        email: 管理者アカウントのメールアドレス
-        password: 管理者アカウントのパスワード
+        fields:
+          email: 管理者アカウントのメールアドレス
+          password: 管理者アカウントのパスワード
+      response:
+        fields:
+          access_token: アクセストークン
+          access_token_desc: リクエストを認証するためリクエストのヘッダーまたはパラメータに付け加えるものです。
+          expire_at: 有効期限
+          expire_at_desc: アクセストークンがこの時点まで有効です。[UNIX時間](https://ja.wikipedia.org/wiki/UNIX%E6%99%82%E9%96%93)の形式です。
+          refresh_token: リフレッシュトークン
+          refresh_token_desc: メールアドレスとパスワードの再入力なしでアクセストークンを再発行する用のトークンです。
+          priviledge: 権限
+          priviledge_desc: アカウントの権限。`standard`しか他の値がありません。
+          unique_id: ユーザーのID
     refresh_access_token:
       header: アクセストークン再発行
+      request:
+        fields:
+          refresh_token: リフレッシュトークン
+          refresh_token_desc: |
+            `/login`APIで取得したリフレッシュトークン。
+      response:
+        fields:
+          access_token: 新しいアクセストークン
+          access_token_desc: 古いアクセストークンが無効になる。
+          expire_at: 新しい有効期限
+          refresh_token: 新しいリフレッシュトークン
+          refresh_token_desc: 古いリフレッシュトークンが無効になる。
   owner_md:
     header: オーナー
     upsert:
@@ -286,9 +351,10 @@ ja:
     delete:
       desc: |
         ある入居情報が削除されると、それを継ぐ入居情報のindexを1で引かれる。
-        <br><br>
+
+
         **例えば：**
-        <br>
+        
         整体全員４人：
         
         - 本人（index=1）
@@ -298,7 +364,9 @@ ja:
         - 息子（index=3）
         
         - 娘（index=4）
-        <br><br>
+
+
+
         「妻」の情報を削除する後、こうなります：
         
         - 本人（index=1）
@@ -688,8 +756,11 @@ ja:
     upsert:
       desc: |
         `balcony_directions`の数量と`balcony_area_actual_measurements`の数量とbalcony_registered_areasの数量を合わせないといけません。
+        
         `room_floors`の数量と`room_types`の数量とroom_areasの数量を合わせないといけません。
+        
         `one_room`が「true」である場合、`floor_plan_roomcount`と`floor_plan_type`は不要となります。
+        
         その逆に`floor_plan_roomcount`と`floor_plan_type`はセットされる場合、`one_room`は不要となります。
       fields:
         room_id: 部屋ID  
@@ -843,6 +914,48 @@ ja:
         <<: *room_acquisition_md_upsert_fields
         owner_id: 対象オーナー
         property_id: 対象物件
+  cashflow_md:
+    header: キャッシュフロー
+    categories_and_categorygroups:
+      header: カテゴリー＆カテゴリーグループ
+      request_data_format: リクエストデータ形式
+      desc1: |
+        カテゴリー一覧とガテゴリーグループ一覧を一斉新規作成・更新する用のAPIです。
+
+        - リクエストのデータに存在しているかつデータベースに存在していないカテゴリーとカテゴリーグループはデータベースにインサートされます。
+        - リクエストのデータに存在していないかつデータベースに存在しているカテゴリーとカテゴリーグループはデータベースからデリートされます。
+        - リクエストのデータとデータベースとの双方にに存在しているカテゴリーとカテゴリーグループはデータベースの該当レコードをアップデイトされます。
+
+        存在しているかしないかとの判断はIDの対照で決められます。
+
+        リクエストのデータはJSON形式です。JSONの構成は次の通りです：
+      default_category_of_group: カテゴリーグループのデフォルトカテゴリー
+      desc2: |
+        カテゴリーグループのモバイルアプリなどでの表示順は配列に配置順を基づきます。
+
+        配列の先頭に置かれるカテゴリーはカテゴリーグループのデフォルトカテゴリーになります。
+      request:
+        categorygroups_s_parameters:
+          header: カテゴリーグループのパラメータ
+          fields:
+            id: カテゴリーグループのID
+            type: カテゴリーグループのタイプ
+            type_desc: |
+              0: 支出
+              1: 収入
+              2: other
+            name: カテゴリーグループの項目名
+        categories_s_parameters:
+          header: カテゴリーのパラメータ
+          fields:
+            id: カテゴリーのID
+            id_desc: キャッシュフローデータを新規作成・更新する際に使います。
+            type: カテゴリーのタイプ
+            type_desc: |
+              0: テナント向けのカテゴリー
+              1: オーナー向けのカテゴリー
+              デフォルト: 1
+            name: カテゴリーの項目名
   country: 国
   countries:
     '1': 日本

@@ -7,6 +7,7 @@
 
 ***<%=t('request')%>***
 
+<% t_scope(nil, use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | room_id | <%=t('room_md.upsert.fields.room_id')%> | | YES | integer |
@@ -40,6 +41,7 @@
 | payment_status | <%=t('room_md.upsert.fields.payment_status')%> | <%=t('room_md.upsert.fields.payment_status_desc')%> | NO | integer |
 | managed_by_corp_xx | <%=t('room_md.upsert.fields.managed_by_corp')%> | <%=t('multilingual_support')%> | NO | string |
 | managed_by_people_xx | <%=t('room_md.upsert.fields.managed_by_people')%> | <%=t('multilingual_support')%> | NO | string |
+<% } %>
 
 <%=t('room_md.upsert.desc')%>
 

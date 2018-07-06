@@ -7,7 +7,7 @@
 
 ***<%=t('request')%>***
 
-<% t_context('tenant_cancellation_md.upsert.fields') { %>
+<% t_scope('tenant_cancellation_md.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | | YES | integer |

@@ -1,4 +1,4 @@
-<% t_context('introduction_md') { %>
+<% t_scope('introduction_md') { %>
 # <%=t('.header')%>
 
 <%=t('.desc')%>

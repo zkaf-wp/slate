@@ -7,7 +7,7 @@
 
 ***<%=t('request')%>***
 
-<% t_context('owner_loan_md.upsert.fields') { %>
+<% t_scope('owner_loan_md.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer |

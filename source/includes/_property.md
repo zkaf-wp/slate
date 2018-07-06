@@ -7,6 +7,7 @@
 
 ***<%=t('request')%>***
 
+<% t_scope(nil, use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | property_id | <%=t('property_md.upsert.fields.property_id')%> | | YES | integer |
@@ -52,6 +53,7 @@
 | land_rent_start_date | <%=t('property_md.upsert.fields.land_rent_start_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | land_rent_end_date | <%=t('property_md.upsert.fields.land_rent_end_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | remarks_xx | <%=t('property_md.upsert.fields.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+<% } %>
 
 <%=t('property_md.upsert.desc')%>
 

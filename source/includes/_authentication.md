@@ -1,4 +1,4 @@
-<% t_context('authentication_md') { %>
+<% t_scope('authentication_md') { %>
 # <%=t('.header')%>
 
 ## <%=t('.login.header')%>
@@ -7,11 +7,12 @@
 
 - URL: `/login`
 - <%=t('method')%>: `POST`
-
+<% t_scope(nil, use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|--------------------|---------------------|
-| email | <%=t('.login.request.email')%> | YES | string |
-| password | <%=t('.login.request.password')%> | YES | string |
+| email | <%=t('.login.request.fields.email')%> | YES | string |
+| password | <%=t('.login.request.fields.password')%> | YES | string |
+<% } %>
 
 > <%=t('request')%>
 
@@ -22,14 +23,15 @@ curl -v -X POST <%= BASE_PATH %>/login \
 ```
 
 ***<%=t('response')%>***
-
-| Field         | Type    | Description                                                                           |
-|---------------|---------|---------------------------------------------------------------------------------------|
-| access_token  | string  | Access-token to attach to requests 's headers/inline-paramterers                      |
-| expire_at     | integer | When this access-token will expire. In epoch time.                                    |
-| refresh_token | string  | Token to get new access-token without asking user to input username & password again. |
-| priviledge    | string  | Priviledge of account. There is only one valid value for this field: `standard`       |
-| unique_id     | integer | User 's unique id                                                                     |
+<% t_scope('.login.response.fields', use_html_br: true) { %>
+| <%=t('field')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('data_form')%> |
+|-----------------|----------------|-------------------|---------------------|
+| access_token | <%=t('.access_token')%> | <%=t('.access_token_desc')%> | string |
+| expire_at | <%=t('.expire_at')%> | <%=t('.expire_at_desc')%> | integer |
+| refresh_token | <%=t('.refresh_token')%> | <%=t('.refresh_token_desc')%> | string |
+| priviledge | <%=t('.priviledge')%> | <%=t('.priviledge_desc')%> | string |
+| unique_id | <%=t('.unique_id')%> | | integer |
+<% } %>
 
 > <%=t('response')%>
 
@@ -46,29 +48,34 @@ curl -v -X POST <%= BASE_PATH %>/login \
 
 ## <%=t('.refresh_access_token.header')%>
 
-***Request***
+***<%=t('request')%>***
 
-- Path: `/refresh_access_token`
-- Method: `POST`
+- URL: `/refresh_access_token`
+- <%=t('method')%>: `POST`
 
-| Parameter     | Required? | Type   | Description             |
-|---------------|-----------|--------|-------------------------|
-| refresh_token | YES       | string | Retrieved from `/login` |
+<% t_scope(nil, use_html_br: true) { %>
+| <%=t('parameter')%> | <%=t('name')%> | <%=t('required')%> | <%=t('data_form')%> |
+|---------------------|----------------|--------------------|---------------------|
+| refresh_token | <%=t('.refresh_access_token.request.fields.refresh_token')%> | <%=t('.refresh_access_token.request.fields.refresh_token_desc')%> | YES | string |
+<% } %>
+
+> <%=t('request')%>
 
 ```shell
 curl -v -X POST <%= BASE_PATH %>/refresh_access_token \
      --data-urlencode "refresh_token=5f07eea1bfb641dd807cdf90bbba8761"
 ```
 
-***Response***
+***<%=t('response')%>***
+<% t_scope('.refresh_access_token.response.fields', use_html_br: true) { %>
+| <%=t('field')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('data_form')%> |
+|-----------------|----------------|-------------------|---------------------|
+| access_token | <%=t('.access_token')%> | <%=t('.access_token_desc')%> | string |
+| expire_at | <%=t('.expire_at')%> | | integer |
+| refresh_token | <%=t('.refresh_token')%> | <%=t('.refresh_token_desc')%> | string |
+<% } %>
 
-| Field         | Type    | Description       |
-|---------------|---------|-------------------|
-| access_token  | string  | New access-token  |
-| expire_at     | integer | New expire-at     |
-| refresh_token | string  | New refresh-token |
-
-> Sample response
+> <%=t('response')%>
 
 ```json
 {

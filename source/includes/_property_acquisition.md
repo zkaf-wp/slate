@@ -7,7 +7,7 @@
 
 ***<%=t('request')%>***
 
-<% t_context('property_acquisition_md.upsert.fields') { %>
+<% t_scope('property_acquisition_md.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | integer | 

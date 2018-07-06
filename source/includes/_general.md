@@ -1,6 +1,7 @@
-<% t_context('general_md') { %>
+<% t_scope('general_md') { %>
 # <%=t('.header')%>
 
+<% t_scope('request') { %>
 ## <%=t('request')%>
 
 ### <%=t('.base_url')%>
@@ -20,11 +21,11 @@
 
 ### <%=t('.multilingual_support.header')%>
 
-<%=t('.multilingual_support.desc', ignore_new_line: true)%>
+<%=t('.multilingual_support.desc')%>
 
 ### <%=t('.required_parameters.header')%>
 
-<%=t('general_md.required_parameters.desc')%>
+<%=t('.required_parameters.desc')%>
 
 ### <%=t('.designated_parameters.header')%>
 
@@ -32,58 +33,36 @@
 
 ### <%=t('.currency_measurement_unit_etc.header')%>
 
-<%=t('general_md.currency_measurement_unit_etc.desc')%>
+<%=t('.currency_measurement_unit_etc.desc')%>
 
 
-### Access-token
+### <%=t('.access_token.header')%>
 
-Set access-token to authenticate your requests. You can set it in header or inline parameters
+<%=t('.access_token.desc')%>
 
 ```shell
-# headers
+# <%=t('.access_token.add_to_request_header')%>
 curl <%= BASE_PATH %>/properties \
      <%= HEADER_ACCESS_TOKEN %>
 
-# inline parameters
+# <%=t('.access_token.add_to_request_parameters')%>
 curl <%= BASE_PATH %>/properties?access_token=5454ac951a4e49ca9da39a6e58589393
 ```
 
+<% } %>
+
+<% t_scope('response') { %>
 ## <%=t('response')%>
 
-### Status code
+<%= print_references('.status_code', '.status_codes', header_level: 3) %>
 
-| Code   | Description                          |
-|--------|--------------------------------------|
-| 200    | Request is processed successfully    |
-| 301    | Redirected                           |
-| 404    | Request 's URL is not found          |
-| 500    | Server error                         |
+<%= print_references('.error_code', '.error_codes', header_level: 3) %>
 
-### Error codes
+### <%=t('.format.header')%>
 
-| Code  | Description                       |
-|-------|-----------------------------------|
-| 100   | Invalid parameters                |
-| 101   | Object is not found               |
-| 102   | Login failed. User is blocked     |
-| 103   | Login failed. User is inactive    |
-| 104   | Login failed User unpublished     |
-| 105   | Access-token is required          |
-| 106   | Access-token expired              |
-| 107   | Access-token is invalid           |
-| 108   | Insuccifient priviledge           |
-| 109   | Duplicated                        |
+<%=t('.format.desc')%>
 
-### Format
-
-All data returned from server is in JSON format
-
-- `err` error code. 0 means "no error"
-- `field_1`, `field_2`, `field_3`, ...: returned data
-- `err_msg` description of error. This message is to make it easier to understand the reason. Just for developer, don't display it on UI.
-
-
-> Success
+> <%=t('.format.success_sample')%>
 
 ```json
 {
@@ -95,7 +74,7 @@ All data returned from server is in JSON format
 }
 ```
 
-> Failure
+> <%=t('.format.failure_sample')%>
 
 ```json
 {
@@ -103,4 +82,5 @@ All data returned from server is in JSON format
     "err_msg": "access token is invalid"
 }
 ```
+<% } %>
 <% } %>

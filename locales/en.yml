@@ -1,21 +1,42 @@
 en:
   general_md:
-    action:
-      header: Actions
-      desc: |
-        A typical API may support 5 actions for certain resource: `READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`
-        This API Endpoint only support 2 actions: `UPSERT`, `DELETE`
-        `UPSERT` is the combination of `CREATE`, `UPDATE` and `UPDATE PARTIALLY`.
-        `GET` is omitted because API Endpoint is designed to import data, not to read.
-    multilingual_support:
-      header: 多言語対応
-      desc: |
-        API Endpoint supports localization of text data, by add language code after parameter 's name.
+    request:
+      action:
+        header: Actions
+        desc: |
+          A typical API may support 5 actions for certain resource: `READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`
+          This API Endpoint only support 2 actions: `UPSERT`, `DELETE`
+          `UPSERT` is the combination of `CREATE`, `UPDATE` and `UPDATE PARTIALLY`.
+          `GET` is omitted because API Endpoint is designed to import data, not to read.
+      multilingual_support:
+        header: 多言語対応
+        desc: |
+          API Endpoint supports localization of text data, by add language code after parameter 's name.
 
-        _Example:_
+          _Example:_
 
-        If we need to localize parameter `remarks` in Japanese, Enlish and Chinese, we can put 3 parameters in the request
+          If we need to localize parameter `remarks` in Japanese, Enlish and Chinese, we can put 3 parameters in the request
 
-        - remarks_ja (Japanese)
-        - remarks_en (English)
-        - remarks_zh (Traditional Chinese)
+          - remarks_ja (Japanese)
+          - remarks_en (English)
+          - remarks_zh (Traditional Chinese)
+      access_token:
+        header: Access-token
+        desc: Set access-token to authenticate your requests. You can set it in header or inline parameters
+    response:
+      format: 
+        desc: |
+          All data returned from server is in JSON format
+
+          - `err` error code. 0 means "no error"
+          - `field_1`, `field_2`, `field_3`, ...: returned data
+          - `err_msg` description of error. This message is to make it easier to understand the reason. Just for developer, don't display it on UI.
+  authentication_md:
+    login:
+      response:
+        fields:
+          access_token: Access-token to attach to requests 's headers/inline-paramterers
+          expire_at: When this access-token will expire. In epoch time.
+          refresh_token: Token to get new access-token without asking user to input username & password again.
+          priviledge: Priviledge of account. There is only one valid value for this field: `standard`
+          unique_id: User 's unique id

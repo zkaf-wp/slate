@@ -1,55 +1,51 @@
-# Cashflow
+<% t_scope('cashflow_md') { %>
+# <%=t('.header')%>
 
-## Cashflow 's categories
+<% t_scope('categories_and_categorygroups') { %>
+## <%=t('.header')%>
 
-- Path: `/cashflows/categories`
-- Method: `POST`
-- Data format: `JSON`
+- URL: `/cashflows/categories`
+- <%=t('method')%>: `POST`
+- <%=t('.request_data_format')%>: `JSON`
 
-Overwrite list of cashflow 's categories and category-groups.
-
-All categories and category-groups existing in request 's data but not in database will be INSERTED into database.
-
-All categories and category-groups existing in both request 's data and database will be UPDATED in database.
-
-All categories and category-groups existing in database but not in request 's data will be DELETED from database.
-
-Comparison is done by using IDs.
-
-Request 's data is in JSON format, in following structure:
+<%=t('.desc1')%>
 <aside class="well">[
     category-group 1
-        |__ category 1      <- default category of group
+        |__ category 1      <- <%=t('.default_category_of_group')%>
         |__ category 2
         |__ ...
     category-group 2
-        |__ category 3      <- default category of group
+        |__ category 3      <- <%=t('.default_category_of_group')%>
         |__ ...
     ...
 ]</aside>
 
-Category-group will be displayed in Potato and mobile app by its order in the JSON array.
+<%=t('.desc2')%>
 
-First category of each group will become group 's default category.
+***<%=t('request')%>***
 
-***Request***
+<% t_scope('.request.categorygroups_s_parameters', use_html_br: true) { %>
+<%=t('.header')%>
 
-Category-group 's parameters
+| <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
+|---------------------|----------------|-------------------|--------------------|---------------------|
+| id | <%=t('.fields.id')%> | | YES | integer |
+| type | <%=t('.fields.type')%> | <%=t('.fields.type_desc')%> | YES | integer |
+| name_xx | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
+<% } %>
 
-| Parameter         | Required? | Type    | Description                                       |
-|-------------------|-----------|---------|---------------------------------------------------|
-| id                | YES       | integer | Category-group 's ID                              |
-| type              | YES       | integer | 0 -> expenditure <br> 1 -> income <br> 2 -> other |
-| name_xx           | YES       | string  | Category-group 's name in certain language        |
+<% t_scope('.request.categories_s_parameters', use_html_br: true) { %>
 
-Category 's parameters
+<%=t('.header')%>
 
-| Parameter         | Required? | Type    | Description                                                       |
-|-------------------|-----------|---------|-------------------------------------------------------------------|
-| id                | YES       | integer | Category 's ID which is used when creating/updating cashflow data |
-| type              | NO        | integer | 0 -> for tenant <br> 1 -> for owner <br> Default: 1               |
-| name_xx           | YES       | string  | Category 's name in certain language                              |
+| <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
+|---------------------|----------------|-------------------|--------------------|---------------------|
+| id | <%=t('.fields.id')%> | <%=t('.fields.id_desc')%>　| YES | integer |
+| type | <%=t('.fields.type')%> | <%=t('.fields.type_desc')%> | YES | integer |
+| name_xx | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
+<% } %>
 
+> <%=t('request')%>
 
 ```shell
 curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
@@ -92,13 +88,14 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
      <%= HEADER_ACCESS_TOKEN %>
 ```
 
-> Sample success response
+> <%=t('response')%>
 
 ```json
 {
     "err": 0
 }
 ```
+<% } %>
 
 ## Cashflow for property | Upsert
 
@@ -227,3 +224,4 @@ curl -v -X POST <%= BASE_PATH %>//cashflows/owners/1/remittances/4/201806/1 \
 curl -v -X DELETE <%= BASE_PATH %>//cashflows/owners/1/remittances/4/201806/1 \
      <%= HEADER_ACCESS_TOKEN %>
 ```
+<% } %>

@@ -6,12 +6,12 @@ HEADER_ACCESS_TOKEN = '-H "X-ACCESS-TOKEN: 5454ac951a4e49ca9da39a6e58589393"'
 LOCALE = 'ja'
 I18n.load_path = Dir["locales/#{LOCALE}.yml"]
 def t(key, options={})
-  ignore_new_line = options[:ignore_new_line]
-  if key.start_with?('.') && !$t_context_stack.empty?
-    key = ($t_context_stack + [key[1..key.length]]).join('.')
+  options = ($t_scope_options + [options]).inject({}) {|m,o| m.merge(o)}
+  if key.start_with?('.') && !$t_scope_tokens.empty?
+    key = $t_scope_tokens.join('.') + key
   end
   result = I18n.translate(key, options.merge(locale: LOCALE))
-  unless ignore_new_line
+  if options[:use_html_br]
     if result.include?("\n")
       result = result.gsub("\n", '<br>')
     end
@@ -19,11 +19,22 @@ def t(key, options={})
   result
 end
 
-$t_context_stack = []
-def t_context(context, &block)
-  $t_context_stack << context
+$t_scope_tokens = []
+$t_scope_options = []
+def t_scope(token, options=nil, &block)
+  if token
+    $t_scope_tokens.push(token)
+  end
+  if options
+    $t_scope_options.push(options)
+  end
   result = block.call()
-  $t_context_stack.delete(context)
+  if token
+    $t_scope_tokens.pop()
+  end
+  if options
+    $t_scope_options.pop()
+  end
   result
 end
 
@@ -31,6 +42,20 @@ def get_header_link(*texts)
   Digest::SHA1.hexdigest(texts.join('|'))[0,10]
 end
 
-def get_reference_header_link(key)
-
+def print_references(header_key, values_key, options={})
+  header_level = options[:header_level] || 2
+  (
+    [
+      "#{'#' * header_level} #{t(header_key)}",
+      "",
+      "| #{t('value')} | #{t('description')} |",
+      '|----|---------------------|',
+    ] +
+    t(values_key)
+      .inject([]) {
+        |arr, pair|
+        arr << "| #{pair[0]} | #{pair[1]} |"
+        arr
+      }
+  ).join("\n")
 end

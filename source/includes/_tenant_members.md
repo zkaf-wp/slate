@@ -7,7 +7,7 @@
 
 ***<%=t('request')%>***
 
-<% t_context('tenant_members_md.upsert.fields') { %>
+<% t_scope('tenant_members_md.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | YES | integer |
@@ -66,7 +66,7 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/members/2 \
 - URL<%=t('delete_all')%>: `/tenants/:tenant_id/rooms/:room_id/members/all`
 - <%=t('method')%>: `DELETE`
 
-<%=t('tenant_members_md.delete.desc', ignore_new_line: true)%>
+<%=t('tenant_members_md.delete.desc')%>
 
 > <%=t('request')%>
 
