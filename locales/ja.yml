@@ -31,12 +31,15 @@ ja:
   corporation_field: 法人用
   value: 値
   for_japan_market: 日本国内用
-  for_other_countries_market: 日本以外国用
+  for_other_countries_market: 日本以外の国外用
   delete_one: （単体削除の場合）
   delete_all: （全部削除の場合）
   introduction_md:
     header: 前書き
-    desc: This is documentation for API Endpoint
+    desc: |
+      WealthPark API v1.0
+
+      WealthParkプラットフォームをプログラムから利用するための API を公開しています。
   general_md:
     header: 概要
     request:
@@ -44,43 +47,41 @@ ja:
       action:
         header: アクション
         desc: |
-          典型的なAPIはアクシオンの５種を対応します。それらは`READ`, `CREATE`, `UPDATE`, `UPDATE PARTIALLY`, `DELETE`です。
+          一般的なAPIは`READ`、`CREATE`、`UPDATE`、`UPDATE PARTIALLY`、`DELETE`の5種類のアクションに対応しています。
 
-          本APIの対応されるアクションは`UPSERT`, `DELETE`のみです。
+          WealthParkが現在対応しているAPIのアクションは`UPSERT`、`DELETE`の2種類となっています。
+          `UPSERT`は`CREATE`、`UPDATE`、`UPDATE PARTIALLY`を含みます。
 
-          `UPSERT`は`CREATE`, `UPDATE` and `UPDATE PARTIALLY`を含みます。
-
-          本APIはデータインポート専用のAPIなので、`GET`は対応されません。
+          WealthPark APIはデータインポート専用のAPIなので、`GET`は対応していません。
       multilingual_support:
         header: 多言語対応
         desc: |
-          [言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)をパラメータの尻に付け加えることにより、テキストデータを多言語対応します。
+          [言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)をパラメータの最後に付け加えることにより、テキストデータを多言語対応します。
 
           _例えば:_
 
-          `remarks`というテキストデータを日本語、英語、中国語の３つの言語で書き込み、次の３つのパラメータをリクエストに配置します：
+          `remarks`というテキストデータを日本語、英語、中国語の3つの言語で書き込み、次の3つのパラメータをリクエストに配置します：
 
           - remarks_ja （日本語）
           - remarks_en （英語）
-          - remarks_zh （中国語繁体字）
+          - remarks_zh （中国語 繁体字）
       required_parameters:
         header: 必須なパラメータ
         desc: |
-          `必須`が`YES`であるパラメータは作成時に必要となります。
+          `%{required}`が`YES`のものは必須項目を意味し、作成時に必ず必要となります。
 
-          URLに入れられた`id`などのパラメータは作成か更新かに関わらずいつも必要です。
+          URLのidなどのパラメーターは作成・更新の際に必ず必要となります。
       designated_parameters:
         header: 専用のパラメータ
         desc: |
-          本ドキュメントの中にはパラメータの備考に<b>「%{for_japan_market}」</b>と<b>「%{for_other_countries_market}」</b>が所々入ります。
+          本ドキュメントのパラメーターの備考に<b>「%{for_japan_market}」</b><b>「%{for_other_countries_market}」</b>という記載があります。
 
-          <b>「%{for_japan_market}」</b>か<b>「%{for_other_countries_market}」</b>かというのは物件の所在国に基づいて決められます。
-      currency_measurement_unit_etc:
-        header: 通貨、物理単位などの表示
-        desc: 本ドキュメントの中には通貨なら「円」、面積なら「㎡」と記されるが、実際は所属国の通貨と物理単位が扱われます。
+          「%{for_japan_market}」は日本国内の物件を意味し、「%{for_other_countries_market}」は日本国外の海外物件を意味しています。物件の所在地によってデータフォーマットが異なります。
+
+          _例：_通貨の場合、日本の場合は「円」、アメリカの場合は「ドル」。面積の場合、日本の場合は「㎡」、アメリカの場合は「sqft」などです。
       access_token:
         header: アクセストークン
-        desc: リクエストが認証されるため、リクエストのヘッダーまたはパラメータにアクセストークンを付け加えます。
+        desc: リクエストの認証を行うため、リクエストのヘッダーまたはパラメータにアクセストークンを付け加えます。
         add_to_request_header: リクエストのヘッダーに付け加える
         add_to_request_parameters: リクエストのパラメータに付け加える
     response:
@@ -93,23 +94,23 @@ ja:
       code: コード
       error_code: エラーコード
       error_codes:
-        '100': パラメータが不正確だ。
+        '100': パラメータが不正確。
         '101': 求められたデータが存在していない。
         '102': ログインが失敗した。ユーザーがブロックされた。
-        '111': ログインが失敗した。ユーザーアカウントが無効だ。
-        '112': ログインが失敗した。ユーザーアカウントが未発行だ。
-        '104': アクセストークンが必要だ。
+        '111': ログインが失敗した。ユーザーアカウントが無効。
+        '112': ログインが失敗した。ユーザーアカウントが未発行。
+        '104': アクセストークンが必要。
         '105': アクセストークンの有効期限が満了した。
-        '106': アクセストークンが無効だ。
-        '108': 権限が不十分だ。
+        '106': アクセストークンが無効。
+        '108': 権限が不十分。
       format: 
         header: 形式
         desc: |
-          サーバーから返されるデータは全てJSON形式です。
+          レスポンスにJSON形式をサポートしています。
 
-          - `err`はエラーコードです。`0`であれば「成功」という意味です。
+          - `err`はエラーコードです。`0`であれば「成功」です。
           - `field_1`、`field_2`、`field_3`、などは返されたデータの内容です。
-          - `err_msg`はエラーがある時だけにエラーの詳細内容を指摘するメッセージです。このメッセージの目当てはエラーの原因を分かりやすくすることです. だから、UIに表示するものではありません。
+          - `err_msg`はエラーがある時だけに、エラーの詳細内容を指摘するメッセージです。このエラーメッセージの目的はエラーの原因を分かりやすくすることです。従って、このエラーメッセージはUIに表示するものではありません。
         success_sample: 成功のサンプル
         failure_sample: 失敗のサンプル
   authentication_md:
@@ -351,29 +352,21 @@ ja:
         remarks: 備考
     delete:
       desc: |
-        ある入居情報が削除されると、それを継ぐ入居情報のindexを1で引かれる。
+        ある入居者情報が削除されると、それを継ぐ入居者情報のindexを1で引きます。
 
+        _例えば：_
 
-        **例えば：**
-        
-        整体全員４人：
-        
+        一世帯 4人の登録の場合：
+
         - 本人（index=1）
-        
         - 妻（index=2）
-        
         - 息子（index=3）
-        
         - 娘（index=4）
 
+        「妻」の情報を削除した場合、下記のようになります：
 
-
-        「妻」の情報を削除する後、こうなります：
-        
         - 本人（index=1）
-        
         - 息子（index=2）
-        
         - 娘（index=3）
   tenant_guarantor_md:
     header: テナント保証人情報
@@ -756,13 +749,13 @@ ja:
     header: 部屋
     upsert:
       desc: |
-        `balcony_directions`の数量と`balcony_area_actual_measurements`の数量とbalcony_registered_areasの数量を合わせないといけません。
-        
-        `room_floors`の数量と`room_types`の数量とroom_areasの数量を合わせないといけません。
-        
+        `balcony_directions`、`balcony_area_actual_measurements`、`balcony_registered_areas`の数量はすべて同数でないといけません。
+
+        `room_floors`、`room_types`、`room_areas`の数量はすべて同数でないといけません。
+
         `one_room`が「true」である場合、`floor_plan_roomcount`と`floor_plan_type`は不要となります。
-        
-        その逆に`floor_plan_roomcount`と`floor_plan_type`はセットされる場合、`one_room`は不要となります。
+
+        その逆に`floor_plan_roomcount`と`floor_plan_type`を登録する場合、`one_room`は不要となります。
       fields:
         room_id: 部屋ID  
         property_id: 部屋が所属している物件

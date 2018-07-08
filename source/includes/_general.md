@@ -25,16 +25,11 @@
 
 ### <%=t('.required_parameters.header')%>
 
-<%=t('.required_parameters.desc')%>
+<%=t('.required_parameters.desc') % { required: t('required') }%>
 
 ### <%=t('.designated_parameters.header')%>
 
 <%=t('.designated_parameters.desc') % {for_japan_market: t('for_japan_market'), for_other_countries_market: t('for_other_countries_market')} %>
-
-### <%=t('.currency_measurement_unit_etc.header')%>
-
-<%=t('.currency_measurement_unit_etc.desc')%>
-
 
 ### <%=t('.access_token.header')%>
 
