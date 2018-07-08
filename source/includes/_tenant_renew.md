@@ -1,9 +1,9 @@
 <% t_scope('tenant_renew_md') { %>
 # <%=t('.header')%>
 
-## <%=t('create')%> & <%=t('update')%>
-
 <%=t('.desc')%>
+
+## <%=t('create')%> & <%=t('update')%>
 
 - URL: `/tenants/:tenant_id/rooms/:room_id/rental_contract/renews/:renewed_period_commencement_date`
 - <%=t('method')%>: `POST`

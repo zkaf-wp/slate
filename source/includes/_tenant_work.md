@@ -1,9 +1,9 @@
 <% t_scope('tenant_work_md') { %>
 # <%=t('.header')%>
 
-## <%=t('create')%> & <%=t('update')%>
-
 <%=t('.desc')%>
+
+## <%=t('create')%> & <%=t('update')%>
 
 - URL: `/tenants/:tenant_id/work`
 - <%=t('method')%>: `POST`

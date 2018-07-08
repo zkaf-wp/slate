@@ -1,9 +1,9 @@
 <% t_scope('owner_md') { %>
 # <%=t('.header')%>
 
-## <%=t('create')%> & <%=t('update')%>
-
 <%=t('.desc')%>
+
+## <%=t('create')%> & <%=t('update')%>
 
 - URL: `/owners/:owner_id`
 - <%=t('method')%>: `POST`

@@ -1,9 +1,9 @@
 <% t_scope('owner_loan_md') { %>
 # <%=t('.header')%>
 
-## <%=t('create')%> & <%=t('update')%>
-
 <%=t('.desc')%>
+
+## <%=t('create')%> & <%=t('update')%>
 
 - URL: `/owners/:owner_id/properties/:property_id/loan`
 - <%=t('method')%>: `POST`

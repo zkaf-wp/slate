@@ -1,9 +1,9 @@
 <% t_scope('room_am_contract_md') { %>
 # <%=t('.header')%>
 
-## <%=t('create')%> & <%=t('update')%>
-
 <%=t('.desc')%>
+
+## <%=t('create')%> & <%=t('update')%>
 
 - URL: `rooms/:room_id/am_contracts/:start_date`
 - <%=t('method')%>: `POST`
