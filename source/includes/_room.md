@@ -1,46 +1,49 @@
-# <%=t('room_md.header')%>
+<% t_scope('room_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `/rooms/:room_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope(nil, use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('room_md.upsert.fields.room_id')%> | | YES | integer |
-| property_id | <%=t('room_md.upsert.fields.property_id')%> | <%=t('one_n_relationship')%> | YES | integer |
-| owner_ids | <%=t('room_md.upsert.fields.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer[] |
-| room_number | <%=t('room_md.upsert.fields.room_number')%> | | NO | string |
-| room_category | [<%=t('room_md.upsert.fields.room_category')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_category'))%>) | | NO | integer |
-| room_category_detail | [<%=t('room_md.upsert.fields.room_category_detail')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_category_detail'))%>) | | NO | integer |
-| floors_located | <%=t('room_md.upsert.fields.floors_located')%> | | NO | integer |
-| bedroom_count | <%=t('room_md.upsert.fields.bedroom_count')%> | <%=t('room_md.upsert.fields.bedroom_count_desc')%> | NO | integer |
-| bathroom_count | <%=t('room_md.upsert.fields.bathroom_count')%> | <%=t('room_md.upsert.fields.bathroom_count_desc')%> | NO | integer |
-| storeroom_count | <%=t('room_md.upsert.fields.storeroom_count')%> | | NO | integer |
-| balcony_directions | [<%=t('room_md.upsert.fields.balcony_direction')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.balcony_direction'))%>) | <%=t('max_quantity_to_x_items', quantity: 8)%> | NO | integer[] |
-| balcony_area_actual_measurements | <%=t('room_md.upsert.fields.balcony_area_actual_measurement')%> | <%=t('max_quantity_to_x_items', quantity: 8)%><br><%=t('unit_m2')%> | NO | double[] |
-| balcony_registered_areas | <%=t('room_md.upsert.fields.balcony_registered_area')%> | <%=t('max_quantity_to_x_items', quantity: 8)%><br><%=t('unit_m2')%> | NO | double[] |
-| exclusive_area_actual_measurement | <%=t('room_md.upsert.fields.exclusive_area_actual_measurement')%> | <%=t('unit_m2')%> | NO | double |
-| exclusive_area_registered | <%=t('room_md.upsert.fields.exclusive_area_registered')%> | <%=t('unit_m2')%> | NO | double |
-| exclusive_garden_area_actual_measurement | <%=t('room_md.upsert.fields.exclusive_garden_area_actual_measurement')%> | <%=t('unit_m2')%> | NO | double |
-| exclusive_garden_area_registered | <%=t('room_md.upsert.fields.exclusive_garden_area_registered')%> | <%=t('unit_m2')%> | NO | double |
-| management_type | [<%=t('room_md.upsert.fields.management_type')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.management_type'))%>) | | NO | integer |
-| management_fee | <%=t('room_md.upsert.fields.management_fee')%> | <%=t('unit_yen_month')%> | NO | double |
-| floor_plan | <%=t('room_md.upsert.fields.floor_plan')%> | | NO | file |
-| floor_plan_display_name | <%=t('room_md.upsert.fields.floor_plan_display_name')%> | | NO | string |
-| one_room | <%=t('room_md.upsert.fields.one_room')%> | <%=t('room_md.upsert.fields.one_room_desc')%> | NO | bool |
-| floor_plan_roomcount | <%=t('room_md.upsert.fields.floor_plan_roomcount')%> | 1 ~ 9 | NO | integer |
-| floor_plan_type | <%=t('room_md.upsert.fields.floor_plan_type')%>| <%=t('room_md.upsert.fields.floor_plan_type_desc')%> | NO | integer |
-| room_floors | <%=t('room_md.upsert.fields.room_floor')%> | 1 ~ 9<br><%=t('max_quantity_to_x_items', quantity: 9)%> | NO | integer[] |
-| room_types | [<%=t('room_md.upsert.fields.room_type')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.room_type'))%>) | <%=t('max_quantity_to_x_items', quantity: 9)%> | NO | integer[] |
-| room_areas | <%=t('room_md.upsert.fields.room_area')%> | <%=t('unit_m2')%><br><%=t('max_quantity_to_x_items', quantity: 9)%> | NO | double[] |
-| tenant_status | [<%=t('room_md.upsert.fields.tenant_status')%>](#<%=get_header_link(t('references'), t('room_md.upsert.fields.tenant_status'))%>) | | NO | integer |
-| payment_status | <%=t('room_md.upsert.fields.payment_status')%> | <%=t('room_md.upsert.fields.payment_status_desc')%> | NO | integer |
-| managed_by_corp_xx | <%=t('room_md.upsert.fields.managed_by_corp')%> | <%=t('multilingual_support')%> | NO | string |
-| managed_by_people_xx | <%=t('room_md.upsert.fields.managed_by_people')%> | <%=t('multilingual_support')%> | NO | string |
+| room_id | <%=t('.room_id')%> | | YES | integer |
+| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | integer |
+| owner_ids | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer[] |
+| room_number | <%=t('.room_number')%> | | NO | string |
+| room_category | [<%=t('.room_category')%>](#<%=get_header_link(t('references'), t('.room_category'))%>) | | NO | integer |
+| room_category_detail | [<%=t('.room_category_detail')%>](#<%=get_header_link(t('references'), t('.room_category_detail'))%>) | | NO | integer |
+| floors_located | <%=t('.floors_located')%> | | NO | integer |
+| bedroom_count | <%=t('.bedroom_count')%> | <%=t('.bedroom_count_desc')%> | NO | integer |
+| bathroom_count | <%=t('.bathroom_count')%> | <%=t('.bathroom_count_desc')%> | NO | integer |
+| storeroom_count | <%=t('.storeroom_count')%> | | NO | integer |
+| balcony_directions | [<%=t('.balcony_direction')%>](#<%=get_header_link(t('references'), t('.balcony_direction'))%>) | <%=t('max_quantity_to_x_items', quantity: 8)%> | NO | integer[] |
+| balcony_area_actual_measurements | <%=t('.balcony_area_actual_measurement')%> | <%=t('max_quantity_to_x_items', quantity: 8)%><br><%=t('unit_m2')%> | NO | double[] |
+| balcony_registered_areas | <%=t('.balcony_registered_area')%> | <%=t('max_quantity_to_x_items', quantity: 8)%><br><%=t('unit_m2')%> | NO | double[] |
+| exclusive_area_actual_measurement | <%=t('.exclusive_area_actual_measurement')%> | <%=t('unit_m2')%> | NO | double |
+| exclusive_area_registered | <%=t('.exclusive_area_registered')%> | <%=t('unit_m2')%> | NO | double |
+| exclusive_garden_area_actual_measurement | <%=t('.exclusive_garden_area_actual_measurement')%> | <%=t('unit_m2')%> | NO | double |
+| exclusive_garden_area_registered | <%=t('.exclusive_garden_area_registered')%> | <%=t('unit_m2')%> | NO | double |
+| management_type | [<%=t('.management_type')%>](#<%=get_header_link(t('references'), t('.management_type'))%>) | | NO | integer |
+| management_fee | <%=t('.management_fee')%> | <%=t('unit_yen_month')%> | NO | double |
+| floor_plan | <%=t('.floor_plan')%> | | NO | file |
+| floor_plan_display_name | <%=t('.floor_plan_display_name')%> | | NO | string |
+| one_room | <%=t('.one_room')%> | <%=t('.one_room_desc')%> | NO | bool |
+| floor_plan_roomcount | <%=t('.floor_plan_roomcount')%> | 1 ~ 9 | NO | integer |
+| floor_plan_type | <%=t('.floor_plan_type')%>| <%=t('.floor_plan_type_desc')%> | NO | integer |
+| room_floors | <%=t('.room_floor')%> | 1 ~ 9<br><%=t('max_quantity_to_x_items', quantity: 9)%> | NO | integer[] |
+| room_types | [<%=t('.room_type')%>](#<%=get_header_link(t('references'), t('.room_type'))%>) | <%=t('max_quantity_to_x_items', quantity: 9)%> | NO | integer[] |
+| room_areas | <%=t('.room_area')%> | <%=t('unit_m2')%><br><%=t('max_quantity_to_x_items', quantity: 9)%> | NO | double[] |
+| tenant_status | [<%=t('.tenant_status')%>](#<%=get_header_link(t('references'), t('.tenant_status'))%>) | | NO | integer |
+| payment_status | <%=t('.payment_status')%> | <%=t('.payment_status_desc')%> | NO | integer |
+| managed_by_corp_xx | <%=t('.managed_by_corp')%> | <%=t('multilingual_support')%> | NO | string |
+| managed_by_people_xx | <%=t('.managed_by_people')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 <%=t('room_md.upsert.desc')%>
@@ -120,3 +123,4 @@ curl -v -X DELETE <%=BASE_PATH%>/rooms/1 \
 {
     "err": 0
 }
+<% } %>

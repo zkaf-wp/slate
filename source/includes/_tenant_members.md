@@ -1,13 +1,16 @@
-# <%=t('tenant_members_md.header')%>
+<% t_scope('tenant_members_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `/tenants/:tenant_id/rooms/:room_id/members/:index`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope('tenant_members_md.upsert.fields', use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | YES | integer |
@@ -66,7 +69,7 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/members/2 \
 - URL<%=t('delete_all')%>: `/tenants/:tenant_id/rooms/:room_id/members/all`
 - <%=t('method')%>: `DELETE`
 
-<%=t('tenant_members_md.delete.desc')%>
+<%=t('.delete.desc')%>
 
 > <%=t('request')%>
 
@@ -81,3 +84,4 @@ curl -v -X DELETE <%=BASE_PATH%>/tenants/1/rooms/1/members/2 \
 {
     "err": 0
 }
+<% } %>

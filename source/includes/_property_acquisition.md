@@ -1,13 +1,16 @@
-# <%=t('property_acquisition_md.header')%>
+<% t_scope('property_acquisition_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `properties/:property_id/owners/:owner_id/acquisitions`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope('property_acquisition_md.upsert.fields', use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | integer | 
@@ -122,3 +125,4 @@ curl -v -X DELETE <%=BASE_PATH%>/properties/1/owners/1/acquisitions \
 {
     "err": 0
 }
+<% } %>

@@ -1,28 +1,31 @@
-# <%=t('room_am_contract_md.header')%>
+<% t_scope('room_am_contract_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `rooms/:room_id/am_contracts/:start_date`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope(nil, use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('room_am_contract_md.upsert.fields.room_id')%> | | YES | integer |
-| start_date | <%=t('room_am_contract_md.upsert.fields.start_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| end_date | <%=t('room_am_contract_md.upsert.fields.end_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| status | <%=t('room_am_contract_md.upsert.fields.status')%> | <%=t('room_am_contract_md.upsert.fields.status_desc')%> | YES | integer |
-| payment_type | [<%=t('room_am_contract_md.upsert.fields.payment_type')%>](#<%=get_header_link(t('references'), t('room_am_contract_md.upsert.fields.payment_type'))%>) | | NO | integer |
-| usage_type | <%=t('room_am_contract_md.upsert.fields.usage_type')%> | <%=t('room_am_contract_md.upsert.fields.usage_type_desc')%> | NO | integer |
-| billable_without_rental_payment | <%=t('room_am_contract_md.upsert.fields.billable_without_rental_payment')%> |  <%=t('room_am_contract_md.upsert.fields.billable_without_rental_payment_desc')%> | NO | bool |
-| minimum_fee_usage_self | <%=t('room_am_contract_md.upsert.fields.minimum_fee_usage_self')%> | <%=t('room_am_contract_md.upsert.fields.minimum_fee_usage_self_desc')%> | NO | double |
-| minimum_fee_usage_invest | <%=t('room_am_contract_md.upsert.fields.minimum_fee_usage_invest')%> | <%=t('room_am_contract_md.upsert.fields.minimum_fee_usage_invest_desc')%> | NO | double |
-| consumption_tax_rate | <%=t('room_am_contract_md.upsert.fields.consumption_tax_rate')%> | <%=t('room_am_contract_md.upsert.fields.consumption_tax_rate_desc')%> | NO | integer |
-| fee_rate | <%=t('room_am_contract_md.upsert.fields.fee_rate')%> | <%=t('room_am_contract_md.upsert.fields.fee_rate_desc')%> | NO | double |
-| fee | <%=t('room_am_contract_md.upsert.fields.fee')%> | <%=t('room_am_contract_md.upsert.fields.fee_desc')%> | NO | double |
-| remarks_xx | <%=t('room_am_contract_md.upsert.fields.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| room_id | <%=t('.room_id')%> | | YES | integer |
+| start_date | <%=t('.start_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
+| end_date | <%=t('.end_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
+| status | <%=t('.status')%> | <%=t('.status_desc')%> | YES | integer |
+| payment_type | [<%=t('.payment_type')%>](#<%=get_header_link(t('references'), t('.payment_type'))%>) | | NO | integer |
+| usage_type | <%=t('.usage_type')%> | <%=t('.usage_type_desc')%> | NO | integer |
+| billable_without_rental_payment | <%=t('.billable_without_rental_payment')%> |  <%=t('.billable_without_rental_payment_desc')%> | NO | bool |
+| minimum_fee_usage_self | <%=t('.minimum_fee_usage_self')%> | <%=t('.minimum_fee_usage_self_desc')%> | NO | double |
+| minimum_fee_usage_invest | <%=t('.minimum_fee_usage_invest')%> | <%=t('.minimum_fee_usage_invest_desc')%> | NO | double |
+| consumption_tax_rate | <%=t('.consumption_tax_rate')%> | <%=t('.consumption_tax_rate_desc')%> | NO | integer |
+| fee_rate | <%=t('.fee_rate')%> | <%=t('.fee_rate_desc')%> | NO | double |
+| fee | <%=t('.fee')%> | <%=t('.fee_desc')%> | NO | double |
+| remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 > <%=t('create')%>
@@ -83,3 +86,4 @@ curl -v -X DELETE <%=BASE_PATH%>/rooms/1/am_contracts/2018-06-26 \
 {
     "err": 0
 }
+<% } %>

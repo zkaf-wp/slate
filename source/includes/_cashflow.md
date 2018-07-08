@@ -100,6 +100,8 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
 <% t_scope('property_cashflow.upsert') { %>
 ## <%=t('.header')%>
 
+<%=t('.desc')%>
+
 - URL: `/cashflows/properties/:property_id/categories/:category_id/month/:month`
 - <%=t('method')%>: `POST`
 
@@ -127,6 +129,8 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/201
 <% t_scope('property_cashflow.delete') { %>
 ## <%=t('.header')%>
 
+<%=t('.desc')%>
+
 - URL: `/cashflows/properties/:property_id/categories/:category_id/month/:month`
 - <%=t('method')%>: `DELETE`
 
@@ -148,6 +152,8 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/2
 
 <% t_scope('room_cashflow.upsert') { %>
 ## <%=t('.header')%>
+
+<%=t('.desc')%>
 
 - URL: `/cashflows/rooms/:room_id/categories/:category_id/month/:month`
 - <%=t('method')%>: `POST`
@@ -176,6 +182,8 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-06 
 <% t_scope('room_cashflow.delete') { %>
 ## <%=t('.header')%>
 
+<%=t('.desc')%>
+
 - URL: `/cashflows/rooms/:room_id/categories/:category_id/month/:month`
 - <%=t('method')%>: `DELETE`
 
@@ -197,6 +205,8 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-0
 
 <% t_scope('owner_remittances.upsert') { %>
 ## <%=t('.header')%>
+
+<%=t('.desc')%>
 
 - URL: `/cashflows/owners/:owner_id/remittance_types/:remittance_type_id/month/:month/country/:country_id`
 - <%=t('method')%>: `POST`
@@ -227,6 +237,8 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/owners/1/remittance_types/4/month/201
 
 <% t_scope('owner_remittances.delete') { %>
 ## <%=t('.header')%>
+
+<%=t('.desc')%>
 
 - URL: `/cashflows/owners/:owner_id/remittance_types/:remittance_type_id/month/:month/country/:country_id`
 - <%=t('method')%>: `DELETE`

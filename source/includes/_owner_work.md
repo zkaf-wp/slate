@@ -1,13 +1,16 @@
-# <%=t('owner_work_md.header')%>
+<% t_scope('owner_work_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `/owners/:owner_id/work`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope('owner_work_md.upsert.fields', use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | YES | integer |
@@ -76,3 +79,4 @@ curl -v -X DELETE <%=BASE_PATH%>/owners/1/work \
 {
     "err": 0
 }
+<% } %>

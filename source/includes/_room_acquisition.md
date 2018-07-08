@@ -1,13 +1,16 @@
-# <%=t('room_acquisition_md.header')%>
+<% t_scope('room_acquisition_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `/rooms/:room_id/acquisition`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope('room_acquisition_md.upsert.fields', use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | room_id | <%=t('.room_id')%> | <%=t('one_one_relationship')%>| YES | integer |
@@ -121,3 +124,4 @@ curl -v -X DELETE <%=BASE_PATH%>/rooms/1/acquisition \
 {
     "err": 0
 }
+<% } %>

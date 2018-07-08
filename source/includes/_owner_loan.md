@@ -1,13 +1,16 @@
-# <%=t('owner_loan_md.header')%>
+<% t_scope('owner_loan_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `/owners/:owner_id/properties/:property_id/loan`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope('owner_loan_md.upsert.fields', use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer |
@@ -76,3 +79,4 @@ curl -v -X DELETE <%=BASE_PATH%>/owners/1/properties/1/loan \
 {
     "err": 0
 }
+<% } %>

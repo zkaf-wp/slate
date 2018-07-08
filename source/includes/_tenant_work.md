@@ -1,13 +1,16 @@
-# <%=t('tenant_work_md.header')%>
+<% t_scope('tenant_work_md') { %>
+# <%=t('.header')%>
 
 ## <%=t('create')%> & <%=t('update')%>
+
+<%=t('.desc')%>
 
 - URL: `/tenants/:tenant_id/work`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
 
-<% t_scope('tenant_work_md.upsert.fields', use_html_br: true) { %>
+<% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | | YES | integer |
@@ -76,3 +79,4 @@ curl -v -X DELETE <%=BASE_PATH%>/tenants/1/work \
 {
     "err": 0
 }
+<% } %>
