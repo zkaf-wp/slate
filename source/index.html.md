@@ -1,5 +1,5 @@
 ---
-title: Enpoint API Reference
+title: API reference index | WealthPark Developers
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: curl
