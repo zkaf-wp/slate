@@ -35,7 +35,7 @@ ja:
   delete_one: （単体削除の場合）
   delete_all: （全部削除の場合）
   introduction_md:
-    header: 前書き
+    header: はじめに
     desc: |
       WealthPark API v1.0
 
@@ -611,7 +611,7 @@ ja:
         latitude: 緯度
         longitude: 経度
         zoning: 用途地域
-        zonings_desc: 最多数量１３個まで
+        zonings_desc: 最多数量13個まで
         zonings:
           '0': 第一種低層住居専用地域
           '1': 第二種低層住居専用地域
@@ -663,9 +663,9 @@ ja:
           false: 中古
           true: 新築
         rebuilt_date: 増改築年月
-        rebuilt_date_desc: 最多数量１０個まで
+        rebuilt_date_desc: 最多数量10個まで
         rebuilt_content: 増改築年月（内容）
-        rebuilt_content_desc: 最多数量１０個まで
+        rebuilt_content_desc: 最多数量10個まで
         total_units: 総戸数
         total_units_desc: 単位：戸
         number_of_consecutive_buildings: 連棟戸数
@@ -1012,7 +1012,7 @@ ja:
           country_id: 対象国
           amount: 金額
           date: 送金日付
-          date_desc: 空白の場合、月の１日にデフォルトにセットされます。
+          date_desc: 空白の場合、月の1日にデフォルトにセットされます。
           remarks: 備考
       delete:
         header: 送金 | 削除
