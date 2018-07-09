@@ -5,6 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell: curl
 
 toc_footers:
+  - © 2018 WealthPark, Inc.
 
 includes:
   - introduction
