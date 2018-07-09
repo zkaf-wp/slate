@@ -10,12 +10,12 @@
 
 <%=t('.desc1')%>
 <aside class="well">[
-    category-group 1
-        |__ category 1      <- <%=t('.default_category_of_group')%>
-        |__ category 2
+    <%=t('category_group')%> 1
+        |__ <%=t('category')%> 1      <- <%=t('.default_category_of_group')%>
+        |__ <%=t('category')%> 2
         |__ ...
-    category-group 2
-        |__ category 3      <- <%=t('.default_category_of_group')%>
+    <%=t('category_group')%> 2
+        |__ <%=t('category')%> 3      <- <%=t('.default_category_of_group')%>
         |__ ...
     ...
 ]</aside>
