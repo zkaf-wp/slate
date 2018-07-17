@@ -13,8 +13,8 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | YES | integer |
-| room_id | <%=t('.room_id')%> | | NO | integer |
+| tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | YES | string |
+| room_id | <%=t('.room_id')%> | | NO | string |
 | index | <%=t('.index')%> | <%=t('.index_desc')%> | YES | integer |
 | age | <%=t('.age')%> | | NO | integer |
 | tel | <%=t('.tel')%> | | NO | string |

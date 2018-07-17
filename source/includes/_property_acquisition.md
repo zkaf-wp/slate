@@ -13,8 +13,8 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | integer | 
-| owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer | 
+| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | string | 
+| owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | string | 
 | contract_date | <%=t('.contract_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | scheduled_payment_date | <%=t('.scheduled_payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |

@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | integer |
+| tenant_id | <%=t('.tenant_id')%> | | YES | string |
 | post_code | <%=t('.post_code')%> | | NO | string |
 | tel | <%=t('.tel')%> | | NO | string |
 | annual_income | <%=t('.annual_income')%> | <%=t('unit_yen')%> | NO | double |

@@ -13,9 +13,9 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | | YES | integer |
-| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | integer |
-| owner_ids | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | integer[] |
+| room_id | <%=t('.room_id')%> | | YES | string |
+| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | string |
+| owner_ids | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | string[] |
 | room_number | <%=t('.room_number')%> | | NO | string |
 | room_category | [<%=t('.room_category')%>](#<%=get_header_link(t('references'), t('.room_category'))%>) | | NO | integer |
 | room_category_detail | [<%=t('.room_category_detail')%>](#<%=get_header_link(t('references'), t('.room_category_detail'))%>) | | NO | integer |

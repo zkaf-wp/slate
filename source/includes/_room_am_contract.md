@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | | YES | integer |
+| room_id | <%=t('.room_id')%> | | YES | string |
 | start_date | <%=t('.start_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | end_date | <%=t('.end_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | status | <%=t('.status')%> | <%=t('.status_desc')%> | YES | integer |

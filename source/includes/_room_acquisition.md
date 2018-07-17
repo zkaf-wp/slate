@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | <%=t('one_one_relationship')%>| YES | integer |
+| room_id | <%=t('.room_id')%> | <%=t('one_one_relationship')%>| YES | string |
 | contract_date | <%=t('.contract_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | scheduled_payment_date | <%=t('.scheduled_payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |

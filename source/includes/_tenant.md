@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | integer |
+| tenant_id | <%=t('.tenant_id')%> | | YES | string |
 | corp_flag | <%=t('.corp_flag')%> | <%=t('.corp_flag_desc')%> | YES | integer |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
 | withholding_tax_flag | <%=t('.withholding_tax_flag')%> | <%=t('.withholding_tax_flag_desc')%> | NO | bool |

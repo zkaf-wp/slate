@@ -110,7 +110,7 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| property_id | <%=t('.property_id')%> | | YES | integer |
+| property_id | <%=t('.property_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
@@ -139,7 +139,7 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/201
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| property_id | <%=t('.property_id')%> | | YES | integer |
+| property_id | <%=t('.property_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 <% } %>
@@ -163,7 +163,7 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/2
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | | YES | integer |
+| room_id | <%=t('.room_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
@@ -192,7 +192,7 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-06 
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | | YES | integer |
+| room_id | <%=t('.room_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 <% } %>
@@ -216,7 +216,7 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-0
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | | YES | integer |
+| owner_id | <%=t('.owner_id')%> | | YES | string |
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
@@ -248,7 +248,7 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/owners/1/remittance_types/4/month/201
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | | YES | integer |
+| owner_id | <%=t('.owner_id')%> | | YES | string |
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |

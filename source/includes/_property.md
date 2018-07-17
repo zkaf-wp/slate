@@ -13,8 +13,8 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| property_id | <%=t('.property_id')%> | | YES | integer |
-| owner_ids | <%=t('.owner_id')%> | <%=t('n_n_relationship')%> | NO | integer[] |
+| property_id | <%=t('.property_id')%> | | YES | string |
+| owner_ids | <%=t('.owner_id')%> | <%=t('n_n_relationship')%> | NO | string[] |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
 | property_type | [<%=t('.property_type')%>](#<%=get_header_link(t('references'), t('.property_type'))%>) | | NO | integer |
 | ownership_type | [<%=t('.ownership_type')%>](#<%=get_header_link(t('references'), t('.ownership_type'))%>) | | NO | integer |

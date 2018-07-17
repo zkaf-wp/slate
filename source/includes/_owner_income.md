@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | YES | integer |
+| owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | YES | string |
 | general_business_income | <%=t('.general_business_income')%> | <%=t('unit_yen')%> | NO |double |
 | business_agriculture_income | <%=t('.business_agriculture_income')%> | <%=t('unit_yen')%> | NO |double |
 | off_system_realestate_income | <%=t('.off_system_realestate_income')%> | <%=t('unit_yen')%> | NO |double |

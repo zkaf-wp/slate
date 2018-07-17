@@ -13,8 +13,8 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | integer |
-| room_id | <%=t('.room_id')%> | | YES | integer |
+| tenant_id | <%=t('.tenant_id')%> | | YES | string |
+| room_id | <%=t('.room_id')%> | | YES | string |
 | termination_notice_date | <%=t('.termination_notice_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | movingout_date | <%=t('.movingout_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | termination_date | <%=t('.termination_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | NO | string |

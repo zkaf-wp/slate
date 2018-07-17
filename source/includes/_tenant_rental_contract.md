@@ -13,8 +13,8 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | integer |
-| room_id | <%=t('.room_id')%> | | YES | integer |
+| tenant_id | <%=t('.tenant_id')%> | | YES | string |
+| room_id | <%=t('.room_id')%> | | YES | string |
 | status | [<%=t('.status')%>](#<%=get_header_link(t('references'), t('.status'))%>) | | YES | integer |
 | rent | <%=t('.rent')%> | <%=t('unit_yen')%> | YES | double |
 | collection_administration_fee_enabled | <%=t('.collection_administration_fee_enabled')%> | <%=t('for_japan_market')%><br><%=t('.collection_administration_fee_enabled_desc')%> | NO | integer |

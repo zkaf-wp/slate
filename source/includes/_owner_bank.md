@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | YES | integer |
+| owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | YES | string |
 | bank_country_id | [<%=t('.bank_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | NO | integer
 | bank_code | <%=t('.bank_code')%> | | NO | string |
 | branch_code | <%=t('.branch_code')%> | | NO | string |

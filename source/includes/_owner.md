@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | | YES | integer |
+| owner_id | <%=t('.owner_id')%> | | YES | string |
 | corp_flag   | <%=t('.corp_flag')%> | <%=t('.corp_flag_desc')%> | YES | integer |
 | nationality_country_id | [<%=t('.nationality_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
 | residence_country_id | [<%=t('.residence_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
