@@ -36,12 +36,8 @@
 <%=t('.access_token.desc')%>
 
 ```shell
-# <%=t('.access_token.add_to_request_header')%>
 curl <%= BASE_PATH %>/properties \
      <%= HEADER_ACCESS_TOKEN %>
-
-# <%=t('.access_token.add_to_request_parameters')%>
-curl <%= BASE_PATH %>/properties?access_token=5454ac951a4e49ca9da39a6e58589393
 ```
 
 <% } %>

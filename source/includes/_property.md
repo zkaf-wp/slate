@@ -17,7 +17,7 @@
 | owner_ids | <%=t('.owner_id')%> | <%=t('n_n_relationship')%> | NO | string[] |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
 | property_type | [<%=t('.property_type')%>](#<%=get_header_link(t('references'), t('.property_type'))%>) | | NO | integer |
-| ownership_type | [<%=t('.ownership_type')%>](#<%=get_header_link(t('references'), t('.ownership_type'))%>) | | NO | integer |
+| ownership_type | <%=t('.ownership_type')%> | <%=t('.ownership_type_desc')%> | YES | integer |
 | postal_code | <%=t('.postal_code')%> | | YES | string |
 | prefecture_xx | <%=t('.prefecture')%> | <%=t('multilingual_support')%> | YES | string |
 | city_xx | <%=t('.city')%> | <%=t('multilingual_support')%> | YES | string |
@@ -28,8 +28,8 @@
 | longitude | <%=t('.longitude')%> | | NO | double |
 | zonings | [<%=t('.zoning')%>](#<%=get_header_link(t('references'), t('.zoning'))%>) | <%=t('.zonings_desc')%>| NO | integer[] |
 | building_structure | [<%=t('.building_structure')%>](#<%=get_header_link(t('references'), t('.building_structure'))%>) | | NO | integer |
-| floors_above_ground | <%=t('.floors_above_ground')%> | <%=t('.floors_xxx_ground_desc')%>| NO | integer|
-| floors_under_ground | <%=t('.floors_under_ground')%> | | NO | integer |
+| floors_above_ground | <%=t('.floors_above_ground')%> | <%=t('unit_floor')%> | NO | integer|
+| floors_under_ground | <%=t('.floors_under_ground')%> | <%=t('unit_floor')%> | NO | integer |
 | completion_date | <%=t('.completion_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | land_area_per_measurement | <%=t('.land_area_per_measurement')%> | <%=t('unit_m2')%> | NO | double |
 | land_area_per_register | <%=t('.land_area_per_register')%> | <%=t('unit_m2')%> | NO | double |
@@ -103,7 +103,7 @@ curl -v -X POST <%= BASE_PATH %>/properties/1 \
      --data-urlencode "method_of_area_measurement=1" \
      --data-urlencode "building_area_per_measurement=2500" \
      --data-urlencode "building_area_per_register=2600" \
-     --data-urlencode "building_area_per_register=70" \
+     --data-urlencode "building_coverage=70" \
      --data-urlencode "floor_area_ratio=600" \
      --data-urlencode "certificate_of_completion=1" \
      --data-urlencode "managed_by_corp_ja=WealthPark株式会社" \

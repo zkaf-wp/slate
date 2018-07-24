@@ -11,7 +11,6 @@
     [
       print_references('.property_type', '.property_types'),
       print_references('.building_structure', '.building_structures'),
-      print_references('.ownership_type', '.ownership_types'),
       print_references('.zoning', '.zonings'),
       print_references('.land_category', '.land_categories'),
       print_references('.area_classification', '.area_classifications'),

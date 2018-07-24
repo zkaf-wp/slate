@@ -20,6 +20,7 @@ ja:
   unit_yen_month: 単位：円 / 月
   unit_percentage: 単位：%
   unit_person: 単位：人
+  unit_floor: 単位：階
   max_quantity_to_x_items: 最多数量%{quantity}個まで
   create: 作成
   update: 更新
@@ -83,9 +84,7 @@ ja:
           _例：_通貨の場合、日本の場合は「円」、アメリカの場合は「ドル」。面積の場合、日本の場合は「㎡」、アメリカの場合は「sqft」などです。
       access_token:
         header: アクセストークン
-        desc: リクエストの認証を行うため、リクエストのヘッダーまたはパラメータにアクセストークンを付け加えます。
-        add_to_request_header: リクエストのヘッダーに付け加える
-        add_to_request_parameters: リクエストのパラメータに付け加える
+        desc: リクエストの認証を行うため、リクエストのヘッダーにアクセストークンを付け加えます。
     response:
       status_code: ステータスコード
       status_codes:
@@ -600,10 +599,9 @@ ja:
           '20': 専用駐輪場
           '27': その他
         ownership_type: 所有種別
-        ownership_types:
-          '0': 専有
-          '1': 区分所有
-          '2': 借地権
+        ownership_type_desc: |
+          0: 一棟
+          1: 区分
         postal_code: 郵便番号
         prefecture: 都道府県
         city: 市区町村
@@ -642,7 +640,6 @@ ja:
           '10': その他
         floors_above_ground: 地上階数
         floors_under_ground: 地下階数
-        floors_xxx_ground_desc: 単位：階
         completion_date: 築年月日
         land_area_per_measurement: 敷地面積（実測）
         land_area_per_register: 敷地面積（登記簿）
@@ -777,7 +774,12 @@ ja:
         room_id: 部屋ID  
         property_id: 部屋が所属している物件
         owner_id: 部屋のオーナー
-        room_number: 部屋番号  
+        room_number: 部屋番号
+        room_classification: 部屋分類
+        room_classification_desc: |
+          0: 一般的な部屋
+          1: 共有部
+          デフォルト: 0
         room_category: 種別
         room_categories:
           '0': 住宅
@@ -962,18 +964,12 @@ ja:
             type_desc: |
               0: 支出
               1: 収入
-              2: other
             name: 収支グループの項目名
         categories_s_parameters:
           header: 収支カテゴリーのパラメータ
           fields:
             id: 収支カテゴリーのID
             id_desc: 収支データを新規作成・更新する際に使います。
-            type: 収支カテゴリーのタイプ
-            type_desc: |
-              0: テナント向けの収支カテゴリー
-              1: オーナー向けの収支カテゴリー
-              デフォルト: 1
             name: 収支カテゴリーの項目名
     property_cashflow:
       upsert:
@@ -983,15 +979,13 @@ ja:
           property_id: 対象物件
           category_id: 収支カテゴリー
           month: 対象月
+          payment_date: 入金日
+          transaction_id: 取引ID
           amount: 金額
           remarks: 備考
       delete:
         header: 物件収支 | 削除
         desc: 指定した物件の「物件収支」を削除する。
-        fields:
-          property_id: 対象物件
-          category_id: 収支カテゴリー
-          month: 対象月
     room_cashflow:
       upsert:
         header: 部屋収支 | 作成・更新
@@ -1000,15 +994,13 @@ ja:
           room_id: 対象部屋
           category_id: 収支カテゴリー
           month: 対象月
+          payment_date: 入金日
+          transaction_id: 取引ID
           amount: 金額
           remarks: 備考
       delete:
         header: 部屋収支 | 削除
         desc: 指定した部屋の「部屋収支」を削除する。
-        fields:
-          room_id: 対象部屋
-          category_id: 収支カテゴリー
-          month: 対象月
     owner_remittances:
       upsert:
         header: 送金 | 作成・更新
@@ -1018,6 +1010,7 @@ ja:
           remittance_type_id: 送金タイプ
           month: 対象月
           country_id: 対象国
+          transaction_id: 取引ID
           amount: 金額
           date: 送金日付
           date_desc: 空白の場合、月の1日にデフォルトにセットされます。
@@ -1025,11 +1018,6 @@ ja:
       delete:
         header: 送金 | 削除
         desc: 指定したオーナーの「送金情報」を削除する。
-        fields:
-          owner_id: 対象オーナー
-          remittance_type_id: 送金タイプ
-          month: 対象月
-          country_id: 対象国
   country: 国
   countries:
     '1': 日本

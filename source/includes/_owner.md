@@ -96,7 +96,7 @@ curl -v -X POST <%=BASE_PATH%>/owners/1
      --data-urlencode "remittance_months[]=12" \
      --data-urlencode "pay_at_month_end=true" \
      --data-urlencode "remarks_ja=5月分の賃料：未送金" \
-     --data-urlencode "remarks_ja=Rent of May: not sent" \
+     --data-urlencode "remarks_en=Rent of May: not sent" \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

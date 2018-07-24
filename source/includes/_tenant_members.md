@@ -14,7 +14,7 @@
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | YES | string |
-| room_id | <%=t('.room_id')%> | | NO | string |
+| room_id | <%=t('.room_id')%> | | YES | string |
 | index | <%=t('.index')%> | <%=t('.index_desc')%> | YES | integer |
 | age | <%=t('.age')%> | | NO | integer |
 | tel | <%=t('.tel')%> | | NO | string |
