@@ -33,8 +33,6 @@
 | exclusive_garden_area_registered | <%=t('.exclusive_garden_area_registered')%> | <%=t('unit_m2')%> | NO | double |
 | management_type | [<%=t('.management_type')%>](#<%=get_header_link(t('references'), t('.management_type'))%>) | | NO | integer |
 | management_fee | <%=t('.management_fee')%> | <%=t('unit_yen_month')%> | NO | double |
-| floor_plan | <%=t('.floor_plan')%> | | NO | file |
-| floor_plan_display_name | <%=t('.floor_plan_display_name')%> | | NO | string |
 | one_room | <%=t('.one_room')%> | <%=t('.one_room_desc')%> | NO | bool |
 | floor_plan_roomcount | <%=t('.floor_plan_roomcount')%> | 1 ~ 9 | NO | integer |
 | floor_plan_type | <%=t('.floor_plan_type')%>| <%=t('.floor_plan_type_desc')%> | NO | integer |
@@ -75,8 +73,6 @@ curl -v -X POST <%=BASE_PATH%>/rooms/1 \
      --data-urlencode "exclusive_garden_area_registered=53" \
      --data-urlencode "management_type=3" \
      --data-urlencode "management_fee=5000" \
-     --data-urlencode "floor_plan=@/path/to/file/floor_plan.png" \
-     --data-urlencode "floor_plan_display_name=floor_plan.png" \
      --data-urlencode "one_room=false" \
      --data-urlencode "floor_plan_roomcount=2" \
      --data-urlencode "floor_plan_type=LDK" \
