@@ -73,7 +73,7 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1 \
      --data-urlencode "bank_account_holder=Tarou Yamada" \
      --data-urlencode "bank_account_number=78709582793" \
      --data-urlencode "remarks_ja=5月分の賃料：滞納" \
-     --data-urlencode "remarks_ja=Rent of May: not pay" \
+     --data-urlencode "remarks_en=Rent of May: not pay" \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 
@@ -88,6 +88,8 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1 \
      --data-urlencode "corp_registered_address_en=2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo" \
      --data-urlencode "corp_responsible_person_ja=鳥谷拓真" \
      --data-urlencode "corp_responsible_person_en=Toriya Takuma" \
+     --data-urlencode "corp_responsible_person_office_ja=東京都渋谷区恵比寿1-20-18 三富ビル新館3階" \
+     --data-urlencode "corp_responsible_person_office_en=3nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo" \
      --data-urlencode "corp_representative_person_ja=川田隆太" \
      --data-urlencode "corp_representative_person_en=Ryuta Kawada" \
      <%=HEADER_ACCESS_TOKEN%>

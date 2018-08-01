@@ -5,7 +5,7 @@
 
 ## <%=t('create')%> & <%=t('update')%>
 
-- URL: `/tenants/:tenant_id/rooms/:room_id/guarantor`
+- URL: `/tenants/:tenant_id/guarantor`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -14,7 +14,6 @@
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | | YES | string |
-| room_id | <%=t('.room_id')%> | | YES | string |
 | name_xx | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
 | name_furi_xx | <%=t('.name_furi')%> | <%=t('multilingual_support')%> | NO | string |
 | type | <%=t('.type')%> | <%=t('.type_desc')%> | NO | integer |
@@ -40,7 +39,7 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/guarantor \
+curl -v -X POST <%=BASE_PATH%>/tenants/1/guarantor \
      --data-urlencode "name_ja=山田太郎" \
      --data-urlencode "name_en=Tarou Yamada" \
      --data-urlencode "name_furi_ja=やまだたろう" \
@@ -82,13 +81,13 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/guarantor \
 
 ## <%=t('delete')%>
 
-- URL: `/tenants/:tenant_id/rooms/:room_id/guarantor`
+- URL: `/tenants/:tenant_id/guarantor`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>
 
 ```shell
-curl -v -X DELETE <%=BASE_PATH%>/tenants/1/rooms/1/guarantor \
+curl -v -X DELETE <%=BASE_PATH%>/tenants/1/guarantor \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

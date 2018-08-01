@@ -66,7 +66,7 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/members/2 \
 ## <%=t('delete')%>
 
 - URL<%=t('delete_one')%>: `/tenants/:tenant_id/rooms/:room_id/members/:index`
-- URL<%=t('delete_all')%>: `/tenants/:tenant_id/rooms/:room_id/members/all`
+- URL<%=t('delete_all')%>: `/tenants/:tenant_id/rooms/:room_id/members`
 - <%=t('method')%>: `DELETE`
 
 <%=t('.delete.desc')%>
