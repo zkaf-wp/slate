@@ -5,7 +5,7 @@
 
 ## <%=t('create')%> & <%=t('update')%>
 
-- URL: `properties/:property_id/owners/:owner_id/acquisitions`
+- URL: `properties/:property_id/owners/:owner_id/acquisition`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -53,12 +53,12 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/properties/1/owners/1/acquisitions \
+curl -v -X POST <%=BASE_PATH%>/properties/1/owners/1/acquisition \
      --data-urlencode "contract_date=2016-06-16" \
      --data-urlencode "scheduled_payment_date=2016-06-01" \
      --data-urlencode "payment_date=2016-06-01" \
      --data-urlencode "ownership_transfer_date=2016-07-01" \
-     --data-urlencode "delivery_date2016-07-15" \
+     --data-urlencode "delivery_date=2016-07-15" \
      --data-urlencode "purchase_price=50000000" \
      --data-urlencode "ct_on_purchase_price=4000000" \
      --data-urlencode "building_sale_price=50000000" \
@@ -109,13 +109,13 @@ curl -v -X POST <%=BASE_PATH%>/properties/1/owners/1/acquisitions \
 
 ## <%=t('delete')%>
 
-- URL: `properties/:property_id/owners/:owner_id/acquisitions`
+- URL: `properties/:property_id/owners/:owner_id/acquisition`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>
 
 ```shell
-curl -v -X DELETE <%=BASE_PATH%>/properties/1/owners/1/acquisitions \
+curl -v -X DELETE <%=BASE_PATH%>/properties/1/owners/1/acquisition \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

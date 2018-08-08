@@ -1,6 +1,6 @@
 /properties/:property_id    
     Removed "asset_management_stopped"
-/properties/:property_id/owners/:owner_id/acquisitions
+/properties/:property_id/owners/:owner_id/acquisition
     Removed "other_insurance_count" and "other_cost_count"
 /owners/:owner_id/work
     stuff_size -> staff_size

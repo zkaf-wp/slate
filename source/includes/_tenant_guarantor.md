@@ -57,7 +57,6 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/guarantor \
      --data-urlencode "work_address_ja=東京都渋谷区恵比寿1-20-18 三富ビル新館2階" \
      --data-urlencode "work_address_en=2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo" \
      --data-urlencode "work_tel=08012345678" \
-     --data-urlencode "business_ja=" \
      --data-urlencode "business_ja=不動産" \
      --data-urlencode "business_en=Realestate" \
      --data-urlencode "unit_ja=開発" \

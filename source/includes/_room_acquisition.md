@@ -57,7 +57,7 @@ curl -v -X POST <%=BASE_PATH%>/rooms/1/acquisition \
      --data-urlencode "scheduled_payment_date=2016-06-01" \
      --data-urlencode "payment_date=2016-06-01" \
      --data-urlencode "ownership_transfer_date=2016-07-01" \
-     --data-urlencode "delivery_date2016-07-15" \
+     --data-urlencode "delivery_date=2016-07-15" \
      --data-urlencode "purchase_price=50000000" \
      --data-urlencode "ct_on_purchase_price=4000000" \
      --data-urlencode "building_sale_price=50000000" \

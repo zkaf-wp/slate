@@ -55,13 +55,13 @@
 | initial_others_fee_name_not_owner_income_xx | <%=t('.initial_others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
 | application_date | <%=t('.application_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | contract_date | <%=t('.contract_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| commencement_date | <%=t('.commencement_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| expiry_date | <%=t('.expiry_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
+| commencement_date | <%=t('.commencement_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
+| expiry_date | <%=t('.expiry_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | movein_planned_date | <%=t('.movein_planned_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | free_rent_start | <%=t('.free_rent_start')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | free_rent_end | <%=t('.free_rent_end')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| rent_payment_day | <%=t('.rent_payment_day')%> | 1 ~ 31 | NO | integer |
-| pay_at_month_end | <%=t('.pay_at_month_end')%> | <%=t('.pay_at_month_end_desc')%> | NO | bool |
+| rent_payment_day | <%=t('.rent_payment_day')%> | 1 ~ 31 | YES | integer |
+| pay_at_month_end | <%=t('.pay_at_month_end')%> | <%=t('.pay_at_month_end_desc')%> | YES | bool |
 | payee_bank_name_xx | <%=t('.payee_bank_name')%> | <%=t('multilingual_support')%> | NO | string |
 | account_number | <%=t('.account_number')%> | | NO | string |
 | branch_number | <%=t('.branch_number')%> | | NO | string |
@@ -71,7 +71,7 @@
 | escrow_bank_address_xx | <%=t('.escrow_bank_address')%> | <%=t('for_other_countries_market')%><br><%=t('multilingual_support')%> | NO | string |
 | insurance_company_xx | <%=t('.insurance_company')%> | <%=t('multilingual_support')%> | NO | string |
 | insurance_policy_no | <%=t('.insurance_policy_no')%> | | NO | string |
-| fire_insurance | <%=t('.fire_insurance')%> | <%=t('unit_yen')%> | YES | double |
+| fire_insurance | <%=t('.fire_insurance')%> | <%=t('unit_yen')%> | NO | double |
 | agent_xx | <%=t('.agent')%> | <%=t('multilingual_support')%> | NO | string |
 | registered_broker_name_xx | <%=t('.registered_broker_name')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>

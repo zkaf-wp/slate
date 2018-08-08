@@ -521,7 +521,6 @@ ja:
           0: 保留中
           1: 契約中
           2: 期限切れ
-          デフォルト: 0
         renewal_fee: 更新料
         renewal_administration_fee: 更新事務手数料
         renewal_commission_fee: 更新手数料

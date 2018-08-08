@@ -16,13 +16,13 @@
 | tenant_id | <%=t('.tenant_id')%> | | YES | string |
 | room_id | <%=t('.room_id')%> | | YES | string |
 | status | <%=t('.status')%> | <%=t('.status_desc')%> | | YES | integer |
-| renewal_fee | <%=t('.renewal_fee')%> | <%=t('unit_yen')%> | YES | double |
+| renewal_fee | <%=t('.renewal_fee')%> | <%=t('unit_yen')%> | NO | double |
 | renewal_administration_fee | <%=t('.renewal_administration_fee')%> | <%=t('unit_yen')%> | NO | double |
 | renewal_commission_fee | <%=t('.renewal_commission_fee')%> | <%=t('unit_yen')%> | NO | double |
 | application_date | <%=t('.application_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | renewed_period_commencement_date | <%=t('.renewed_period_commencement_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | renewed_period_expiry_date | <%=t('.renewed_period_expiry_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
+| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | rent | <%=t('.rent')%> | <%=t('unit_yen')%> | YES | double |
 | management_fee | <%=t('.management_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
 | parking_fee | <%=t('.parking_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
@@ -75,8 +75,7 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/rental_contract/renews/2018-07-
 
 ## <%=t('delete')%>
 
-- URL<%=t('delete_one')%>: `/tenants/:tenant_id/rooms/:room_id/rental_contract/renews/:renewed_period_commencement_date`
-- URL<%=t('delete_all')%>: `/tenants/:tenant_id/rooms/:room_id/rental_contract/renews/all`
+- URL: `/tenants/:tenant_id/rooms/:room_id/rental_contract/renews/:renewed_period_commencement_date`
 - <%=t('method')%>: `DELETE`
 
 > <%=t('request')%>
