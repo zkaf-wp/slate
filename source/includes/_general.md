@@ -6,7 +6,8 @@
 
 ### <%=t('.base_url')%>
 
-`<%= BASE_PATH %>`
+- <%=t('.production')%>: `<%= BASE_PATH %>`
+- <%=t('.sandbox')%>: `<%= BASE_PATH_SANDBOX %>`
 
 ### <%=t('.action.header')%>
 

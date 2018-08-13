@@ -1,6 +1,7 @@
 require 'digest'
 
 BASE_PATH = 'https://company-name.wealth-park.com/api/endpoint/v1'
+BASE_PATH_SANDBOX = 'https://company-name-sandbox.dev.wealth-park.com/api/endpoint/v1'
 HEADER_ACCESS_TOKEN = '-H "X-ACCESS-TOKEN: 5454ac951a4e49ca9da39a6e58589393"'
 
 LOCALE = 'ja'

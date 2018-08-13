@@ -47,6 +47,8 @@ ja:
     header: 概要
     request:
       base_url: ベースURL
+      production: 本番
+      sandbox: サンドボックス
       action:
         header: アクション
         desc: |
