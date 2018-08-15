@@ -60,8 +60,8 @@ curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/rental_contract/renews/2018-07-
      --data-urlencode "others_fee_name_ja=バルコニー掃除" \
      --data-urlencode "others_fee_name_en=Balcony cleaning" \
      --data-urlencode "others_fee_not_owner_income=2000" \
-     --data-urlencode "others_fee_not_owner_income_ja=水道品質点検" \
-     --data-urlencode "others_fee_not_owner_income_en=Water quality inspection" \
+     --data-urlencode "others_fee_name_not_owner_income_ja=水道品質点検" \
+     --data-urlencode "others_fee_name_not_owner_income_en=Water quality inspection" \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 
