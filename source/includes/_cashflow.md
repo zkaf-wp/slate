@@ -4,7 +4,7 @@
 <% t_scope('categories_and_categorygroups') { %>
 ## <%=t('.header')%>
 
-- URL: `/cashflows/categories`
+- URL: `/pl/categories`
 - <%=t('method')%>: `POST`
 - <%=t('.request_data_format')%>: `JSON`
 
@@ -47,7 +47,7 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
+curl -v -X POST <%= BASE_PATH %>/pl/categories \
      --data '
         [
             {
@@ -101,7 +101,7 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
 
 <%=t('.desc')%>
 
-- URL: `/cashflows/properties/:property_id/categories/:category_id/month/:month/:transaction_id`
+- URL: `/pl/properties/:property_id/transactions/:transaction_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -110,16 +110,18 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/categories \
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | property_id | <%=t('.property_id')%> | | YES | string |
+| transaction_id | <%=t('.transaction_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
-| transaction_id | <%=t('.transaction_id')%> | | NO | string |
 | payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
 | remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 ```shell
-curl -v -X POST <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/2018-06/00012345 \
+curl -v -X POST <%= BASE_PATH %>/pl/properties/100/transactions/00012345 \
+     --data-urlencode "category_id=2" \
+     --data-urlencode "month=2018-06" \
      --data-urlencode "payment_date=2018-05-25" \
      --data-urlencode "amount=200000" \
      --data-urlencode "remarks_ja=５月分の賃料" \
@@ -133,11 +135,11 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/201
 
 <%=t('.desc')%>
 
-- URL: `/cashflows/properties/:property_id/categories/:category_id/month/:month/:transaction_id`
+- URL: `/pl/properties/:property_id/transactions/:transaction_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell
-curl -v -X DELETE <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/2018-06/00012345 \
+curl -v -X DELETE <%= BASE_PATH %>/pl/properties/100/transactions/00012345 \
      <%= HEADER_ACCESS_TOKEN %>
 ```
 <% } %>
@@ -147,7 +149,7 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/2
 
 <%=t('.desc')%>
 
-- URL: `/cashflows/rooms/:room_id/categories/:category_id/month/:month/:transaction_id`
+- URL: `/pl/rooms/:room_id/transactions/:transaction_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -156,16 +158,18 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/properties/100/categories/2/month/2
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | room_id | <%=t('.room_id')%> | | YES | string |
+| transaction_id | <%=t('.transaction_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
-| transaction_id | <%=t('.transaction_id')%> | | NO | string |
 | payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
 | remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 ```shell
-curl -v -X POST <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-06/00012345 \
+curl -v -X POST <%= BASE_PATH %>/pl/rooms/200/transactions/00012345 \
+     --data-urlencode "category_id=2" \
+     --data-urlencode "month=2018-06" \
      --data-urlencode "payment_date=2018-05-25" \
      --data-urlencode "amount=200000" \
      --data-urlencode "remarks_ja=５月分の賃料" \
@@ -179,11 +183,11 @@ curl -v -X POST <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-06/
 
 <%=t('.desc')%>
 
-- URL: `/cashflows/rooms/:room_id/categories/:category_id/month/:month/:transaction_id`
+- URL: `/pl/rooms/:room_id/transactions/:transaction_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell
-curl -v -X DELETE <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-06/00012345 \
+curl -v -X DELETE <%= BASE_PATH %>/pl/rooms/200/transactions/00012345 \
      <%= HEADER_ACCESS_TOKEN %>
 ```
 <% } %>
@@ -193,7 +197,7 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-0
 
 <%=t('.desc')%>
 
-- URL: `/money_transfers/owners/:owner_id/remittance_types/:remittance_type_id/month/:month/country/:country_id/:transaction_id`
+- URL: `/money_transfers/owners/:owner_id/remittance_types/:remittance_type_id/month/:month/country/:country_id/transaction/:transaction_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -205,7 +209,7 @@ curl -v -X DELETE <%= BASE_PATH %>/cashflows/rooms/200/categories/2/month/2018-0
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
-| transaction_id | <%=t('.transaction_id')%> | | NO | string |
+| transaction_id | <%=t('.transaction_id')%> | | YES | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%>  | YES | double |
 | date | <%=t('.date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
@@ -226,7 +230,7 @@ curl -v -X POST <%= BASE_PATH %>/money_transfers/owners/1/remittance_types/4/mon
 
 <%=t('.desc')%>
 
-- URL: `/money_transfers/owners/:owner_id/remittance_types/:remittance_type_id/month/:month/country/:country_id/:transaction_id`
+- URL: `/money_transfers/owners/:owner_id/remittance_types/:remittance_type_id/month/:month/country/:country_id/transaction/:transaction_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell
