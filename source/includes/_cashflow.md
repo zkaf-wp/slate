@@ -31,7 +31,7 @@
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | id | <%=t('.fields.id')%> | | YES | integer |
 | type | <%=t('.fields.type')%> | <%=t('.fields.type_desc')%> | YES | integer |
-| name_xx | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
+| name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
 <% } %>
 
 <% t_scope('.request.categories_s_parameters', use_html_br: true) { %>
@@ -41,7 +41,7 @@
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | id | <%=t('.fields.id')%> | <%=t('.fields.id_desc')%>　| YES | integer |
-| name_xx | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
+| name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
 <% } %>
 
 > <%=t('request')%>
@@ -49,40 +49,49 @@
 ```shell
 curl -v -X POST <%= BASE_PATH %>/pl/categories \
      --data '
-        [
-            {
-                "id": 1,
-                "type": 1,
-                "name_ja": "賃料",
-                "name_en": "Rent",
-                "categories": [
-                    {
-                        "id": 1,
-                        "name_ja": "賃料",
-                        "name_en": "Rent"
-                    },
-                    {
-                        "id": 2,
-                        "name_ja": "管理費",
-                        "name_en": "Management fee"
-                    }
-                ] 
-            },
-            {
-                "id": 2,
-                "type": 0,
-                "name_ja": "仲介費",
-                "name_en": "Real Estate Agent fee",
-                "categories": [
-                    {
-                        "id": 3,
-                        "name_ja": "仲介費",
-                        "name_en": "Real Estate Agent fee"
-                    }
-                ]
-            }
-            
-        ]
+     [
+       {
+         "id": 1,
+         "type": 1,
+         "name": {
+           "ja": "賃料",
+           "en": "Rent"
+         },
+         "categories": [
+           {
+             "id": 1,
+             "name": {
+               "ja": "賃料",
+               "en": "Rent"
+             }
+           },
+           {
+             "id": 2,
+             "name": {
+               "ja": "管理費",
+               "en": "Management fee"
+             }
+           }
+         ]
+       },
+       {
+         "id": 2,
+         "type": 0,
+         "name": {
+           "ja": "仲介費",
+           "en": "Real Estate Agent fee"
+         },
+         "categories": [
+           {
+             "id": 3,
+             "name": {
+               "ja": "仲介費",
+               "en": "Real Estate Agent fee"
+             }
+           }
+         ]
+       }
+     ]
      ' \
      <%= HEADER_ACCESS_TOKEN %>
 ```

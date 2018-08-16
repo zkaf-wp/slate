@@ -41,8 +41,8 @@
 | room_areas | <%=t('.room_area')%> | <%=t('unit_m2')%><br><%=t('max_quantity_to_x_items', quantity: 9)%> | NO | double[] |
 | tenant_status | [<%=t('.tenant_status')%>](#<%=get_header_link(t('references'), t('.tenant_status'))%>) | | NO | integer |
 | payment_status | <%=t('.payment_status')%> | <%=t('.payment_status_desc')%> | NO | integer |
-| managed_by_corp_xx | <%=t('.managed_by_corp')%> | <%=t('multilingual_support')%> | NO | string |
-| managed_by_people_xx | <%=t('.managed_by_people')%> | <%=t('multilingual_support')%> | NO | string |
+| managed_by_corp | <%=t('.managed_by_corp')%> | <%=t('multilingual_support')%> | NO | string |
+| managed_by_people | <%=t('.managed_by_people')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 <%=t('room_md.upsert.desc')%>
@@ -51,46 +51,68 @@
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/rooms/1 \
-     --data-urlencode "property_id=1" \
-     --data-urlencode "owner_ids[]=1" \
-     --data-urlencode "owner_ids[]=2" \
-     --data-urlencode "room_number=103" \
-     --data-urlencode "room_category=0" \
-     --data-urlencode "room_category_detail=0" \
-     --data-urlencode "floors_located=1" \
-     --data-urlencode "bedroom_count=3" \
-     --data-urlencode "bathroom_count=1" \
-     --data-urlencode "storeroom_count=2" \
-     --data-urlencode "balcony_directions[]=5" \
-     --data-urlencode "balcony_area_actual_measurements[]=2" \
-     --data-urlencode "balcony_registered_areas[]=1.8" \
-     --data-urlencode "balcony_directions[]=1" \
-     --data-urlencode "balcony_area_actual_measurements[]=2" \
-     --data-urlencode "balcony_registered_areas[]=1.8" \
-     --data-urlencode "exclusive_area_actual_measurement=153.36" \
-     --data-urlencode "exclusive_area_registered=153" \
-     --data-urlencode "exclusive_garden_area_actual_measurement=53.36" \
-     --data-urlencode "exclusive_garden_area_registered=53" \
-     --data-urlencode "management_type=3" \
-     --data-urlencode "management_fee=5000" \
-     --data-urlencode "one_room=false" \
-     --data-urlencode "floor_plan_roomcount=2" \
-     --data-urlencode "floor_plan_type=LDK" \
-     --data-urlencode "room_floors[]=1" \
-     --data-urlencode "room_types[]=3" \
-     --data-urlencode "room_areas[]=18.36" \
-     --data-urlencode "room_floors[]=1" \
-     --data-urlencode "room_types[]=0" \
-     --data-urlencode "room_areas[]=9.95" \
-     --data-urlencode "room_floors[]=1" \
-     --data-urlencode "room_types[]=1" \
-     --data-urlencode "room_areas[]=6.89" \
-     --data-urlencode "tenant_status=5" \
-     --data-urlencode "payment_status=1" \
-     --data-urlencode "managed_by_corp_ja=WealthPark株式会社" \
-     --data-urlencode "managed_by_corp_en=WealthPark, Inc." \
-     --data-urlencode "managed_by_people_ja=鳥谷拓真" \
-     --data-urlencode "managed_by_people_en=Takuma Toriya" \
+     --data '
+     {
+       "property_id": "p1",
+       "owner_ids": [
+         "o1"
+       ],
+       "room_number": "103",
+       "room_classification": 0,
+       "room_category": 4,
+       "room_category_detail": 27,
+       "floors_located": 1,
+       "bedroom_count": 3,
+       "bathroom_count": 1,
+       "storeroom_count": 2,
+       "balcony_directions": [
+         1,
+         8
+       ],
+       "balcony_area_actual_measurements": [
+         2,
+         2
+       ],
+       "balcony_registered_areas": [
+         1.8,
+         1.8
+       ],
+       "exclusive_area_actual_measurement": 153.36,
+       "exclusive_area_registered": 153.1,
+       "exclusive_garden_area_actual_measurement": 53.36,
+       "exclusive_garden_area_registered": 53.1,
+       "management_type": 4,
+       "management_fee": 5000,
+       "one_room": false,
+       "floor_plan_roomcount": 2,
+       "floor_plan_type": "LDK",
+       "room_floors": [
+         1,
+         1,
+         1
+       ],
+       "room_types": [
+         0,
+         5,
+         8
+       ],
+       "room_areas": [
+         18.36,
+         9.95,
+         6.89
+       ],
+       "tenant_status": 8,
+       "payment_status": 2,
+       "managed_by_corp": {
+         "ja": "WealthPark株式会社",
+         "en": "WealthPark, Inc."
+       },
+       "managed_by_people": {
+         "ja": "鳥谷拓真",
+         "en": "Takuma Toriya"
+       }
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

@@ -42,60 +42,82 @@
 | earthquake_insurance_fee | <%=t('.earthquake_insurance_fee')%> | <%=t('unit_yen')%> | NO | double |
 | group_credit_life_insurance_fee | <%=t('.group_credit_life_insurance_fee')%> | <%=t('unit_yen')%> | NO | double |
 | other_insurance_fees | <%=t('.other_insurance_fee')%> | <%=t('unit_yen')%><br><%=t('max_quantity_to_x_items', quantity: 5)%> | NO | double[] |
-| other_insurance_fee_names_xx | <%=t('.other_insurance_fee_name')%> | <%=t('multilingual_support')%><br><%=t('max_quantity_to_x_items', quantity: 5)%> | NO | string[] |
+| other_insurance_fee_names | <%=t('.other_insurance_fee_name')%> | <%=t('multilingual_support')%><br><%=t('max_quantity_to_x_items', quantity: 5)%> | NO | string[] |
 | moving_fee | <%=t('.moving_fee')%> | <%=t('unit_yen')%> | NO | double |
 | furniture_cost | <%=t('.furniture_cost')%> | <%=t('unit_yen')%> | NO | double |
 | other_costs | <%=t('.other_cost')%> | <%=t('unit_yen')%><br><%=t('max_quantity_to_x_items', quantity: 10)%> | NO | double[] |
-| other_cost_names_xx | <%=t('.other_cost_name')%> | <%=t('multilingual_support')%><br><%=t('max_quantity_to_x_items', quantity: 10)%> | NO | string[] |
-| remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| other_cost_names | <%=t('.other_cost_name')%> | <%=t('multilingual_support')%><br><%=t('max_quantity_to_x_items', quantity: 10)%> | NO | string[] |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 > <%=t('request')%>
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/properties/1/owners/1/acquisition \
-     --data-urlencode "contract_date=2016-06-16" \
-     --data-urlencode "scheduled_payment_date=2016-06-01" \
-     --data-urlencode "payment_date=2016-06-01" \
-     --data-urlencode "ownership_transfer_date=2016-07-01" \
-     --data-urlencode "delivery_date=2016-07-15" \
-     --data-urlencode "purchase_price=50000000" \
-     --data-urlencode "ct_on_purchase_price=4000000" \
-     --data-urlencode "building_sale_price=50000000" \
-     --data-urlencode "ct_on_building_price=4000000" \
-     --data-urlencode "land_price=30000000" \
-     --data-urlencode "earnest_money=5000000" \
-     --data-urlencode "revenue_stamp_tax=10000" \
-     --data-urlencode "registration_tax=200000" \
-     --data-urlencode "agency_fee=1500000" \
-     --data-urlencode "judicial_scrivener_fee=200000" \
-     --data-urlencode "realestate_acquisition_tax_land=300000" \
-     --data-urlencode "realestate_acquisition_tax_house=350000" \
-     --data-urlencode "trading_shortage_fee=100000" \
-     --data-urlencode "fixed_property_tax=50000" \
-     --data-urlencode "city_plan_tax=70000" \
-     --data-urlencode "fixed_property_tax_evaluation_amount_land=40000" \
-     --data-urlencode "fixed_property_tax_evaluation_amount_building=10000" \
-     --data-urlencode "depreciation=1000000" \
-     --data-urlencode "fire_insurance_fee=30000" \
-     --data-urlencode "earthquake_insurance_fee=40000" \
-     --data-urlencode "group_credit_life_insurance_fee=100000" \
-     --data-urlencode "other_insurance_fees[]=10000" \
-     --data-urlencode "other_insurance_fee_names_ja[]=盗難保険" \
-     --data-urlencode "other_insurance_fee_names_en[]=theft insurance" \
-     --data-urlencode "other_insurance_fees[]=13000" \
-     --data-urlencode "other_insurance_fee_names_ja[]=水漏れ保険" \
-     --data-urlencode "other_insurance_fee_names_en[]=Water leakage insurance" \
-     --data-urlencode "moving_fee=150000" \
-     --data-urlencode "furniture_cost=200000" \
-     --data-urlencode "other_costs[]=50000" \
-     --data-urlencode "other_cost_names_ja[]=掃除" \
-     --data-urlencode "other_cost_names_en[]=Clean up" \
-     --data-urlencode "other_costs[]=40000" \
-     --data-urlencode "other_cost_names_ja[]=草刈り" \
-     --data-urlencode "other_cost_names_en[]=Mow off" \
-     --data-urlencode "remarks_ja=紹介手数料無料" \
-     --data-urlencode "remarks_en=Free referral fee" \
+     --data '
+     {
+       "contract_date": "2016-06-16",
+       "scheduled_payment_date": "2016-06-01",
+       "payment_date": "2016-06-01",
+       "ownership_transfer_date": "2016-07-01",
+       "delivery_date": "2016-07-15",
+       "purchase_price": 50000000,
+       "ct_on_purchase_price": 4000000,
+       "building_sale_price": 50000000,
+       "ct_on_building_price": 4000000,
+       "land_price": 30000000,
+       "earnest_money": 5000000,
+       "revenue_stamp_tax": 10000,
+       "registration_tax": 200000,
+       "agency_fee": 1500000,
+       "judicial_scrivener_fee": 200000,
+       "realestate_acquisition_tax_land": 300000,
+       "realestate_acquisition_tax_house": 350000,
+       "trading_shortage_fee": 100000,
+       "fixed_property_tax": 50000,
+       "city_plan_tax": 70000,
+       "fixed_property_tax_evaluation_amount_land": 40000,
+       "fixed_property_tax_evaluation_amount_building": 10000,
+       "depreciation": 1000000,
+       "fire_insurance_fee": 30000,
+       "earthquake_insurance_fee": 40000,
+       "group_credit_life_insurance_fee": 100000,
+       "other_insurance_fees": [
+         10000,
+         13000
+       ],
+       "other_insurance_fee_names": [
+         {
+           "ja": "盗難保険",
+           "en": "theft insurance"
+         },
+         {
+           "ja": "水漏れ保険",
+           "en": "Water leakage insurance"
+         }
+       ],
+       "moving_fee": 150000,
+       "furniture_cost": 200000,
+       "other_costs": [
+         50000,
+         40000
+       ],
+       "other_cost_names": [
+         {
+           "ja": "掃除",
+           "en": "Clean up"
+         },
+         {
+           "ja": "草刈り",
+           "en": "Mow off"
+         }
+       ],
+       "remarks": {
+         "ja": "紹介手数料無料",
+         "en": "Free referral fee"
+       }
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

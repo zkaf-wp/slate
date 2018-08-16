@@ -14,61 +14,85 @@
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | tenant_id | <%=t('.tenant_id')%> | | YES | string |
-| name_xx | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
-| name_furi_xx | <%=t('.name_furi')%> | <%=t('multilingual_support')%> | NO | string |
+| name | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
+| name_furi | <%=t('.name_furi')%> | <%=t('multilingual_support')%> | NO | string |
 | type | <%=t('.type')%> | <%=t('.type_desc')%> | NO | integer |
-| relationship_xx | <%=t('.relationship')%> | <%=t('multilingual_support')%> | NO | string |
+| relationship | <%=t('.relationship')%> | <%=t('multilingual_support')%> | NO | string |
 | birth_date | <%=t('.birth_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | gender | <%=t('.gender')%> | <%=t('.gender_desc')%> | NO | integer |
 | tel | <%=t('.tel')%> | | NO | string |
 | email | <%=t('.email')%> | | NO | string |
 | postal_code | <%=t('.postal_code')%> | | NO | string |
-| address_xx | <%=t('.address')%> | <%=t('multilingual_support')%> | NO | string |
-| work_xx | <%=t('.work')%> | <%=t('multilingual_support')%> | NO | string |
+| address | <%=t('.address')%> | <%=t('multilingual_support')%> | NO | string |
+| work | <%=t('.work')%> | <%=t('multilingual_support')%> | NO | string |
 | work_postal_code | <%=t('.work_postal_code')%> | | NO | string |
-| work_address_xx | <%=t('.work_address')%> | <%=t('multilingual_support')%> | NO | string |
+| work_address | <%=t('.work_address')%> | <%=t('multilingual_support')%> | NO | string |
 | work_tel | <%=t('.work_tel')%> | | NO | string |
-| business_xx | <%=t('.business')%> | <%=t('multilingual_support')%> | NO | string |
-| unit_xx | <%=t('.unit')%> | <%=t('multilingual_support')%> | NO | string |
-| position_xx | <%=t('.position')%> | <%=t('multilingual_support')%> | NO | string |
+| business | <%=t('.business')%> | <%=t('multilingual_support')%> | NO | string |
+| unit | <%=t('.unit')%> | <%=t('multilingual_support')%> | NO | string |
+| position | <%=t('.position')%> | <%=t('multilingual_support')%> | NO | string |
 | income | <%=t('.income')%> | <%=t('unit_yen')%> | NO | double |
 | capital | <%=t('.capital')%> | <%=t('unit_yen')%> | NO | double |
-| remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 > <%=t('request')%>
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/tenants/1/guarantor \
-     --data-urlencode "name_ja=山田太郎" \
-     --data-urlencode "name_en=Tarou Yamada" \
-     --data-urlencode "name_furi_ja=やまだたろう" \
-     --data-urlencode "type=0" \
-     --data-urlencode "relationship_ja=父" \
-     --data-urlencode "relationship_en=Father" \
-     --data-urlencode "birth_date=1958-01-01" \
-     --data-urlencode "gender=0" \
-     --data-urlencode "tel=08012345678" \
-     --data-urlencode "email=yamada.tarou@wealth-park.com" \
-     --data-urlencode "postal_code=1500013" \
-     --data-urlencode "address_ja=東京都渋谷区恵比寿1-20-18 三富ビル新館2階" \
-     --data-urlencode "address_en=2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo" \
-     --data-urlencode "work_ja=WealthPark株式会社" \
-     --data-urlencode "work_en=WealthPark, Inc." \
-     --data-urlencode "work_postal_code=1500013" \
-     --data-urlencode "work_address_ja=東京都渋谷区恵比寿1-20-18 三富ビル新館2階" \
-     --data-urlencode "work_address_en=2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo" \
-     --data-urlencode "work_tel=08012345678" \
-     --data-urlencode "business_ja=不動産" \
-     --data-urlencode "business_en=Realestate" \
-     --data-urlencode "unit_ja=開発" \
-     --data-urlencode "unit_en=development" \
-     --data-urlencode "position_ja=エンジニア" \
-     --data-urlencode "position_en=Engineer" \
-     --data-urlencode "income=7000000" \
-     --data-urlencode "capital=462000000" \
-     --data-urlencode "remarks_ja=定年で退職した" \
-     --data-urlencode "remarks_en=Retired" \
+     --data '
+     {
+       "name": {
+         "ja": "山田太郎",
+         "en": "Tarou Yamada"
+       },
+       "name_furi": {
+         "ja": "やまだたろう"
+       },
+       "type": 2,
+       "relationship": {
+         "ja": "父",
+         "en": "Father"
+       },
+       "birth_date": "1958-01-01",
+       "gender": 1,
+       "tel": "08012345678",
+       "email": "yamada.tarou@wealth-park.com",
+       "postal_code": "1500013",
+       "address": {
+         "ja": "東京都渋谷区恵比寿1-20-18 三富ビル新館2階",
+         "en": "2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo"
+       },
+       "work": {
+         "ja": "WealthPark株式会社",
+         "en": "WealthPark, Inc."
+       },
+       "work_postal_code": "1500013",
+       "work_address": {
+         "ja": "東京都渋谷区恵比寿1-20-18 三富ビル新館2階",
+         "en": "2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo"
+       },
+       "work_tel": "08012345678",
+       "business": {
+         "ja": "不動産",
+         "en": "Realestate"
+       },
+       "unit": {
+         "ja": "開発",
+         "en": "development"
+       },
+       "position": {
+         "ja": "エンジニア",
+         "en": "Engineer"
+       },
+       "income": 7000000,
+       "capital": 462000000,
+       "remarks": {
+         "ja": "定年で退職した",
+         "en": "Retired"
+       }
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

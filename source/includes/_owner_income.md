@@ -25,26 +25,32 @@
 | income_from_transfer_short_term | <%=t('.income_from_transfer_short_term')%> | <%=t('unit_yen')%> | NO |double |
 | income_from_transfer_long_term | <%=t('.income_from_transfer_long_term')%> | <%=t('unit_yen')%> | NO |double |
 | one_off_income | <%=t('.one_off_income')%> | <%=t('unit_yen')%> | NO |double |
-| remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 > <%=t('request')%>
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/owners/1/income \
-     --data-urlencode "general_business_income=500000" \
-     --data-urlencode "business_agriculture_income=0" \
-     --data-urlencode "off_system_realestate_income=200000" \
-     --data-urlencode "interest_income=50000" \
-     --data-urlencode "dividend=2000" \
-     --data-urlencode "salary=400000" \
-     --data-urlencode "national_pension_etc=0" \
-     --data-urlencode "others=200000" \
-     --data-urlencode "income_from_transfer_short_term=1000000" \
-     --data-urlencode "income_from_transfer_long_term=10000000" \
-     --data-urlencode "one_off_income=10000" \
-     --data-urlencode "remarks_ja=雑所得：FX" \
-     --data-urlencode "remarks_en=Other income: FX" \
+     --data '
+     {
+       "general_business_income": 500000,
+       "business_agriculture_income": 0,
+       "off_system_realestate_income": 200000,
+       "interest_income": 50000,
+       "dividend": 2000,
+       "salary": 400000,
+       "national_pension_etc": 120000,
+       "others": 200000,
+       "income_from_transfer_short_term": 1000000,
+       "income_from_transfer_long_term": 10000000,
+       "one_off_income": 10000,
+       "remarks": {
+         "ja": "雑所得：FX",
+         "en": "Other income: FX"
+       }
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

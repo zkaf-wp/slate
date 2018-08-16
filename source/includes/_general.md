@@ -22,11 +22,19 @@
 
 ### <%=t('.multilingual_support.header')%>
 
-<%=t('.multilingual_support.desc')%>
+<%=t('.multilingual_support.desc1')%>
 
-### <%=t('.required_parameters.header')%>
+<aside class="well">{
+    ...
+    "remarks": {
+        "ja": "備考",
+        "en": "Remarks",
+        "zh": "備註"
+    },
+    ...
+}</aside>
 
-<%=t('.required_parameters.desc') % { required: t('required') }%>
+<%=t('.multilingual_support.desc2')%>
 
 ### <%=t('.designated_parameters.header')%>
 

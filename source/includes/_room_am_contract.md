@@ -25,37 +25,31 @@
 | consumption_tax_rate | <%=t('.consumption_tax_rate')%> | <%=t('.consumption_tax_rate_desc')%> | NO | integer |
 | fee_rate | <%=t('.fee_rate')%> | <%=t('.fee_rate_desc')%> | NO | double |
 | fee | <%=t('.fee')%> | <%=t('.fee_desc')%> | NO | double |
-| remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
-> <%=t('create')%>
+> <%=t('request')%>
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/rooms/1/am_contracts/2018-06-26
-     --data-urlencode "end_date=2020-06-26" \
-     --data-urlencode "status=1" \
-     --data-urlencode "payment_type=3" \
-     --data-urlencode "usage_type=0" \
-     --data-urlencode "billable_without_rental_payment=true" \
-     --data-urlencode "minimum_fee_usage_self=5000" \
-     --data-urlencode "minimum_fee_usage_invest=5000" \
-     --data-urlencode "consumption_tax_rate=1" \
-     --data-urlencode "fee_rate=6" \
-     --data-urlencode "fee=10000" \
-     --data-urlencode "remarks_ja=更新予定が入る" \
-     --data-urlencode "remarks_en=There is intention to renew" \
-     <%=HEADER_ACCESS_TOKEN%>
-```
-
-> <%=t('update')%>
-
-```shell
-curl -v -X POST <%=BASE_PATH%>/rooms/1/am_contracts/2018-06-26
-     --data-urlencode "minimum_fee_usage_self=4000" \
-     --data-urlencode "minimum_fee_usage_invest=4000" \
-     --data-urlencode "fee=9000" \
-     --data-urlencode "remarks_ja=割引が適用済み" \
-     --data-urlencode "remarks_en=Discount applied" \
+     --data '
+     {
+       "end_date": "2020-06-26",
+       "status": 1,
+       "payment_type": 3,
+       "usage_type": 1,
+       "billable_without_rental_payment": true,
+       "minimum_fee_usage_self": 5000,
+       "minimum_fee_usage_invest": 6000,
+       "consumption_tax_rate": 2,
+       "fee_rate": 6,
+       "fee": 10000,
+       "remarks": {
+         "ja": "更新予定が入る",
+         "en": "There is intention to renew"
+       }
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

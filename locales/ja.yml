@@ -55,27 +55,17 @@ ja:
           一般的なAPIは`READ`、`CREATE`、`UPDATE`、`UPDATE PARTIALLY`、`DELETE`の5種類のアクションに対応しています。
 
           WealthParkが現在対応しているAPIのアクションは`UPSERT`、`DELETE`の2種類となっています。
-          `UPSERT`は`CREATE`、`UPDATE`、`UPDATE PARTIALLY`を含みます。
+          `UPSERT`は`CREATE`、`UPDATE`を含みます。
 
-          WealthPark APIはデータインポート専用のAPIなので、`GET`は対応していません。
+          WealthPark APIはデータインポート専用のAPIなので、`GET`、`UPDATE PARTIALLY`は対応していません。
       multilingual_support:
         header: 多言語対応
-        desc: |
-          [言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)をパラメータの最後に付け加えることにより、テキストデータを多言語対応します。
-
+        desc1: |
           _例えば:_
 
-          `remarks`というテキストデータを日本語、英語、中国語の3つの言語で書き込み、次の3つのパラメータをリクエストに配置します：
-
-          - remarks_ja （日本語）
-          - remarks_en （英語）
-          - remarks_zh （中国語 繁体字）
-      required_parameters:
-        header: 必須なパラメータ
-        desc: |
-          `%{required}`が`YES`のものは必須項目を意味し、作成時に必ず必要となります。
-
-          URLのidなどのパラメーターは作成・更新の際に必ず必要となります。
+          `remarks`というテキストデータを日本語、英語、中国語の3つの言語で書き込む場合：
+        desc2: |
+          `ja`、`en`、`zh`などは[言語コード](https://ja.wikipedia.org/wiki/ISO_639-1)です。
       designated_parameters:
         header: 専用のパラメータ
         desc: |
@@ -106,6 +96,7 @@ ja:
         '105': アクセストークンの有効期限が満了した。
         '106': アクセストークンが無効。
         '108': 権限が不十分。
+        '113': データベースの制約が違反された。
       format: 
         header: 形式
         desc: |

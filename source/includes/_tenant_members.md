@@ -18,40 +18,65 @@
 | index | <%=t('.index')%> | <%=t('.index_desc')%> | YES | integer |
 | age | <%=t('.age')%> | | NO | integer |
 | tel | <%=t('.tel')%> | | NO | string |
-| name_xx | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
-| relationship_xx | <%=t('.relationship')%> | <%=t('multilingual_support')%> | NO | string |
-| company_name_xx | <%=t('.company_name')%> | <%=t('multilingual_support')%> | NO | string |
-| company_address_xx | <%=t('.company_address')%> | <%=t('multilingual_support')%> | NO | string |
-| remarks_xx | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| name | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
+| relationship | <%=t('.relationship')%> | <%=t('multilingual_support')%> | NO | string |
+| company_name | <%=t('.company_name')%> | <%=t('multilingual_support')%> | NO | string |
+| company_address | <%=t('.company_address')%> | <%=t('multilingual_support')%> | NO | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
 <% } %>
 
 > <%=t('request')%>
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/members/1 \
-     --data-urlencode "age=32" \
-     --data-urlencode "tel=08012345678" \
-     --data-urlencode "name_ja=山田太郎" \
-     --data-urlencode "name_en=Tarou Yamada" \
-     --data-urlencode "relationship_ja=本人" \
-     --data-urlencode "relationship_en=Self" \
-     --data-urlencode "company_name_ja=WealthPark株式会社" \
-     --data-urlencode "company_name_en=WealthPark, Inc." \
-     --data-urlencode "company_address_ja=東京都渋谷区恵比寿1-20-18 三富ビル新館2階" \
-     --data-urlencode "company_address_en=2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo" \
-     --data-urlencode "remarks_ja=来月退去予定" \
-     --data-urlencode "remarks_en=Scheduled to leave next month" \
+     --data '
+     {
+       "age": 32,
+       "tel": "08012345678",
+       "name": {
+         "ja": "山田太郎",
+         "en": "Tarou Yamada"
+       },
+       "relationship": {
+         "ja": "本人",
+         "en": "Self"
+       },
+       "company_name": {
+         "ja": "WealthPark株式会社",
+         "en": "WealthPark, Inc."
+       },
+       "company_address": {
+         "ja": "東京都渋谷区恵比寿1-20-18 三富ビル新館2階",
+         "en": "2nd Floor, Mitomi Building Shinkan, 1-20-18 Ebisu, Shibuya-ku, Tokyo"
+       },
+       "remarks": {
+         "ja": "来月退去予定",
+         "en": "Scheduled to leave next month"
+       }
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/members/2 \
-     --data-urlencode "age=24" \
-     --data-urlencode "tel=08012345678" \
-     --data-urlencode "name_ja=山田花子" \
-     --data-urlencode "name_en=Hanako Yamada" \
-     --data-urlencode "relationship_ja=妻" \
-     --data-urlencode "relationship_en=Wife" \
+     --data '
+     {
+       "age": 24,
+       "tel": "08012345678",
+       "name": {
+         "ja": "山田花子",
+         "en": "Hanako Yamada"
+       },
+       "relationship": {
+         "ja": "妻",
+         "en": "Wife"
+       },
+       "company_name": null,
+       "company_address": null,
+       "remarks": null
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 

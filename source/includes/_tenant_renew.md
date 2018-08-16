@@ -32,36 +32,63 @@
 | bank_charge_fee | <%=t('.bank_charge_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
 | sub_leasing_fee | <%=t('.sub_leasing_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
 | others_fee | <%=t('.others_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| others_fee_name_xx | <%=t('.others_fee_name')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
+| others_fee_name | <%=t('.others_fee_name')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
 | others_fee_not_owner_income | <%=t('.others_fee_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| others_fee_name_not_owner_income_xx | <%=t('.others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
+| others_fee_name_not_owner_income | <%=t('.others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
 <% } %>
 
-> <%=t('request')%>
+> <%=t('request')%> (<%=t('for_japan_market')%>)
 
 ```shell
 curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/rental_contract/renews/2018-07-01 \
-     --data-urlencode "status=1" \
-     --data-urlencode "renewal_fee=85000" \
-     --data-urlencode "renewal_administration_fee=30000" \
-     --data-urlencode "renewal_commission_fee=5000" \
-     --data-urlencode "application_date=2018-06-25" \
-     --data-urlencode "renewed_period_expiry_date=2020-07-01" \
-     --data-urlencode "payment_date=2020-06-30" \
-     --data-urlencode "rent=85000" \
-     --data-urlencode "management_fee=3000" \
-     --data-urlencode "parking_fee=10000" \
-     --data-urlencode "hot_water_bill=3000" \
-     --data-urlencode "water_bill=2800" \
-     --data-urlencode "internet_fee=3500" \
-     --data-urlencode "bank_charge_fee=440" \
-     --data-urlencode "sub_leasing_fee=5000" \
-     --data-urlencode "others_fee=1000" \
-     --data-urlencode "others_fee_name_ja=バルコニー掃除" \
-     --data-urlencode "others_fee_name_en=Balcony cleaning" \
-     --data-urlencode "others_fee_not_owner_income=2000" \
-     --data-urlencode "others_fee_name_not_owner_income_ja=水道品質点検" \
-     --data-urlencode "others_fee_name_not_owner_income_en=Water quality inspection" \
+     --data '
+     {
+       "status": 1,
+       "renewal_fee": 85000,
+       "renewal_administration_fee": 30000,
+       "renewal_commission_fee": 5000,
+       "application_date": "2018-06-25",
+       "renewed_period_expiry_date": "2020-07-01",
+       "payment_date": "2020-06-30",
+       "rent": 85000,
+       "management_fee": 3000,
+       "parking_fee": 10000,
+       "hot_water_bill": 3000,
+       "water_bill": 2800,
+       "internet_fee": 3500,
+       "bank_charge_fee": 440,
+       "sub_leasing_fee": 5000,
+       "others_fee": 1000,
+       "others_fee_name": {
+         "ja": "バルコニー掃除",
+         "en": "Balcony cleaning"
+       },
+       "others_fee_not_owner_income": 2000,
+       "others_fee_name_not_owner_income": {
+         "ja": "水道品質点検",
+         "en": "Water quality inspection"
+       }
+     }
+     ' \
+     <%=HEADER_ACCESS_TOKEN%>
+```
+
+> <%=t('request')%> (<%=t('for_other_countries_market')%>)
+
+```shell
+curl -v -X POST <%=BASE_PATH%>/tenants/1/rooms/1/rental_contract/renews/2018-07-01 \
+     --data '
+     {
+       "status": 1,
+       "renewal_fee": 85000,
+       "renewal_administration_fee": 30000,
+       "renewal_commission_fee": 5000,
+       "application_date": "2018-06-25",
+       "renewed_period_expiry_date": "2020-07-01",
+       "payment_date": "2020-06-30",
+       "rent": 85000
+     }
+     ' \
      <%=HEADER_ACCESS_TOKEN%>
 ```
 
