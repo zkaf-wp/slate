@@ -51,10 +51,6 @@
 
 ## <%=t('.header')%>
 
-<%=t('cashflow_md.header')%>
-
-<%=t('cashflow_md.categories_and_categorygroups.header')%>
-
 <%
   pl_text = "[#{t('pl')}](##{get_header_link(t('cashflow_md.header'), t('cashflow_md.categories_and_categorygroups.header'))})"
   remittance_text = "[#{t('remittance')}](##{get_header_link(t('references'), t('remittance_type'))})"
