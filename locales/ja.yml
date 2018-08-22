@@ -37,6 +37,11 @@ ja:
   delete_all: （全部削除の場合）
   category_group: 収支グループ
   category: 収支カテゴリー
+  payer: 支払い元
+  payee: 支払い先
+  type: タイプ
+  pl: 収支
+  remittance: 送金
   introduction_md:
     header: はじめに
     desc: |
@@ -922,7 +927,7 @@ ja:
   cashflow_md:
     header: 収支
     categories_and_categorygroups:
-      header: 収支カテゴリー & 収支グループ
+      header: 収支カテゴリー、収支グループ
       request_data_format: リクエストデータ形式
       desc1: |
         収支カテゴリーと収支グループを一括で作成・更新するためのAPIです。
@@ -961,18 +966,36 @@ ja:
             id: 収支カテゴリーのID
             id_desc: 収支データを新規作成・更新する際に使います。
             name: 収支カテゴリーの項目名
+    payee_vendor:
+      upsert:
+        header: 支払い先 | 作成・更新
+        desc: 指定した支払い先の情報を作成・更新する。
+        fields:
+          payee_vendor_id: 支払い先ID
+          name: 支払い先の名前
+          category_ids: 連携カテゴリー
+          category_ids_desc: 「収支」の登録により「カテゴリー」と「支払い先」を指定する場合、指定したカテゴリーと連携する支払い先のみ指定可能です。
+      delete:
+        header: 支払い先 | 削除
+        desc: 指定した支払い先の情報を削除する。
     property_cashflow:
       upsert:
         header: 物件収支 | 作成・更新
         desc: 指定した物件の「物件収支」を作成・更新する。
         fields:
+          pl_id: 収支ID
           property_id: 対象物件
           category_id: 収支カテゴリー
           month: 対象月
           payment_date: 入金日
-          transaction_id: 取引ID
           amount: 金額
+          transaction_id: 取引ID
+          transaction_id_desc: 金融機関の取引IDなど
           remarks: 備考
+          published: 公開前・公開中
+          published_desc: |
+            false: 公開前（オーナーが見えない）
+            true: 公開中（オーナーが見える）
       delete:
         header: 物件収支 | 削除
         desc: 指定した物件の「物件収支」を削除する。
@@ -981,33 +1004,85 @@ ja:
         header: 部屋収支 | 作成・更新
         desc: 指定した部屋の「部屋収支」を作成・更新する。
         fields:
+          pl_id: 収支ID
           room_id: 対象部屋
           category_id: 収支カテゴリー
           month: 対象月
           payment_date: 入金日
-          transaction_id: 取引ID
           amount: 金額
+          transaction_id: 取引ID
+          transaction_id_desc: 金融機関の取引IDなど
           remarks: 備考
+          published: 公開前・公開中
+          published_desc: |
+            false: 公開前（オーナーが見えない）
+            true: 公開中（オーナーが見える）
       delete:
         header: 部屋収支 | 削除
         desc: 指定した部屋の「部屋収支」を削除する。
-    owner_remittances:
+  remittances_md:
+    header: 送金
+    general_remittance:
       upsert:
-        header: 送金 | 作成・更新
+        header: 一般的な送金 | 作成・更新
         desc: 指定したオーナーの「送金情報」を作成・更新する。
         fields:
+          remittance_id: 送金ID
           owner_id: 対象オーナー
           remittance_type_id: 送金タイプ
           month: 対象月
-          country_id: 対象国
+          country_id: 送金通貨の国
           transaction_id: 取引ID
+          transaction_id_desc: 金融機関の取引IDなど
           amount: 金額
           date: 送金日付
           date_desc: 空白の場合、月の1日にデフォルトにセットされます。
           remarks: 備考
+          published: 公開前・公開中
+          published_desc: |
+            false: 公開前（オーナーが見えない）
+            true: 公開中（オーナーが見える）
       delete:
-        header: 送金 | 削除
+        header: 一般的な送金 | 削除
         desc: 指定したオーナーの「送金情報」を削除する。
+    room_remittance:
+      upsert:
+        header: 部屋の送金 | 作成・更新
+        desc: 指定した部屋の「送金情報」を作成・更新する。
+        fields:
+          remittance_id: 送金ID
+          room_id: 対象部屋
+          remittance_type_id: 送金タイプ
+          month: 対象月
+          transaction_id: 取引ID
+          transaction_id_desc: 金融機関の取引IDなど
+          amount: 金額
+          date: 送金日付
+          date_desc: 空白の場合、月の1日にデフォルトにセットされます。
+          remarks: 備考
+          published: 公開前・公開中
+          published_desc: |
+            false: 公開前（オーナーが見えない）
+            true: 公開中（オーナーが見える）
+      delete:
+        header: 部屋の送金 | 削除
+        desc: 指定した部屋の「送金情報」を削除する。
+  payer_payee:
+    header: 支払い元・支払い先
+    pl_income: 収入
+    pl_expenditure: 支出
+    remittance_1: オーナーからの入金 (1)
+    remittance_2: 預かり金 (2)
+    remittance_30: テナント預り金 (敷金) - 受領 (30)
+    remittance_31: テナント預り金 (敷金) - 返金 (31)
+    remittance_4: オーナーへの送金 (4)
+    remittance_5: その他入金 (5)
+    remittance_6: その他出金 (6)
+    remittance_7: 必要預かり金 (7)
+    remittance_80: 前受賃料 - 受領 (80)
+    remittance_81: 前受賃料 - 収益振替 (81)
+    remittance_90: テナント預り金 (その他) - 受領 (90)
+    remittance_91: テナント預り金 (その他) - 返金 (91)
   country: 国
   countries:
     '1': 日本
@@ -1032,8 +1107,13 @@ ja:
   remittance_types:
     '1': オーナーからの入金
     '2': 預かり金
-    '3': 返却用敷金
+    '30': テナント預り金 (敷金) - 受領
+    '31': テナント預り金 (敷金) - 返金
     '4': オーナーへの送金
     '5': その他入金
     '6': その他出金
     '7': 必要預かり金
+    '80': 前受賃料 - 受領
+    '81': 前受賃料 - 収益振替
+    '90': テナント預り金 (その他) - 受領
+    '91': テナント預り金 (その他) - 返金

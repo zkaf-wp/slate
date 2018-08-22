@@ -46,3 +46,31 @@
     ].join("\n")
   }
 %>
+
+<% t_scope('payer_payee') { %>
+
+## <%=t('.header')%>
+
+<%=t('cashflow_md.header')%>
+
+<%=t('cashflow_md.categories_and_categorygroups.header')%>
+
+<%
+  pl_text = "[#{t('pl')}](##{get_header_link(t('cashflow_md.header'), t('cashflow_md.categories_and_categorygroups.header'))})"
+  remittance_text = "[#{t('remittance')}](##{get_header_link(t('references'), t('remittance_type'))})"
+  payee_vendor_text = "[#{t('payee')}](##{get_header_link(t('cashflow_md.header'), t('cashflow_md.payee_vendor.upsert.header'))})"
+%>
+
+| <%=t('pl')%> / <%=t('remittance')%> | <%=t('type')%> | <%=t('payee')%> | <%=t('payer')%> | <%=t('remarks')%> |
+|-------------------------------------|----------------|-----------------|-----------------|-------------------|
+| <%=pl_text%> | <%=t('.pl_income')%> | "owner" | "tenant/:tenant_id" | |
+| <%=pl_text%> | <%=t('.pl_expenditure')%> | "payee_vendor/:payee_vendor_id" | "owner" | <%=payee_vendor_text%> |
+| <%=remittance_text%> | <%=t('.remittance_4')%><br><%=t('.remittance_5')%> | "owner" | null | |
+| <%=remittance_text%> | <%=t('.remittance_1')%><br><%=t('.remittance_6')%> | null | "owner" | |
+| <%=remittance_text%> | <%=t('.remittance_30')%><br><%=t('.remittance_90')%> | "owner" | "tenant/:tenant_id" | |
+| <%=remittance_text%> | <%=t('.remittance_31')%><br><%=t('.remittance_91')%> | "tenant/:tenant_id" | "owner" | |
+| <%=remittance_text%> | <%=t('.remittance_80')%> | null | "tenant/:tenant_id" | |
+| <%=remittance_text%> | <%=t('.remittance_81')%> | "owner" | null | |
+| <%=remittance_text%> | <%=t('.remittance_2')%><br><%=t('.remittance_7')%> | null | null | |
+
+<% } %>

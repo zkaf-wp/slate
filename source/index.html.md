@@ -29,6 +29,7 @@ includes:
   - room_acquisition
   - room_am_contract
   - cashflow
+  - remittance
   - references
 
 search: true
