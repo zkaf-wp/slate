@@ -207,11 +207,11 @@ curl -v -X POST <%= BASE_PATH %>/pl/1/properties/1 \
        "month": "2018-06",
        "payment_date": "2018-05-25",
        "amount": 200000,
-       "transactions": "00012345",
+       "transaction_id": "00012345",
        "remarks": "５月分の賃料",
        "payee": "owner",
        "payer": "tenant/1",
-       "published": true,
+       "published": true
      }
      ' \
      <%= HEADER_ACCESS_TOKEN %>
@@ -266,11 +266,11 @@ curl -v -X POST <%= BASE_PATH %>/pl/1/rooms/1 \
        "month": "2018-06",
        "payment_date": "2018-05-25",
        "amount": 200000,
-       "transactions": "00012345",
+       "transaction_id": "00012345",
        "remarks": "５月分の賃料",
        "payee": "owner",
        "payer": "tenant/1",
-       "published": true,
+       "published": true
      }
      ' \
      <%= HEADER_ACCESS_TOKEN %>

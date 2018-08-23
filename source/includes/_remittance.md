@@ -42,7 +42,7 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/owners/1/ \
        "remarks": "５月分の賃料",
        "payee": "owner",
        "payer": "tenant/1",
-       "published": true,
+       "published": true
      }
      ' \
      <%= HEADER_ACCESS_TOKEN %>
@@ -101,7 +101,7 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/rooms/1/ \
        "remarks": "５月分の賃料",
        "payee": "owner",
        "payer": "tenant/1",
-       "published": true,
+       "published": true
      }
      ' \
      <%= HEADER_ACCESS_TOKEN %>
