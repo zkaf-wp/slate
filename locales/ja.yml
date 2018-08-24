@@ -1030,7 +1030,6 @@ ja:
           remittance_id: 送金ID
           owner_id: 対象オーナー
           remittance_type_id: 送金タイプ
-          month: 対象月
           country_id: 送金通貨の国
           transaction_id: 取引ID
           transaction_id_desc: 金融機関の取引IDなど
@@ -1053,7 +1052,6 @@ ja:
           remittance_id: 送金ID
           room_id: 対象部屋
           remittance_type_id: 送金タイプ
-          month: 対象月
           transaction_id: 取引ID
           transaction_id_desc: 金融機関の取引IDなど
           amount: 金額

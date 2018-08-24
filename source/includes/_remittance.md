@@ -18,7 +18,6 @@
 | remittance_id | <%=t('.remittance_id')%> | | YES | string |
 | owner_id | <%=t('.owner_id')%> | | YES | string |
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
-| month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%>  | YES | double |
 | date | <%=t('.date')%> | <%=t('format_yyyymmdd')%> | NO | string |
@@ -34,7 +33,6 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/owners/1 \
      --data '
      {
        "remittance_type_id": 30,
-       "month": "2018-06",
        "country_id": 1,
        "amount": 200000,
        "date": "2018-06-01",
@@ -79,7 +77,6 @@ curl -v -X DELETE <%= BASE_PATH %>/remittances/1/owners/1 \
 | remittance_id | <%=t('.remittance_id')%> | | YES | string |
 | room_id | <%=t('.room_id')%> | | YES | string |
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
-| month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%>  | YES | double |
 | date | <%=t('.date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
@@ -94,7 +91,6 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/rooms/1 \
      --data '
      {
        "remittance_type_id": 30,
-       "month": "2018-06",
        "amount": 200000,
        "date": "2018-06-01",
        "transaction_id": "00012345",
