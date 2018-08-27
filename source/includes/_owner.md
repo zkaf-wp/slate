@@ -53,7 +53,7 @@
 > <%=t('request')%> (<%=t('individual_field')%>)
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/owners/1
+curl -v -X POST <%=BASE_PATH%>/owners/1 \
      --data '
      {
        "corp_flag": 1,
@@ -134,7 +134,7 @@ curl -v -X POST <%=BASE_PATH%>/owners/1
 > <%=t('request')%> (<%=t('corporation_field')%>)
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/owners/1
+curl -v -X POST <%=BASE_PATH%>/owners/1 \
      --data '
      {
        "corp_flag": 0,
