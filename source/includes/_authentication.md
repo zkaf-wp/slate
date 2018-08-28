@@ -19,7 +19,7 @@
 ```shell
 curl -v -X POST <%= BASE_PATH %>/login \
      --data-urlencode "email=admin@wealth-park.com" \
-     --data-urlencode "password=Password123" \
+     --data-urlencode "password=Password123"
 ```
 
 ***<%=t('response')%>***

@@ -53,10 +53,8 @@
 curl -v -X POST <%=BASE_PATH%>/rooms/1 \
      --data '
      {
-       "property_id": "p1",
-       "owner_ids": [
-         "o1"
-       ],
+       "property_id": "1",
+       "owner_ids": [ "1" ],
        "room_number": "103",
        "room_classification": 0,
        "room_category": 4,

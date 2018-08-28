@@ -36,7 +36,7 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/owners/1 \
        "country_id": 1,
        "amount": 200000,
        "date": "2018-06-01",
-       "transaction_id: "00012345",
+       "transaction_id": "00012345",
        "remarks": "５月分の賃料",
        "payee": "owner",
        "payer": "tenant/1",

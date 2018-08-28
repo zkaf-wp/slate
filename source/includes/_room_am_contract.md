@@ -31,7 +31,7 @@
 > <%=t('request')%>
 
 ```shell
-curl -v -X POST <%=BASE_PATH%>/rooms/1/am_contracts/2018-06-26
+curl -v -X POST <%=BASE_PATH%>/rooms/1/am_contracts/2018-06-26 \
      --data '
      {
        "end_date": "2020-06-26",
