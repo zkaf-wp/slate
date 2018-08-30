@@ -16,7 +16,7 @@
 | property_id | <%=t('.property_id')%> | | YES | string |
 | owner_ids | <%=t('.owner_id')%> | <%=t('n_n_relationship')%> | NO | string[] |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
-| property_type | [<%=t('.property_type')%>](#<%=get_header_link(t('references'), t('.property_type'))%>) | | NO | integer |
+| property_type | <%=t('.property_type')%> | [<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_property_type'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_property_type'))%>) | NO | integer |
 | ownership_type | <%=t('.ownership_type')%> | <%=t('.ownership_type_desc')%> | YES | integer |
 | postal_code | <%=t('.postal_code')%> | | YES | string |
 | prefecture | <%=t('.prefecture')%> | <%=t('multilingual_support')%> | YES | string |
@@ -26,7 +26,7 @@
 | address | <%=t('.address')%> | <%=t('multilingual_support')%> | YES | string |
 | latitude | <%=t('.latitude')%> | | NO | double |
 | longitude | <%=t('.longitude')%> | | NO | double |
-| zonings | [<%=t('.zoning')%>](#<%=get_header_link(t('references'), t('.zoning'))%>) | <%=t('.zonings_desc')%>| NO | integer[] |
+| zonings | <%=t('.zoning')%> | <%=t('.zonings_desc')%><br>[<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_zoning'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_zoning'))%>) | NO | integer[] |
 | building_structure | [<%=t('.building_structure')%>](#<%=get_header_link(t('references'), t('.building_structure'))%>) | | NO | integer |
 | floors_above_ground | <%=t('.floors_above_ground')%> | <%=t('unit_floor')%> | NO | integer|
 | floors_under_ground | <%=t('.floors_under_ground')%> | <%=t('unit_floor')%> | NO | integer |

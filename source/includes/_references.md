@@ -9,9 +9,11 @@
 <%=
   t_scope('property_md.upsert.fields') {
     [
-      print_references('.property_type', '.property_types'),
+      print_references('.japan_property_type', '.japan_property_types'),
+      print_references('.none_japan_property_type', '.none_japan_property_types'),
       print_references('.building_structure', '.building_structures'),
-      print_references('.zoning', '.zonings'),
+      print_references('.japan_zoning', '.japan_zonings'),
+      print_references('.none_japan_zoning', '.none_japan_zonings'),
       print_references('.land_category', '.land_categories'),
       print_references('.area_classification', '.area_classifications'),
       print_references('.method_of_area_measurement', '.method_of_area_measurements'),

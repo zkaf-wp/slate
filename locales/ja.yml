@@ -519,6 +519,7 @@ ja:
           0: 保留中
           1: 契約中
           2: 期限切れ
+          3: キャンセル済み
         renewal_fee: 更新料
         renewal_administration_fee: 更新事務手数料
         renewal_commission_fee: 更新手数料
@@ -572,7 +573,8 @@ ja:
         owner_id: 物件のオーナー
         country_id: 所在国の国ID
         property_type: 物件種別
-        property_types:
+        japan_property_type: 物件種別（日本国内用）
+        japan_property_types:
           '0': マンション
           '1': アパート
           '2': ハイツ
@@ -592,8 +594,15 @@ ja:
           '16': その他土地
           '17': 月極駐車場
           '18': 専用駐車場
-          '19': 月極駐輪場
-          '20': 専用駐輪場
+          '27': その他
+        none_japan_property_type: 物件種別（日本以外の国外用）
+        none_japan_property_types:
+          '5': タウンハウス
+          '22': コンドミニアム
+          '23': シングルファミリーホーム
+          '24': コープ
+          '25': マルティファミリーホーム
+          '26': 土地
           '27': その他
         ownership_type: 所有種別
         ownership_type_desc: |
@@ -609,7 +618,8 @@ ja:
         longitude: 経度
         zoning: 用途地域
         zonings_desc: 最多数量13個まで
-        zonings:
+        japan_zoning: 用途地域（日本国内用）
+        japan_zonings:
           '0': 第一種低層住居専用地域
           '1': 第二種低層住居専用地域
           '2': 第一種中高層住居専用地域
@@ -622,6 +632,13 @@ ja:
           '9': 準工業地域
           '10': 工業地域
           '11': 工業専用地域
+          '12': 用途地域の指定なし
+        none_japan_zoning: 用途地域（日本以外の国外用）
+        none_japan_zonings:
+          '13': 住居地域
+          '8': 商業地域
+          '14': 工業地域
+          '15': 特定目的
           '12': 用途地域の指定なし
         building_structure: 建物構造
         building_structures:
