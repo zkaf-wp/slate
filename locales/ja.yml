@@ -802,7 +802,8 @@ ja:
           '3': 事業
           '4': 特優賃
         room_category_detail: 種別詳細
-        room_category_details:
+        japan_room_category_detail: 種別詳細（日本国内用）
+        japan_room_category_details:
           '0': マンション
           '1': アパート
           '2': ハイツ
@@ -822,8 +823,15 @@ ja:
           '16': その他土地
           '17': 月極駐車場
           '18': 専用駐車場
-          '19': 月極駐輪場
-          '20': 専用駐輪場
+          '27': その他
+        none_japan_room_category_detail: 種別詳細（日本以外の国外用）
+        none_japan_room_category_details:
+          '5': タウンハウス
+          '22': コンドミニアム
+          '23': シングルファミリーホーム
+          '24': コープ
+          '25': マルティファミリーホーム
+          '26': 土地
           '27': その他
         floors_located: 所在階
         bedroom_count: 寝室

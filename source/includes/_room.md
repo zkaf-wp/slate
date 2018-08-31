@@ -19,7 +19,7 @@
 | room_number | <%=t('.room_number')%> | | NO | string |
 | room_classification | <%=t('.room_classification')%> | <%=t('.room_classification_desc')%>  | NO | integer |
 | room_category | [<%=t('.room_category')%>](#<%=get_header_link(t('references'), t('.room_category'))%>) | | NO | integer |
-| room_category_detail | [<%=t('.room_category_detail')%>](#<%=get_header_link(t('references'), t('.room_category_detail'))%>) | | NO | integer |
+| room_category_detail | <%=t('.room_category_detail')%> | [<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_room_category_detail'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_room_category_detail'))%>) | NO | integer |
 | floors_located | <%=t('.floors_located')%> | | NO | integer |
 | bedroom_count | <%=t('.bedroom_count')%> | <%=t('.bedroom_count_desc')%> | NO | integer |
 | bathroom_count | <%=t('.bathroom_count')%> | <%=t('.bathroom_count_desc')%> | NO | integer |

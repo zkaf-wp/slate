@@ -29,7 +29,8 @@
   t_scope('room_md.upsert.fields') {
     [
       print_references('.room_category', '.room_categories'),
-      print_references('.room_category_detail', '.room_category_details'),
+      print_references('.japan_room_category_detail', '.japan_room_category_details'),
+      print_references('.none_japan_room_category_detail', '.none_japan_room_category_details'),
       print_references('.balcony_direction', '.balcony_directions'),
       print_references('.management_type', '.management_types'),
       print_references('.room_type', '.room_types'),
