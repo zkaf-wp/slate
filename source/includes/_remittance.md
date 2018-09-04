@@ -23,8 +23,10 @@
 | date | <%=t('.date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
 | remarks | <%=t('.remarks')%> | | NO | string |
-| payee | [<%=t('payee')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
-| payer | [<%=t('payer')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
+| payee_id | <%=t('payee_id')%> | | NO | string |
+| payee_name | <%=t('payee_name')%> | | NO | string |
+| payer_id | <%=t('payer_id')%> | | NO | string |
+| payer_name | <%=t('payer_name')%> | | NO | string |
 | published | <%=t('.published')%> | <%=t('.published_desc')%> | YES | bool |
 <% } %>
 
@@ -38,8 +40,10 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/owners/1 \
        "date": "2018-06-01",
        "transaction_id": "00012345",
        "remarks": "５月分の賃料",
-       "payee": "owner",
-       "payer": "tenant/1",
+       "payee_id": "o1",
+       "payee_name": "山田太郎",
+       "payer_id": "t1",
+       "payer_name": "佐藤太郎",
        "published": true
      }
      ' \
@@ -81,8 +85,10 @@ curl -v -X DELETE <%= BASE_PATH %>/remittances/1/owners/1 \
 | date | <%=t('.date')%> | <%=t('format_yyyymmdd')%> | NO | string |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
 | remarks | <%=t('.remarks')%> | | NO | string |
-| payee | [<%=t('payee')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
-| payer | [<%=t('payer')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
+| payee_id | <%=t('payee_id')%> | | NO | string |
+| payee_name | <%=t('payee_name')%> | | NO | string |
+| payer_id | <%=t('payer_id')%> | | NO | string |
+| payer_name | <%=t('payer_name')%> | | NO | string |
 | published | <%=t('.published')%> | <%=t('.published_desc')%> | YES | bool |
 <% } %>
 
@@ -95,8 +101,10 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/rooms/1 \
        "date": "2018-06-01",
        "transaction_id": "00012345",
        "remarks": "５月分の賃料",
-       "payee": "owner",
-       "payer": "tenant/1",
+       "payee_id": "o1",
+       "payee_name": "山田太郎",
+       "payer_id": "t1",
+       "payer_name": "佐藤太郎",
        "published": true
      }
      ' \

@@ -105,74 +105,6 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
 ```
 <% } %>
 
-<% t_scope('payee_vendor.upsert') { %>
-## <%=t('.header')%>
-
-<%=t('.desc')%>
-
-- URL: `/pl/payee_vendors/:payee_vendor_id`
-- <%=t('method')%>: `POST`
-
-***<%=t('request')%>***
-
-<% t_scope('.fields', use_html_br: true) { %>
-| <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
-|---------------------|----------------|-------------------|--------------------|---------------------|
-| payee_vendor_id | <%=t('.payee_vendor_id')%> | | YES | string |
-| name | <%=t('.name')%> | <%=t('multilingual_support')%> | YES | string |
-| category_ids | <%=t('.category_ids')%> | <%=t('.category_ids_desc')%> | YES | integer[] |
-<% } %>
-
-> <%=t('request')%>
-
-```shell
-curl -v -X POST <%=BASE_PATH%>/pl/payee_vendors/1 \
-     --data '
-     {
-       "name": {
-         "ja": "完璧銀行",
-         "en": "Perfect Bank"
-       },
-       "category_ids": [1,2]
-     }
-     ' \
-     <%=HEADER_ACCESS_TOKEN%>
-```
-
-> <%=t('response')%>
-
-```json
-{
-    "err": 0
-}
-```
-<% } %>
-
-<% t_scope('payee_vendor.delete') { %>
-
-## <%=t('.header')%>
-
-<%=t('.desc')%>
-
-- URL: `/pl/payee_vendors/:payee_vendor_id`
-- <%=t('method')%>: `DELETE`
-
-> <%=t('request')%>
-
-```shell
-curl -v -X DELETE <%=BASE_PATH%>/pl/payee_vendors/1 \
-     <%=HEADER_ACCESS_TOKEN%>
-```
-
-> <%=t('response')%>
-
-```json
-{
-    "err": 0
-}
-```
-<% } %>
-
 <% t_scope('property_cashflow.upsert') { %>
 ## <%=t('.header')%>
 
@@ -194,8 +126,10 @@ curl -v -X DELETE <%=BASE_PATH%>/pl/payee_vendors/1 \
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
 | remarks | <%=t('.remarks')%> | | NO | string |
-| payee | [<%=t('payee')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
-| payer | [<%=t('payer')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
+| payee_id | <%=t('payee_id')%> | | NO | string |
+| payee_name | <%=t('payee_name')%> | | NO | string |
+| payer_id | <%=t('payer_id')%> | | NO | string |
+| payer_name | <%=t('payer_name')%> | | NO | string |
 | published | <%=t('.published')%> | <%=t('.published_desc')%> | YES | bool |
 <% } %>
 
@@ -209,8 +143,10 @@ curl -v -X POST <%= BASE_PATH %>/pl/1/properties/1 \
        "amount": 200000,
        "transaction_id": "00012345",
        "remarks": "５月分の賃料",
-       "payee": "owner",
-       "payer": "tenant/1",
+       "payee_id": "o1",
+       "payee_name": "山田太郎",
+       "payer_id": "t1",
+       "payer_name": "佐藤太郎",
        "published": true
      }
      ' \
@@ -253,8 +189,10 @@ curl -v -X DELETE <%= BASE_PATH %>/pl/1/properties/1 \
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
 | remarks | <%=t('.remarks')%> | | NO | string |
-| payee | [<%=t('payee')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
-| payer | [<%=t('payer')%>](#<%=get_header_link(t('references'), t('payer_payee.header'))%>) | | NO | string |
+| payee_id | <%=t('payee_id')%> | | NO | string |
+| payee_name | <%=t('payee_name')%> | | NO | string |
+| payer_id | <%=t('payer_id')%> | | NO | string |
+| payer_name | <%=t('payer_name')%> | | NO | string |
 | published | <%=t('.published')%> | <%=t('.published_desc')%> | YES | bool |
 <% } %>
 
@@ -268,8 +206,10 @@ curl -v -X POST <%= BASE_PATH %>/pl/1/rooms/1 \
        "amount": 200000,
        "transaction_id": "00012345",
        "remarks": "５月分の賃料",
-       "payee": "owner",
-       "payer": "tenant/1",
+       "payee_id": "o1",
+       "payee_name": "山田太郎",
+       "payer_id": "t1",
+       "payer_name": "佐藤太郎",
        "published": true
      }
      ' \
