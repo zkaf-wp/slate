@@ -29,7 +29,7 @@
 
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| id | <%=t('.fields.id')%> | | YES | integer |
+| id | <%=t('.fields.id')%> | | YES | string |
 | type | <%=t('.fields.type')%> | <%=t('.fields.type_desc')%> | YES | integer |
 | name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
 <% } %>
@@ -40,7 +40,7 @@
 
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| id | <%=t('.fields.id')%> | <%=t('.fields.id_desc')%>　| YES | integer |
+| id | <%=t('.fields.id')%> | <%=t('.fields.id_desc')%>　| YES | string |
 | name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
 <% } %>
 
@@ -51,7 +51,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
      --data '
      [
        {
-         "id": 1,
+         "id": "1",
          "type": 1,
          "name": {
            "ja": "賃料",
@@ -59,14 +59,14 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
          },
          "categories": [
            {
-             "id": 1,
+             "id": "1",
              "name": {
                "ja": "賃料",
                "en": "Rent"
              }
            },
            {
-             "id": 2,
+             "id": "2",
              "name": {
                "ja": "管理費",
                "en": "Management fee"
@@ -75,7 +75,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
          ]
        },
        {
-         "id": 2,
+         "id": "2",
          "type": 0,
          "name": {
            "ja": "仲介費",
@@ -83,7 +83,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
          },
          "categories": [
            {
-             "id": 3,
+             "id": "3",
              "name": {
                "ja": "仲介費",
                "en": "Real Estate Agent fee"
@@ -120,9 +120,9 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | pl_id | <%=t('.pl_id')%> | | YES | string |
 | property_id | <%=t('.property_id')%> | | YES | string |
-| category_id | <%=t('.category_id')%> | | YES | integer |
+| category_id | <%=t('.category_id')%> | | YES | string |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
-| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
+| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
 | remarks | <%=t('.remarks')%> | | NO | string |
@@ -137,7 +137,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
 curl -v -X POST <%= BASE_PATH %>/pl/1/properties/1 \
      --data '
      {
-       "category_id": 2,
+       "category_id": "2",
        "month": "2018-06",
        "payment_date": "2018-05-25",
        "amount": 200000,
@@ -183,9 +183,9 @@ curl -v -X DELETE <%= BASE_PATH %>/pl/1/properties/1 \
 |---------------------|----------------|-------------------|--------------------|---------------------|
 | pl_id | <%=t('.pl_id')%> | | YES | string |
 | room_id | <%=t('.room_id')%> | | YES | string |
-| category_id | <%=t('.category_id')%> | | YES | integer |
+| category_id | <%=t('.category_id')%> | | YES | string |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
-| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
+| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
 | transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
 | remarks | <%=t('.remarks')%> | | NO | string |
@@ -200,7 +200,7 @@ curl -v -X DELETE <%= BASE_PATH %>/pl/1/properties/1 \
 curl -v -X POST <%= BASE_PATH %>/pl/1/rooms/1 \
      --data '
      {
-       "category_id": 2,
+       "category_id": "2",
        "month": "2018-06",
        "payment_date": "2018-05-25",
        "amount": 200000,
