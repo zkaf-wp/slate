@@ -110,7 +110,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
 
 <%=t('.desc')%>
 
-- URL: `/pl/:pl_id/properties/:property_id`
+- URL: `/pl/:gl_id/properties/:property_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -118,7 +118,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| pl_id | <%=t('.pl_id')%> | | YES | string |
+| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | YES | string |
 | property_id | <%=t('.property_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | string |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
@@ -159,7 +159,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/1/properties/1 \
 
 <%=t('.desc')%>
 
-- URL: `/pl/:pl_id/properties/:property_id`
+- URL: `/pl/:gl_id/properties/:property_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell
@@ -173,7 +173,7 @@ curl -v -X DELETE <%= BASE_PATH %>/pl/1/properties/1 \
 
 <%=t('.desc')%>
 
-- URL: `/pl/:pl_id/rooms/:room_id`
+- URL: `/pl/:gl_id/rooms/:room_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -181,7 +181,7 @@ curl -v -X DELETE <%= BASE_PATH %>/pl/1/properties/1 \
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| pl_id | <%=t('.pl_id')%> | | YES | string |
+| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | YES | string |
 | room_id | <%=t('.room_id')%> | | YES | string |
 | category_id | <%=t('.category_id')%> | | YES | string |
 | month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
@@ -222,7 +222,7 @@ curl -v -X POST <%= BASE_PATH %>/pl/1/rooms/1 \
 
 <%=t('.desc')%>
 
-- URL: `/pl/:pl_id/rooms/:room_id`
+- URL: `/pl/:gl_id/rooms/:room_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell

@@ -7,7 +7,7 @@
 
 <%=t('.desc')%>
 
-- URL: `/remittances/:remittance_id/owners/:owner_id`
+- URL: `/remittances/:gl_id/owners/:owner_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -15,7 +15,7 @@
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| remittance_id | <%=t('.remittance_id')%> | | YES | string |
+| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | YES | string |
 | owner_id | <%=t('.owner_id')%> | | YES | string |
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
 | country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
@@ -56,7 +56,7 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/owners/1 \
 
 <%=t('.desc')%>
 
-- URL: `/remittances/:remittance_id/owners/:owner_id`
+- URL: `/remittances/:gl_id/owners/:owner_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell
@@ -70,7 +70,7 @@ curl -v -X DELETE <%= BASE_PATH %>/remittances/1/owners/1 \
 
 <%=t('.desc')%>
 
-- URL: `/remittances/:remittance_id/rooms/:room_id`
+- URL: `/remittances/:gl_id/rooms/:room_id`
 - <%=t('method')%>: `POST`
 
 ***<%=t('request')%>***
@@ -78,7 +78,7 @@ curl -v -X DELETE <%= BASE_PATH %>/remittances/1/owners/1 \
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| remittance_id | <%=t('.remittance_id')%> | | YES | string |
+| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | YES | string |
 | room_id | <%=t('.room_id')%> | | YES | string |
 | remittance_type_id | [<%=t('.remittance_type_id')%>](#<%=get_header_link(t('references'), t('remittance_type'))%>) | | YES | integer |
 | amount | <%=t('.amount')%> | <%=t('unit_yen')%>  | YES | double |
@@ -117,7 +117,7 @@ curl -v -X POST <%= BASE_PATH %>/remittances/1/rooms/1 \
 
 <%=t('.desc')%>
 
-- URL: `/remittances/:remittance_id/rooms/:room_id`
+- URL: `/remittances/:gl_id/rooms/:room_id`
 - <%=t('method')%>: `DELETE`
 
 ```shell

@@ -998,7 +998,8 @@ ja:
         header: 物件収支 | 作成・更新
         desc: 指定した物件の「物件収支」を作成・更新する。
         fields:
-          pl_id: 収支ID
+          gl_id: 総勘定元帳ID
+          gl_id_desc: 収支及び送金の総勘定元帳IDとユニーク制約がかかる
           property_id: 対象物件
           category_id: 収支カテゴリー
           month: 対象月
@@ -1019,7 +1020,8 @@ ja:
         header: 部屋収支 | 作成・更新
         desc: 指定した部屋の「部屋収支」を作成・更新する。
         fields:
-          pl_id: 収支ID
+          gl_id: 総勘定元帳ID
+          gl_id_desc: 収支及び送金の総勘定元帳IDとユニーク制約がかかる
           room_id: 対象部屋
           category_id: 収支カテゴリー
           month: 対象月
@@ -1042,7 +1044,8 @@ ja:
         header: 一般的な送金 | 作成・更新
         desc: 指定したオーナーの「送金情報」を作成・更新する。
         fields:
-          remittance_id: 送金ID
+          gl_id: 総勘定元帳ID
+          gl_id_desc: 収支及び送金の総勘定元帳IDとユニーク制約がかかる
           owner_id: 対象オーナー
           remittance_type_id: 送金タイプ
           country_id: 送金通貨の国
@@ -1064,7 +1067,8 @@ ja:
         header: 部屋の送金 | 作成・更新
         desc: 指定した部屋の「送金情報」を作成・更新する。
         fields:
-          remittance_id: 送金ID
+          gl_id: 総勘定元帳ID
+          gl_id_desc: 収支及び送金の総勘定元帳IDとユニーク制約がかかる
           room_id: 対象部屋
           remittance_type_id: 送金タイプ
           transaction_id: 取引ID
