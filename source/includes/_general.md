@@ -49,9 +49,17 @@ curl <%= BASE_PATH %>/properties \
      <%= HEADER_ACCESS_TOKEN %>
 ```
 
-### <%=t('.required_parameters.header')%>
+<% t_scope('required_parameters') { %>
+### <%=t('.header')%>
 
-<%=t('.required_parameters.desc')%>
+| <%=t('.icon')%> | <%=t('.can_be_ignored_when_creating')%> | <%=t('.can_be_ignored_when_updating')%> | <%=t('.can_be_empty')%> |
+|-|-|-|-|
+| ○ | NO | NO | NO |
+| △ | NO | YES | NO |
+| × | YES | YES | YES |
+
+<%=t('.desc')%>
+<% } %>
 
 <% } %>
 

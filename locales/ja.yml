@@ -86,10 +86,15 @@ ja:
         desc: リクエストの認証を行うため、リクエストのヘッダーにアクセストークンを付け加えます。
       required_parameters:
         header: 必須なパラメータ
+        icon: アイコン
+        can_be_ignored_when_creating: 作成時に無視できる？
+        can_be_ignored_when_updating: 更新時に無視できる？
+        can_be_empty: 空白にできる？
         desc: |
-          - `○` いつも必須
-          - `△` 最初のリクエストの際に必須、その後必須ではない
-          - `×` 必須ではない
+          説明：
+
+          - `無視`： URLにもJSONにもパラメータを指定しません。更新時に無視されたパラメータはデータベースに該当の値を更新しません。
+          - `空白`： `null`, `""`, `{}`, `[]`など
     response:
       status_code: ステータスコード
       status_codes:
