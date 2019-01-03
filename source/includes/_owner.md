@@ -13,41 +13,41 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | | YES | string |
-| corp_flag   | <%=t('.corp_flag')%> | <%=t('.corp_flag_desc')%> | YES | integer |
-| nationality_country_id | [<%=t('.nationality_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
-| residence_country_id | [<%=t('.residence_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
-| last_name | <%=t('.last_name')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | YES | string |
-| first_name | <%=t('.first_name')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | YES | string |
-| last_name_furi | <%=t('.last_name_furi')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | NO | string |
-| first_name_furi | <%=t('.first_name_furi')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | NO | string |
-| name | <%=t('.name')%> | <%=t('corporation_field')%><br><%=t('multilingual_support')%> | NO | string |
-| name_furi | <%=t('.name_furi')%> |  <%=t('corporation_field')%><br><%=t('multilingual_support')%> | NO | string |
-| admin_name | <%=t('.admin_name')%> | <%=t('multilingual_support')%> | NO | string |
-| admin_tel | <%=t('.admin_tel')%> | | NO | string |
-| gender | <%=t('.gender')%> | <%=t('individual_field')%><br><%=t('.gender_desc')%> | NO | integer |
-| tel | <%=t('.tel')%> | | NO | string |
-| spare_phone_number | <%=t('.spare_phone_number')%> | | NO | string |
-| birth_date | <%=t('.birth_date')%> | <%=t('individual_field')%><br><%=t('format_yyyymmdd')%> | NO | string |
-| establishment_date | <%=t('.establishment_date')%> | <%=t('corporation_field')%><br><%=t('format_yyyymmdd')%> | NO | string |
-| social_security_number | <%=t('.social_security_number')%> | | NO | string |
-| taxpayer_number | <%=t('.taxpayer_number')%> | | NO | string |
-| postal_code | <%=t('.postal_code')%> | | NO | string
-| prefecture | <%=t('.prefecture')%> | <%=t('multilingual_support')%> | NO | string |
-| city | <%=t('.city')%> | <%=t('multilingual_support')%> | NO | string |
-| land_lot_no | <%=t('.land_lot_no')%> | | NO | string |
-| building_name | <%=t('.building_name')%> | <%=t('multilingual_support')%> | NO | string |
-| address | <%=t('.address')%> | <%=t('multilingual_support')%> | NO | string |
-| mailing_country | [<%=t('.mailing_country')%>](#<%=get_header_link(t('references'), t('country'))%>) | | NO | integer |
-| mailing_postal_code | <%=t('.mailing_postal_code')%> | | NO | string |
-| mailing_building_name | <%=t('.mailing_building_name')%> | <%=t('multilingual_support')%> | NO | string |
-| mailing_tel | <%=t('.mailing_tel')%> | | NO | string |
-| mailing_address | <%=t('.mailing_address')%> | <%=t('multilingual_support')%> | NO | string |
-| email | <%=t('.email')%> | | NO | string |
-| remittance_months | <%=t('.remittance_month')%> | 1 ~ 12 | NO | integer[] |
-| remittance_date | <%=t('.remittance_date')%> | 1 ~ 31 | NO | integer |
-| pay_at_month_end | <%=t('.pay_at_month_end')%> | true/false | NO | bool |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| owner_id | <%=t('.owner_id')%> | | ○ | string |
+| corp_flag   | <%=t('.corp_flag')%> | <%=t('.corp_flag_desc')%> | △ | integer |
+| nationality_country_id | [<%=t('.nationality_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | × | integer |
+| residence_country_id | [<%=t('.residence_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | × | integer |
+| last_name | <%=t('.last_name')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | × | string |
+| first_name | <%=t('.first_name')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | × | string |
+| last_name_furi | <%=t('.last_name_furi')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | × | string |
+| first_name_furi | <%=t('.first_name_furi')%> | <%=t('individual_field')%><br><%=t('multilingual_support')%> | × | string |
+| name | <%=t('.name')%> | <%=t('corporation_field')%><br><%=t('multilingual_support')%> | × | string |
+| name_furi | <%=t('.name_furi')%> |  <%=t('corporation_field')%><br><%=t('multilingual_support')%> | × | string |
+| admin_name | <%=t('.admin_name')%> | <%=t('multilingual_support')%> | × | string |
+| admin_tel | <%=t('.admin_tel')%> | | × | string |
+| gender | <%=t('.gender')%> | <%=t('individual_field')%><br><%=t('.gender_desc')%> | × | integer |
+| tel | <%=t('.tel')%> | | × | string |
+| spare_phone_number | <%=t('.spare_phone_number')%> | | × | string |
+| birth_date | <%=t('.birth_date')%> | <%=t('individual_field')%><br><%=t('format_yyyymmdd')%> | × | string |
+| establishment_date | <%=t('.establishment_date')%> | <%=t('corporation_field')%><br><%=t('format_yyyymmdd')%> | × | string |
+| social_security_number | <%=t('.social_security_number')%> | | × | string |
+| taxpayer_number | <%=t('.taxpayer_number')%> | | × | string |
+| postal_code | <%=t('.postal_code')%> | | × | string
+| prefecture | <%=t('.prefecture')%> | <%=t('multilingual_support')%> | × | string |
+| city | <%=t('.city')%> | <%=t('multilingual_support')%> | × | string |
+| land_lot_no | <%=t('.land_lot_no')%> | | × | string |
+| building_name | <%=t('.building_name')%> | <%=t('multilingual_support')%> | × | string |
+| address | <%=t('.address')%> | <%=t('multilingual_support')%> | × | string |
+| mailing_country | [<%=t('.mailing_country')%>](#<%=get_header_link(t('references'), t('country'))%>) | | × | integer |
+| mailing_postal_code | <%=t('.mailing_postal_code')%> | | × | string |
+| mailing_building_name | <%=t('.mailing_building_name')%> | <%=t('multilingual_support')%> | × | string |
+| mailing_tel | <%=t('.mailing_tel')%> | | × | string |
+| mailing_address | <%=t('.mailing_address')%> | <%=t('multilingual_support')%> | × | string |
+| email | <%=t('.email')%> | | × | string |
+| remittance_months | <%=t('.remittance_month')%> | 1 ~ 12 | × | integer[] |
+| remittance_date | <%=t('.remittance_date')%> | 1 ~ 31 | × | integer |
+| pay_at_month_end | <%=t('.pay_at_month_end')%> | true/false | × | bool |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%> (<%=t('individual_field')%>)

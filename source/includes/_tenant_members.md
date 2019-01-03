@@ -13,16 +13,16 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | YES | string |
-| room_id | <%=t('.room_id')%> | | YES | string |
-| index | <%=t('.index')%> | <%=t('.index_desc')%> | YES | integer |
-| age | <%=t('.age')%> | | NO | integer |
-| tel | <%=t('.tel')%> | | NO | string |
-| name | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
-| relationship | <%=t('.relationship')%> | <%=t('multilingual_support')%> | NO | string |
-| company_name | <%=t('.company_name')%> | <%=t('multilingual_support')%> | NO | string |
-| company_address | <%=t('.company_address')%> | <%=t('multilingual_support')%> | NO | string |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| tenant_id | <%=t('.tenant_id')%> | <%=t('.tenant_id_desc')%> | ○ | string |
+| room_id | <%=t('.room_id')%> | | ○ | string |
+| index | <%=t('.index')%> | <%=t('.index_desc')%> | ○ | integer |
+| age | <%=t('.age')%> | | × | integer |
+| tel | <%=t('.tel')%> | | × | string |
+| name | <%=t('.name')%> | <%=t('multilingual_support')%> | × | string |
+| relationship | <%=t('.relationship')%> | <%=t('multilingual_support')%> | × | string |
+| company_name | <%=t('.company_name')%> | <%=t('multilingual_support')%> | × | string |
+| company_address | <%=t('.company_address')%> | <%=t('multilingual_support')%> | × | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%>

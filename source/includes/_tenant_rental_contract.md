@@ -13,67 +13,67 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | string |
-| room_id | <%=t('.room_id')%> | | YES | string |
-| status | [<%=t('.status')%>](#<%=get_header_link(t('references'), t('.status'))%>) | | YES | integer |
-| rent | <%=t('.rent')%> | <%=t('unit_yen')%> | YES | double |
-| collection_administration_fee_enabled | <%=t('.collection_administration_fee_enabled')%> | <%=t('for_japan_market')%><br><%=t('.collection_administration_fee_enabled_desc')%> | NO | integer |
-| management_fee | <%=t('.management_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| parking_fee | <%=t('.parking_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| hot_water_bill | <%=t('.hot_water_bill')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| hot_water_fee_paid_by | <%=t('.hot_water_fee_paid_by')%> | <%=t('for_japan_market')%><br><%=t('.xxx_paid_by_desc')%> | NO | integer |
-| water_bill | <%=t('.water_bill')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| water_fee_paid_by | <%=t('.water_fee_paid_by')%> | <%=t('for_japan_market')%><br><%=t('.xxx_paid_by_desc')%> | NO | integer |
-| internet_fee | <%=t('.internet_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| internet_fee_paid_by | <%=t('.internet_fee_paid_by')%> | <%=t('for_japan_market')%><br><%=t('.xxx_paid_by_desc')%> | NO | integer |
-| bank_charge_fee | <%=t('.bank_charge_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| sub_leasing_fee | <%=t('.sub_leasing_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| others_fee | <%=t('.others_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| others_fee_name | <%=t('.others_fee_name')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
-| others_fee_not_owner_income | <%=t('.others_fee_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| others_fee_name_not_owner_income | <%=t('.others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
-| fees_paid_by_tenant | [<%=t('.fees_paid_by_tenant')%>](#<%=get_header_link(t('references'), t('.fee'))%>) | <%=t('for_other_countries_market')%> | NO | string[] |
-| fees_paid_by_owner | [<%=t('.fees_paid_by_owner')%>](#<%=get_header_link(t('references'), t('.fee'))%>) | <%=t('for_other_countries_market')%> | NO | string[] |
-| initial_fee_payment_date | <%=t('.initial_fee_payment_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | NO | string |
-| initial_proration_rent | <%=t('.initial_proration_rent')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| initial_proration_management_fee | <%=t('.initial_proration_management_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| initial_proration_parking_fee | <%=t('.initial_proration_parking_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| caution_money | <%=t('.caution_money')%> | <%=t('unit_yen')%> | NO | double |
-| caution_money_volume | <%=t('.caution_money_volume')%> | | NO | double |
-| caution_money_manager | <%=t('.caution_money_manager')%> | <%=t('.caution_money_manager_desc')%> | NO | integer |
-| caution_money_manager_other | <%=t('.caution_money_manager_other')%> | <%=t('multilingual_support')%><br><%=t('.caution_money_manager_other_desc')%> | NO | string |
-| key_money | <%=t('.key_money')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| key_money_volume | <%=t('.key_money_volume')%> | <%=t('for_japan_market')%> | NO | double |
-| agency_fee | <%=t('.agency_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| administration_service_fee | <%=t('.administration_service_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| guarantee_commission_fee | <%=t('.guarantee_commission_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| cleaning_charges | <%=t('.cleaning_charges')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| key_exchange_fee | <%=t('.key_exchange_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| initial_others_fee | <%=t('.initial_others_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| initial_others_fee_name | <%=t('.initial_others_fee_name')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
-| initial_others_fee_not_owner_income | <%=t('.initial_others_fee_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | NO | double |
-| initial_others_fee_name_not_owner_income | <%=t('.initial_others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | NO | string |
-| application_date | <%=t('.application_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| contract_date | <%=t('.contract_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| commencement_date | <%=t('.commencement_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| expiry_date | <%=t('.expiry_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| movein_planned_date | <%=t('.movein_planned_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| free_rent_start | <%=t('.free_rent_start')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| free_rent_end | <%=t('.free_rent_end')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| rent_payment_day | <%=t('.rent_payment_day')%> | 1 ~ 31 | YES | integer |
-| pay_at_month_end | <%=t('.pay_at_month_end')%> | <%=t('.pay_at_month_end_desc')%> | YES | bool |
-| payee_bank_name | <%=t('.payee_bank_name')%> | <%=t('multilingual_support')%> | NO | string |
-| account_number | <%=t('.account_number')%> | | NO | string |
-| branch_number | <%=t('.branch_number')%> | | NO | string |
-| account_name | <%=t('.account_name')%> | | NO | string |
-| escrow_bank_account | <%=t('.escrow_bank_account')%> | <%=t('for_other_countries_market')%> | NO | string |
-| escrow_bank_name | <%=t('.escrow_bank_name')%> | <%=t('for_other_countries_market')%><br><%=t('multilingual_support')%> | NO | string |
-| escrow_bank_address | <%=t('.escrow_bank_address')%> | <%=t('for_other_countries_market')%><br><%=t('multilingual_support')%> | NO | string |
-| insurance_company | <%=t('.insurance_company')%> | <%=t('multilingual_support')%> | NO | string |
-| insurance_policy_no | <%=t('.insurance_policy_no')%> | | NO | string |
-| fire_insurance | <%=t('.fire_insurance')%> | <%=t('unit_yen')%> | NO | double |
-| agent | <%=t('.agent')%> | <%=t('multilingual_support')%> | NO | string |
-| registered_broker_name | <%=t('.registered_broker_name')%> | <%=t('multilingual_support')%> | NO | string |
+| tenant_id | <%=t('.tenant_id')%> | | ○ | string |
+| room_id | <%=t('.room_id')%> | | ○ | string |
+| status | [<%=t('.status')%>](#<%=get_header_link(t('references'), t('.status'))%>) | | △ | integer |
+| rent | <%=t('.rent')%> | <%=t('unit_yen')%> | × | double |
+| collection_administration_fee_enabled | <%=t('.collection_administration_fee_enabled')%> | <%=t('for_japan_market')%><br><%=t('.collection_administration_fee_enabled_desc')%> | × | integer |
+| management_fee | <%=t('.management_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| parking_fee | <%=t('.parking_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| hot_water_bill | <%=t('.hot_water_bill')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| hot_water_fee_paid_by | <%=t('.hot_water_fee_paid_by')%> | <%=t('for_japan_market')%><br><%=t('.xxx_paid_by_desc')%> | × | integer |
+| water_bill | <%=t('.water_bill')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| water_fee_paid_by | <%=t('.water_fee_paid_by')%> | <%=t('for_japan_market')%><br><%=t('.xxx_paid_by_desc')%> | × | integer |
+| internet_fee | <%=t('.internet_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| internet_fee_paid_by | <%=t('.internet_fee_paid_by')%> | <%=t('for_japan_market')%><br><%=t('.xxx_paid_by_desc')%> | × | integer |
+| bank_charge_fee | <%=t('.bank_charge_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| sub_leasing_fee | <%=t('.sub_leasing_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| others_fee | <%=t('.others_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| others_fee_name | <%=t('.others_fee_name')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | × | string |
+| others_fee_not_owner_income | <%=t('.others_fee_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| others_fee_name_not_owner_income | <%=t('.others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | × | string |
+| fees_paid_by_tenant | [<%=t('.fees_paid_by_tenant')%>](#<%=get_header_link(t('references'), t('.fee'))%>) | <%=t('for_other_countries_market')%> | × | string[] |
+| fees_paid_by_owner | [<%=t('.fees_paid_by_owner')%>](#<%=get_header_link(t('references'), t('.fee'))%>) | <%=t('for_other_countries_market')%> | × | string[] |
+| initial_fee_payment_date | <%=t('.initial_fee_payment_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | × | string |
+| initial_proration_rent | <%=t('.initial_proration_rent')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| initial_proration_management_fee | <%=t('.initial_proration_management_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| initial_proration_parking_fee | <%=t('.initial_proration_parking_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| caution_money | <%=t('.caution_money')%> | <%=t('unit_yen')%> | × | double |
+| caution_money_volume | <%=t('.caution_money_volume')%> | | × | double |
+| caution_money_manager | <%=t('.caution_money_manager')%> | <%=t('.caution_money_manager_desc')%> | × | integer |
+| caution_money_manager_other | <%=t('.caution_money_manager_other')%> | <%=t('multilingual_support')%><br><%=t('.caution_money_manager_other_desc')%> | × | string |
+| key_money | <%=t('.key_money')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| key_money_volume | <%=t('.key_money_volume')%> | <%=t('for_japan_market')%> | × | double |
+| agency_fee | <%=t('.agency_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| administration_service_fee | <%=t('.administration_service_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| guarantee_commission_fee | <%=t('.guarantee_commission_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| cleaning_charges | <%=t('.cleaning_charges')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| key_exchange_fee | <%=t('.key_exchange_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| initial_others_fee | <%=t('.initial_others_fee')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| initial_others_fee_name | <%=t('.initial_others_fee_name')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | × | string |
+| initial_others_fee_not_owner_income | <%=t('.initial_others_fee_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('unit_yen')%> | × | double |
+| initial_others_fee_name_not_owner_income | <%=t('.initial_others_fee_name_not_owner_income')%> | <%=t('for_japan_market')%><br><%=t('multilingual_support')%> | × | string |
+| application_date | <%=t('.application_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| contract_date | <%=t('.contract_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| commencement_date | <%=t('.commencement_date')%> | <%=t('format_yyyymmdd')%> | △ | string |
+| expiry_date | <%=t('.expiry_date')%> | <%=t('format_yyyymmdd')%> | △ | string |
+| movein_planned_date | <%=t('.movein_planned_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| free_rent_start | <%=t('.free_rent_start')%> | <%=t('format_yyyymmdd')%> | × | string |
+| free_rent_end | <%=t('.free_rent_end')%> | <%=t('format_yyyymmdd')%> | × | string |
+| rent_payment_day | <%=t('.rent_payment_day')%> | 1 ~ 31 | × | integer |
+| pay_at_month_end | <%=t('.pay_at_month_end')%> | <%=t('.pay_at_month_end_desc')%> | × | bool |
+| payee_bank_name | <%=t('.payee_bank_name')%> | <%=t('multilingual_support')%> | × | string |
+| account_number | <%=t('.account_number')%> | | × | string |
+| branch_number | <%=t('.branch_number')%> | | × | string |
+| account_name | <%=t('.account_name')%> | | × | string |
+| escrow_bank_account | <%=t('.escrow_bank_account')%> | <%=t('for_other_countries_market')%> | × | string |
+| escrow_bank_name | <%=t('.escrow_bank_name')%> | <%=t('for_other_countries_market')%><br><%=t('multilingual_support')%> | × | string |
+| escrow_bank_address | <%=t('.escrow_bank_address')%> | <%=t('for_other_countries_market')%><br><%=t('multilingual_support')%> | × | string |
+| insurance_company | <%=t('.insurance_company')%> | <%=t('multilingual_support')%> | × | string |
+| insurance_policy_no | <%=t('.insurance_policy_no')%> | | × | string |
+| fire_insurance | <%=t('.fire_insurance')%> | <%=t('unit_yen')%> | × | double |
+| agent | <%=t('.agent')%> | <%=t('multilingual_support')%> | × | string |
+| registered_broker_name | <%=t('.registered_broker_name')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%> (<%=t('for_japan_market')%>)

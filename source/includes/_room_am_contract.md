@@ -13,19 +13,19 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| room_id | <%=t('.room_id')%> | | YES | string |
-| start_date | <%=t('.start_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| end_date | <%=t('.end_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| status | <%=t('.status')%> | <%=t('.status_desc')%> | YES | integer |
-| payment_type | [<%=t('.payment_type')%>](#<%=get_header_link(t('references'), t('.payment_type'))%>) | | NO | integer |
-| usage_type | <%=t('.usage_type')%> | <%=t('.usage_type_desc')%> | NO | integer |
-| billable_without_rental_payment | <%=t('.billable_without_rental_payment')%> |  <%=t('.billable_without_rental_payment_desc')%> | NO | bool |
-| minimum_fee_usage_self | <%=t('.minimum_fee_usage_self')%> | <%=t('.minimum_fee_usage_self_desc')%> | NO | double |
-| minimum_fee_usage_invest | <%=t('.minimum_fee_usage_invest')%> | <%=t('.minimum_fee_usage_invest_desc')%> | NO | double |
-| consumption_tax_rate | <%=t('.consumption_tax_rate')%> | <%=t('.consumption_tax_rate_desc')%> | NO | integer |
-| fee_rate | <%=t('.fee_rate')%> | <%=t('.fee_rate_desc')%> | NO | double |
-| fee | <%=t('.fee')%> | <%=t('.fee_desc')%> | NO | double |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| room_id | <%=t('.room_id')%> | | ○ | string |
+| start_date | <%=t('.start_date')%> | <%=t('format_yyyymmdd')%> | ○ | string |
+| end_date | <%=t('.end_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| status | <%=t('.status')%> | <%=t('.status_desc')%> | × | integer |
+| payment_type | [<%=t('.payment_type')%>](#<%=get_header_link(t('references'), t('.payment_type'))%>) | | × | integer |
+| usage_type | <%=t('.usage_type')%> | <%=t('.usage_type_desc')%> | × | integer |
+| billable_without_rental_payment | <%=t('.billable_without_rental_payment')%> |  <%=t('.billable_without_rental_payment_desc')%> | × | bool |
+| minimum_fee_usage_self | <%=t('.minimum_fee_usage_self')%> | <%=t('.minimum_fee_usage_self_desc')%> | × | double |
+| minimum_fee_usage_invest | <%=t('.minimum_fee_usage_invest')%> | <%=t('.minimum_fee_usage_invest_desc')%> | × | double |
+| consumption_tax_rate | <%=t('.consumption_tax_rate')%> | <%=t('.consumption_tax_rate_desc')%> | × | integer |
+| fee_rate | <%=t('.fee_rate')%> | <%=t('.fee_rate_desc')%> | × | double |
+| fee | <%=t('.fee')%> | <%=t('.fee_desc')%> | × | double |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%>

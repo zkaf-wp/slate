@@ -13,24 +13,24 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | string |
-| room_id | <%=t('.room_id')%> | | YES | string |
-| termination_notice_date | <%=t('.termination_notice_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| movingout_date | <%=t('.movingout_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| termination_date | <%=t('.termination_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | NO | string |
-| invoice_date | <%=t('.invoice_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | NO | string |
-| invoice_due | <%=t('.invoice_due')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | NO | string |
-| repair_fee_tenant | <%=t('.repair_fee_tenant')%> | <%=t('unit_yen')%> | NO | double |
-| proration_rent | <%=t('.proration_rent')%> | <%=t('unit_yen')%> | NO | double |
-| proration_management_fee | <%=t('.proration_management_fee')%> | <%=t('unit_yen')%> | NO | double |
-| proration_parking_fee | <%=t('.proration_parking_fee')%> | <%=t('unit_yen')%> | NO | double |
-| proration_hot_water_fee | <%=t('.proration_hot_water_fee')%> | <%=t('unit_yen')%> | NO | double |
-| proration_water_fee | <%=t('.proration_water_fee')%> | <%=t('unit_yen')%> | NO | double |
-| others_fee | <%=t('.others_fee')%> | <%=t('unit_yen')%> | NO | double |
-| others_fee_name | <%=t('.others_fee_name')%> | <%=t('multilingual_support')%> | NO | string |
-| others_fee_not_owner_income | <%=t('.others_fee_not_owner_income')%> | <%=t('unit_yen')%> | NO | double |
-| others_fee_name_not_owner_income | <%=t('.others_fee_name_not_owner_income')%> | <%=t('multilingual_support')%> | NO | string |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| tenant_id | <%=t('.tenant_id')%> | | ○ | string |
+| room_id | <%=t('.room_id')%> | | ○ | string |
+| termination_notice_date | <%=t('.termination_notice_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| movingout_date | <%=t('.movingout_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| termination_date | <%=t('.termination_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | × | string |
+| invoice_date | <%=t('.invoice_date')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | × | string |
+| invoice_due | <%=t('.invoice_due')%> | <%=t('for_japan_market')%><br><%=t('format_yyyymmdd')%> | × | string |
+| repair_fee_tenant | <%=t('.repair_fee_tenant')%> | <%=t('unit_yen')%> | × | double |
+| proration_rent | <%=t('.proration_rent')%> | <%=t('unit_yen')%> | × | double |
+| proration_management_fee | <%=t('.proration_management_fee')%> | <%=t('unit_yen')%> | × | double |
+| proration_parking_fee | <%=t('.proration_parking_fee')%> | <%=t('unit_yen')%> | × | double |
+| proration_hot_water_fee | <%=t('.proration_hot_water_fee')%> | <%=t('unit_yen')%> | × | double |
+| proration_water_fee | <%=t('.proration_water_fee')%> | <%=t('unit_yen')%> | × | double |
+| others_fee | <%=t('.others_fee')%> | <%=t('unit_yen')%> | × | double |
+| others_fee_name | <%=t('.others_fee_name')%> | <%=t('multilingual_support')%> | × | string |
+| others_fee_not_owner_income | <%=t('.others_fee_not_owner_income')%> | <%=t('unit_yen')%> | × | double |
+| others_fee_name_not_owner_income | <%=t('.others_fee_name_not_owner_income')%> | <%=t('multilingual_support')%> | × | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%> (<%=t('for_japan_market')%>)

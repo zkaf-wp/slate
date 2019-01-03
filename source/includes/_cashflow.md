@@ -29,9 +29,9 @@
 
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| id | <%=t('.fields.id')%> | | YES | string |
-| type | <%=t('.fields.type')%> | <%=t('.fields.type_desc')%> | YES | integer |
-| name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
+| id | <%=t('.fields.id')%> | | ○ | string |
+| type | <%=t('.fields.type')%> | <%=t('.fields.type_desc')%> | ○ | integer |
+| name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | ○ | string |
 <% } %>
 
 <% t_scope('.request.categories_s_parameters', use_html_br: true) { %>
@@ -40,8 +40,8 @@
 
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| id | <%=t('.fields.id')%> | <%=t('.fields.id_desc')%>　| YES | string |
-| name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | YES | string |
+| id | <%=t('.fields.id')%> | <%=t('.fields.id_desc')%>　| ○ | string |
+| name | <%=t('.fields.name')%> | <%=t('multilingual_support')%> | ○ | string |
 <% } %>
 
 > <%=t('request')%>
@@ -118,19 +118,19 @@ curl -v -X POST <%= BASE_PATH %>/pl/categories \
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | YES | string |
-| property_id | <%=t('.property_id')%> | | YES | string |
-| category_id | <%=t('.category_id')%> | | YES | string |
-| month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
-| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
-| transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
-| remarks | <%=t('.remarks')%> | | NO | string |
-| payee_id | <%=t('payee_id')%> | | NO | string |
-| payee_name | <%=t('payee_name')%> | | NO | string |
-| payer_id | <%=t('payer_id')%> | | NO | string |
-| payer_name | <%=t('payer_name')%> | | NO | string |
-| published | <%=t('.published')%> | <%=t('.published_desc')%> | YES | bool |
+| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | ○ | string |
+| property_id | <%=t('.property_id')%> | | ○ | string |
+| category_id | <%=t('.category_id')%> | | △ | string |
+| month | <%=t('.month')%> | <%=t('format_yyyymm')%> | × | string |
+| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| amount | <%=t('.amount')%> | <%=t('unit_yen')%> | △ | double |
+| transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | × | string |
+| remarks | <%=t('.remarks')%> | | × | string |
+| payee_id | <%=t('payee_id')%> | | × | string |
+| payee_name | <%=t('payee_name')%> | | × | string |
+| payer_id | <%=t('payer_id')%> | | × | string |
+| payer_name | <%=t('payer_name')%> | | × | string |
+| published | <%=t('.published')%> | <%=t('.published_desc')%> | ○ | bool |
 <% } %>
 
 ```shell
@@ -181,19 +181,19 @@ curl -v -X DELETE <%= BASE_PATH %>/pl/1/properties/1 \
 <% t_scope('.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | YES | string |
-| room_id | <%=t('.room_id')%> | | YES | string |
-| category_id | <%=t('.category_id')%> | | YES | string |
-| month | <%=t('.month')%> | <%=t('format_yyyymm')%> | YES | string |
-| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | YES | string |
-| amount | <%=t('.amount')%> | <%=t('unit_yen')%> | YES | double |
-| transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | NO | string |
-| remarks | <%=t('.remarks')%> | | NO | string |
-| payee_id | <%=t('payee_id')%> | | NO | string |
-| payee_name | <%=t('payee_name')%> | | NO | string |
-| payer_id | <%=t('payer_id')%> | | NO | string |
-| payer_name | <%=t('payer_name')%> | | NO | string |
-| published | <%=t('.published')%> | <%=t('.published_desc')%> | YES | bool |
+| gl_id | <%=t('.gl_id')%> | <%=t('.gl_id_desc')%> | ○ | string |
+| room_id | <%=t('.room_id')%> | | ○ | string |
+| category_id | <%=t('.category_id')%> | | △ | string |
+| month | <%=t('.month')%> | <%=t('format_yyyymm')%> | × | string |
+| payment_date | <%=t('.payment_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| amount | <%=t('.amount')%> | <%=t('unit_yen')%> | △ | double |
+| transaction_id | <%=t('.transaction_id')%> | <%=t('.transaction_id_desc')%> | × | string |
+| remarks | <%=t('.remarks')%> | | × | string |
+| payee_id | <%=t('payee_id')%> | | × | string |
+| payee_name | <%=t('payee_name')%> | | × | string |
+| payer_id | <%=t('payer_id')%> | | × | string |
+| payer_name | <%=t('payer_name')%> | | × | string |
+| published | <%=t('.published')%> | <%=t('.published_desc')%> | ○ | bool |
 <% } %>
 
 ```shell

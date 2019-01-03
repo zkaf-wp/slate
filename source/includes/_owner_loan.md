@@ -13,20 +13,20 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | YES | string |
-| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | YES | string |
-| execution_date | <%=t('.execution_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| full_repayment_date | <%=t('.full_repayment_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| amount | <%=t('.amount')%> | <%=t('unit_yen')%> | NO | double |
-| principal_outstanding | <%=t('.principal_outstanding')%> | <%=t('unit_yen')%> | NO | double |
-| interest | <%=t('.interest')%> | <%=t('unit_percentage')%> | NO | double |
-| financial_institution | <%=t('.financial_institution')%> | <%=t('multilingual_support')%> | NO | string |
-| guarantor_type | <%=t('.guarantor_type')%> | <%=t('.guarantor_type_desc')%> | NO | integer |
-| guarantor | <%=t('.guarantor')%> | <%=t('multilingual_support')%> | NO | string |
-| mortgage_status | <%=t('.mortgage_status')%> | <%=t('.mortgage_status_desc')%> | NO | integer |
-| mortgagee | <%=t('.mortgagee')%> | <%=t('multilingual_support')%> | NO | string |
-| mortgagor | <%=t('.mortgagor')%> | <%=t('multilingual_support')%> | NO | string |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| owner_id | <%=t('.owner_id')%> | <%=t('one_n_relationship')%> | ○ | string |
+| property_id | <%=t('.property_id')%> | <%=t('one_n_relationship')%> | ○ | string |
+| execution_date | <%=t('.execution_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| full_repayment_date | <%=t('.full_repayment_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| amount | <%=t('.amount')%> | <%=t('unit_yen')%> | × | double |
+| principal_outstanding | <%=t('.principal_outstanding')%> | <%=t('unit_yen')%> | × | double |
+| interest | <%=t('.interest')%> | <%=t('unit_percentage')%> | × | double |
+| financial_institution | <%=t('.financial_institution')%> | <%=t('multilingual_support')%> | × | string |
+| guarantor_type | <%=t('.guarantor_type')%> | <%=t('.guarantor_type_desc')%> | × | integer |
+| guarantor | <%=t('.guarantor')%> | <%=t('multilingual_support')%> | × | string |
+| mortgage_status | <%=t('.mortgage_status')%> | <%=t('.mortgage_status_desc')%> | × | integer |
+| mortgagee | <%=t('.mortgagee')%> | <%=t('multilingual_support')%> | × | string |
+| mortgagor | <%=t('.mortgagor')%> | <%=t('multilingual_support')%> | × | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%>

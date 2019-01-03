@@ -13,27 +13,27 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | string |
-| name | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
-| name_furi | <%=t('.name_furi')%> | <%=t('multilingual_support')%> | NO | string |
-| type | <%=t('.type')%> | <%=t('.type_desc')%> | NO | integer |
-| relationship | <%=t('.relationship')%> | <%=t('multilingual_support')%> | NO | string |
-| birth_date | <%=t('.birth_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| gender | <%=t('.gender')%> | <%=t('.gender_desc')%> | NO | integer |
-| tel | <%=t('.tel')%> | | NO | string |
-| email | <%=t('.email')%> | | NO | string |
-| postal_code | <%=t('.postal_code')%> | | NO | string |
-| address | <%=t('.address')%> | <%=t('multilingual_support')%> | NO | string |
-| work | <%=t('.work')%> | <%=t('multilingual_support')%> | NO | string |
-| work_postal_code | <%=t('.work_postal_code')%> | | NO | string |
-| work_address | <%=t('.work_address')%> | <%=t('multilingual_support')%> | NO | string |
-| work_tel | <%=t('.work_tel')%> | | NO | string |
-| business | <%=t('.business')%> | <%=t('multilingual_support')%> | NO | string |
-| unit | <%=t('.unit')%> | <%=t('multilingual_support')%> | NO | string |
-| position | <%=t('.position')%> | <%=t('multilingual_support')%> | NO | string |
-| income | <%=t('.income')%> | <%=t('unit_yen')%> | NO | double |
-| capital | <%=t('.capital')%> | <%=t('unit_yen')%> | NO | double |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| tenant_id | <%=t('.tenant_id')%> | | ○ | string |
+| name | <%=t('.name')%> | <%=t('multilingual_support')%> | × | string |
+| name_furi | <%=t('.name_furi')%> | <%=t('multilingual_support')%> | × | string |
+| type | <%=t('.type')%> | <%=t('.type_desc')%> | × | integer |
+| relationship | <%=t('.relationship')%> | <%=t('multilingual_support')%> | × | string |
+| birth_date | <%=t('.birth_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| gender | <%=t('.gender')%> | <%=t('.gender_desc')%> | × | integer |
+| tel | <%=t('.tel')%> | | × | string |
+| email | <%=t('.email')%> | | × | string |
+| postal_code | <%=t('.postal_code')%> | | × | string |
+| address | <%=t('.address')%> | <%=t('multilingual_support')%> | × | string |
+| work | <%=t('.work')%> | <%=t('multilingual_support')%> | × | string |
+| work_postal_code | <%=t('.work_postal_code')%> | | × | string |
+| work_address | <%=t('.work_address')%> | <%=t('multilingual_support')%> | × | string |
+| work_tel | <%=t('.work_tel')%> | | × | string |
+| business | <%=t('.business')%> | <%=t('multilingual_support')%> | × | string |
+| unit | <%=t('.unit')%> | <%=t('multilingual_support')%> | × | string |
+| position | <%=t('.position')%> | <%=t('multilingual_support')%> | × | string |
+| income | <%=t('.income')%> | <%=t('unit_yen')%> | × | double |
+| capital | <%=t('.capital')%> | <%=t('unit_yen')%> | × | double |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%>

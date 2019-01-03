@@ -13,49 +13,49 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| property_id | <%=t('.property_id')%> | | YES | string |
-| owner_ids | <%=t('.owner_id')%> | <%=t('n_n_relationship')%> | NO | string[] |
-| country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | YES | integer |
-| property_type | <%=t('.property_type')%> | [<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_property_type'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_property_type'))%>) | NO | integer |
-| ownership_type | <%=t('.ownership_type')%> | <%=t('.ownership_type_desc')%> | YES | integer |
-| postal_code | <%=t('.postal_code')%> | | YES | string |
-| prefecture | <%=t('.prefecture')%> | <%=t('multilingual_support')%> | YES | string |
-| city | <%=t('.city')%> | <%=t('multilingual_support')%> | YES | string |
-| house_number | <%=t('.house_number')%> | | YES | string |
-| property_name | <%=t('.property_name')%> | <%=t('multilingual_support')%> | YES | string |
-| address | <%=t('.address')%> | <%=t('multilingual_support')%> | YES | string |
-| latitude | <%=t('.latitude')%> | | NO | double |
-| longitude | <%=t('.longitude')%> | | NO | double |
-| zonings | <%=t('.zoning')%> | <%=t('.zonings_desc')%><br>[<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_zoning'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_zoning'))%>) | NO | integer[] |
-| building_structure | [<%=t('.building_structure')%>](#<%=get_header_link(t('references'), t('.building_structure'))%>) | | NO | integer |
-| floors_above_ground | <%=t('.floors_above_ground')%> | <%=t('unit_floor')%> | NO | integer|
-| floors_under_ground | <%=t('.floors_under_ground')%> | <%=t('unit_floor')%> | NO | integer |
-| completion_date | <%=t('.completion_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| land_area_per_measurement | <%=t('.land_area_per_measurement')%> | <%=t('unit_m2')%> | NO | double |
-| land_area_per_register | <%=t('.land_area_per_register')%> | <%=t('unit_m2')%> | NO | double |
-| land_category | [<%=t('.land_category')%>](#<%=get_header_link(t('references'), t('.land_category'))%>) | | NO | integer |
-| area_classification | [<%=t('.area_classification')%>](#<%=get_header_link(t('references'), t('.area_classification'))%>) | | NO | integer |
-| newly_built | <%=t('.newly_built')%> | <%=t('.newly_built_desc')%> | NO | bool |
-| rebuilt_dates | <%=t('.rebuilt_date')%> | <%=t('format_yyyymmdd')%><br><%=t('.rebuilt_date_desc')%> | NO | string[] |
-| rebuilt_contents | <%=t('.rebuilt_content')%> | <%=t('multilingual_support')%><br><%=t('.rebuilt_content_desc')%> | NO | string[] |
-| total_units | <%=t('.total_units')%> | <%=t('.total_units_desc')%> | NO | integer |
-| number_of_consecutive_buildings | <%=t('.number_of_consecutive_buildings')%> | <%=t('.number_of_consecutive_buildings_desc')%>| NO | integer |
-| method_of_area_measurement | [<%=t('.method_of_area_measurement')%>](#<%=get_header_link(t('references'), t('.method_of_area_measurement'))%>) | | NO | integer |
-| building_area_per_measurement | <%=t('.building_area_per_measurement')%> | <%=t('unit_m2')%> | NO | double |
-| building_area_per_register | <%=t('.building_area_per_register')%> | <%=t('unit_m2')%> | NO | double |
-| building_coverage | <%=t('.building_coverage')%> | <%=t('.building_coverage_desc')%> | NO | double |
-| floor_area_ratio | <%=t('.floor_area_ratio')%> | <%=t('.floor_area_ratio_desc')%> | NO | double |
-| certificate_of_completion | [<%=t('.certificate_of_completion')%>](#<%=get_header_link(t('references'), t('.certificate_of_completion'))%>) | | NO | integer |
-| managed_by_corp | <%=t('.managed_by_corp')%> | <%=t('multilingual_support')%> | NO | string |
-| management_type | [<%=t('.management_type')%>](#<%=get_header_link(t('references'), t('.management_type'))%>) | | NO | integer |
-| managed_by_people | <%=t('.managed_by_people')%> | <%=t('multilingual_support')%> | NO | string |
-| management_fee | <%=t('.management_fee')%> | <%=t('.management_fee_desc')%> | NO | double |
-| fire_protection_specified | [<%=t('.fire_protection_specified')%>](#<%=get_header_link(t('references'), t('.fire_protection_specified'))%>) | | NO | integer |
-| land_right | [<%=t('.land_right')%>](#<%=get_header_link(t('references'), t('.land_right'))%>) | | NO | integer |
-| land_rent | <%=t('.land_rent')%> | <%=t('.land_rent_desc')%> | NO | double |
-| land_rent_start_date | <%=t('.land_rent_start_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| land_rent_end_date | <%=t('.land_rent_end_date')%> | <%=t('format_yyyymmdd')%> | NO | string |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| property_id | <%=t('.property_id')%> | | ○ | string |
+| owner_ids | <%=t('.owner_id')%> | <%=t('n_n_relationship')%> | × | string[] |
+| country_id | [<%=t('.country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | △ | integer |
+| property_type | <%=t('.property_type')%> | [<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_property_type'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_property_type'))%>) | × | integer |
+| ownership_type | <%=t('.ownership_type')%> | <%=t('.ownership_type_desc')%> | × | integer |
+| postal_code | <%=t('.postal_code')%> | | × | string |
+| prefecture | <%=t('.prefecture')%> | <%=t('multilingual_support')%> | × | string |
+| city | <%=t('.city')%> | <%=t('multilingual_support')%> | × | string |
+| house_number | <%=t('.house_number')%> | | × | string |
+| property_name | <%=t('.property_name')%> | <%=t('multilingual_support')%> | × | string |
+| address | <%=t('.address')%> | <%=t('multilingual_support')%> | × | string |
+| latitude | <%=t('.latitude')%> | | × | double |
+| longitude | <%=t('.longitude')%> | | × | double |
+| zonings | <%=t('.zoning')%> | <%=t('.zonings_desc')%><br>[<%=t('for_japan_market')%>](#<%=get_header_link(t('references'), t('.japan_zoning'))%>)<br>[<%=t('for_other_countries_market')%>](#<%=get_header_link(t('references'), t('.none_japan_zoning'))%>) | × | integer[] |
+| building_structure | [<%=t('.building_structure')%>](#<%=get_header_link(t('references'), t('.building_structure'))%>) | | × | integer |
+| floors_above_ground | <%=t('.floors_above_ground')%> | <%=t('unit_floor')%> | × | integer|
+| floors_under_ground | <%=t('.floors_under_ground')%> | <%=t('unit_floor')%> | × | integer |
+| completion_date | <%=t('.completion_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| land_area_per_measurement | <%=t('.land_area_per_measurement')%> | <%=t('unit_m2')%> | × | double |
+| land_area_per_register | <%=t('.land_area_per_register')%> | <%=t('unit_m2')%> | × | double |
+| land_category | [<%=t('.land_category')%>](#<%=get_header_link(t('references'), t('.land_category'))%>) | | × | integer |
+| area_classification | [<%=t('.area_classification')%>](#<%=get_header_link(t('references'), t('.area_classification'))%>) | | × | integer |
+| newly_built | <%=t('.newly_built')%> | <%=t('.newly_built_desc')%> | × | bool |
+| rebuilt_dates | <%=t('.rebuilt_date')%> | <%=t('format_yyyymmdd')%><br><%=t('.rebuilt_date_desc')%> | × | string[] |
+| rebuilt_contents | <%=t('.rebuilt_content')%> | <%=t('multilingual_support')%><br><%=t('.rebuilt_content_desc')%> | × | string[] |
+| total_units | <%=t('.total_units')%> | <%=t('.total_units_desc')%> | × | integer |
+| number_of_consecutive_buildings | <%=t('.number_of_consecutive_buildings')%> | <%=t('.number_of_consecutive_buildings_desc')%>| × | integer |
+| method_of_area_measurement | [<%=t('.method_of_area_measurement')%>](#<%=get_header_link(t('references'), t('.method_of_area_measurement'))%>) | | × | integer |
+| building_area_per_measurement | <%=t('.building_area_per_measurement')%> | <%=t('unit_m2')%> | × | double |
+| building_area_per_register | <%=t('.building_area_per_register')%> | <%=t('unit_m2')%> | × | double |
+| building_coverage | <%=t('.building_coverage')%> | <%=t('.building_coverage_desc')%> | × | double |
+| floor_area_ratio | <%=t('.floor_area_ratio')%> | <%=t('.floor_area_ratio_desc')%> | × | double |
+| certificate_of_completion | [<%=t('.certificate_of_completion')%>](#<%=get_header_link(t('references'), t('.certificate_of_completion'))%>) | | × | integer |
+| managed_by_corp | <%=t('.managed_by_corp')%> | <%=t('multilingual_support')%> | × | string |
+| management_type | [<%=t('.management_type')%>](#<%=get_header_link(t('references'), t('.management_type'))%>) | | × | integer |
+| managed_by_people | <%=t('.managed_by_people')%> | <%=t('multilingual_support')%> | × | string |
+| management_fee | <%=t('.management_fee')%> | <%=t('.management_fee_desc')%> | × | double |
+| fire_protection_specified | [<%=t('.fire_protection_specified')%>](#<%=get_header_link(t('references'), t('.fire_protection_specified'))%>) | | × | integer |
+| land_right | [<%=t('.land_right')%>](#<%=get_header_link(t('references'), t('.land_right'))%>) | | × | integer |
+| land_rent | <%=t('.land_rent')%> | <%=t('.land_rent_desc')%> | × | double |
+| land_rent_start_date | <%=t('.land_rent_start_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| land_rent_end_date | <%=t('.land_rent_end_date')%> | <%=t('format_yyyymmdd')%> | × | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 <%=t('.upsert.desc')%>

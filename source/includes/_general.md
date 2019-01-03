@@ -49,6 +49,10 @@ curl <%= BASE_PATH %>/properties \
      <%= HEADER_ACCESS_TOKEN %>
 ```
 
+### <%=t('.required_parameters.header')%>
+
+<%=t('.required_parameters.desc')%>
+
 <% } %>
 
 <% t_scope('response') { %>

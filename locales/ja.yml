@@ -84,6 +84,12 @@ ja:
       access_token:
         header: アクセストークン
         desc: リクエストの認証を行うため、リクエストのヘッダーにアクセストークンを付け加えます。
+      required_parameters:
+        header: 必須なパラメータ
+        desc: |
+          - `○` いつも必須
+          - `△` 最初のリクエストの際に必須、その後必須ではない
+          - `×` 必須ではない
     response:
       status_code: ステータスコード
       status_codes:

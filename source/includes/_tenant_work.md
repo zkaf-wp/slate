@@ -13,19 +13,19 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| tenant_id | <%=t('.tenant_id')%> | | YES | string |
-| post_code | <%=t('.post_code')%> | | NO | string |
-| tel | <%=t('.tel')%> | | NO | string |
-| annual_income | <%=t('.annual_income')%> | <%=t('unit_yen')%> | NO | double |
-| company_capital | <%=t('.company_capital')%> | <%=t('unit_yen')%> | NO | double |
-| staff_size | <%=t('.staff_size')%> | | NO | integer |
-| annual_turnover | <%=t('.annual_turnover')%> | <%=t('unit_yen')%> | NO | double |
-| name | <%=t('.name')%> | <%=t('multilingual_support')%> | NO | string |
-| address | <%=t('.address')%> | <%=t('multilingual_support')%> | NO | string |
-| industry | <%=t('.industry')%> | <%=t('multilingual_support')%> | NO | string |
-| department | <%=t('.department')%> | <%=t('multilingual_support')%> | NO | string |
-| position | <%=t('.position')%> | <%=t('multilingual_support')%> | NO | string |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| tenant_id | <%=t('.tenant_id')%> | | ○ | string |
+| post_code | <%=t('.post_code')%> | | × | string |
+| tel | <%=t('.tel')%> | | × | string |
+| annual_income | <%=t('.annual_income')%> | <%=t('unit_yen')%> | × | double |
+| company_capital | <%=t('.company_capital')%> | <%=t('unit_yen')%> | × | double |
+| staff_size | <%=t('.staff_size')%> | | × | integer |
+| annual_turnover | <%=t('.annual_turnover')%> | <%=t('unit_yen')%> | × | double |
+| name | <%=t('.name')%> | <%=t('multilingual_support')%> | × | string |
+| address | <%=t('.address')%> | <%=t('multilingual_support')%> | × | string |
+| industry | <%=t('.industry')%> | <%=t('multilingual_support')%> | × | string |
+| department | <%=t('.department')%> | <%=t('multilingual_support')%> | × | string |
+| position | <%=t('.position')%> | <%=t('multilingual_support')%> | × | string |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%>

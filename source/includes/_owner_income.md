@@ -13,19 +13,19 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | YES | string |
-| general_business_income | <%=t('.general_business_income')%> | <%=t('unit_yen')%> | NO |double |
-| business_agriculture_income | <%=t('.business_agriculture_income')%> | <%=t('unit_yen')%> | NO |double |
-| off_system_realestate_income | <%=t('.off_system_realestate_income')%> | <%=t('unit_yen')%> | NO |double |
-| interest_income | <%=t('.interest_income')%> | <%=t('unit_yen')%> | NO |double |
-| dividend | <%=t('.dividend')%> | <%=t('unit_yen')%> | NO |double |
-| salary | <%=t('.salary')%> | <%=t('unit_yen')%> | NO |double |
-| national_pension_etc | <%=t('.national_pension_etc')%> | <%=t('unit_yen')%> | NO |double |
-| others | <%=t('.others')%> | <%=t('unit_yen')%> | NO |double |
-| income_from_transfer_short_term | <%=t('.income_from_transfer_short_term')%> | <%=t('unit_yen')%> | NO |double |
-| income_from_transfer_long_term | <%=t('.income_from_transfer_long_term')%> | <%=t('unit_yen')%> | NO |double |
-| one_off_income | <%=t('.one_off_income')%> | <%=t('unit_yen')%> | NO |double |
-| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | NO | string |
+| owner_id | <%=t('.owner_id')%> | <%=t('one_one_relationship')%> | ○ | string |
+| general_business_income | <%=t('.general_business_income')%> | <%=t('unit_yen')%> | × |double |
+| business_agriculture_income | <%=t('.business_agriculture_income')%> | <%=t('unit_yen')%> | × |double |
+| off_system_realestate_income | <%=t('.off_system_realestate_income')%> | <%=t('unit_yen')%> | × |double |
+| interest_income | <%=t('.interest_income')%> | <%=t('unit_yen')%> | × |double |
+| dividend | <%=t('.dividend')%> | <%=t('unit_yen')%> | × |double |
+| salary | <%=t('.salary')%> | <%=t('unit_yen')%> | × |double |
+| national_pension_etc | <%=t('.national_pension_etc')%> | <%=t('unit_yen')%> | × |double |
+| others | <%=t('.others')%> | <%=t('unit_yen')%> | × |double |
+| income_from_transfer_short_term | <%=t('.income_from_transfer_short_term')%> | <%=t('unit_yen')%> | × |double |
+| income_from_transfer_long_term | <%=t('.income_from_transfer_long_term')%> | <%=t('unit_yen')%> | × |double |
+| one_off_income | <%=t('.one_off_income')%> | <%=t('unit_yen')%> | × |double |
+| remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
 <% } %>
 
 > <%=t('request')%>
