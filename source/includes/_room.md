@@ -35,7 +35,7 @@
 | management_fee | <%=t('.management_fee')%> | <%=t('unit_yen_month')%> | × | double |
 | one_room | <%=t('.one_room')%> | <%=t('.one_room_desc')%> | × | bool |
 | floor_plan_roomcount | <%=t('.floor_plan_roomcount')%> | 1 ~ 9 | × | integer |
-| floor_plan_type | <%=t('.floor_plan_type')%>| <%=t('.floor_plan_type_desc')%> | × | integer |
+| floor_plan_type | <%=t('.floor_plan_type')%>| <%=t('.floor_plan_type_desc')%> | × | string |
 | room_floors | <%=t('.room_floor')%> | 1 ~ 9<br><%=t('max_quantity_to_x_items', quantity: 9)%> | × | integer[] |
 | room_types | [<%=t('.room_type')%>](#<%=get_header_link(t('references'), t('.room_type'))%>) | <%=t('max_quantity_to_x_items', quantity: 9)%> | × | integer[] |
 | room_areas | <%=t('.room_area')%> | <%=t('unit_m2')%><br><%=t('max_quantity_to_x_items', quantity: 9)%> | × | double[] |
