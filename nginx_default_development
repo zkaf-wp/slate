@@ -1,0 +1,16 @@
+upstream slate {
+  server localhost:45678;
+}
+
+server {
+  listen 4567 default_server;
+  listen [::]:4567 default_server;
+
+  server_name _;
+
+  location /docs/api/v1/ja {
+    auth_basic "Protected Area";
+    auth_basic_user_file /slate/.htpasswd_development;
+    proxy_pass http://slate;
+  }
+}

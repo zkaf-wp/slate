@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  slate:
+    image: slate
+    volumes:
+      - .:/slate
+    container_name: slate
+    ports:
+      - 4567:4567
+    entrypoint:
+      - bash
+    tty: true
+    stdin_open: true

@@ -1,3 +1,23 @@
+```sh
+# build
+docker build -t slate .
+
+# run
+docker-compose up -d
+
+# ssh
+docker exec -it slate bash
+
+# build and run
+./build.sh
+./start.sh
+service nginx restart
+
+# access
+http://127.0.0.1:4567/docs/api/v1/ja
+```
+
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
   <br>
