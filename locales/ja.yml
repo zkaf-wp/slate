@@ -164,6 +164,7 @@ ja:
     upsert:
       fields:
         owner_id: オーナーID
+        owner_id_note: リクエストボディではなく、URLに置く
         corp_flag: 個人 / 法人
         corp_flag_desc: |
           0: 法人
@@ -207,6 +208,9 @@ ja:
         remittance_date: 送金予定日 > 毎月●日
         pay_at_month_end: 送金予定日 > 月末支払い
         remarks: 備考
+        country_code: 携帯電話の国名コード
+        country_code_note: １〜３桁の数字
+        mobile_phone: 携帯電話
   owner_bank_md:
     header: オーナー銀行情報
     desc: 指定したオーナーの「銀行情報」を作成・更新・削除する。
