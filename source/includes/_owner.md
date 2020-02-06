@@ -127,7 +127,9 @@ curl -v -X POST <%=BASE_PATH%>/owners/1 \
        "remarks": {
          "ja": "5月分の賃料：未送金",
          "en": "Rent of May: not sent"
-       }
+       },
+       "country_code": "81",
+       "mobile_phone": "8012345678"
      }
      ' \
      <%=HEADER_ACCESS_TOKEN%>
@@ -200,7 +202,9 @@ curl -v -X POST <%=BASE_PATH%>/owners/1 \
        "remarks": {
          "ja": "5月分の賃料：未送金",
          "en": "Rent of May: not sent"
-       }
+       },
+       "country_code": "81",
+       "mobile_phone": "8098765432"
      }
      ' \
      <%=HEADER_ACCESS_TOKEN%>
