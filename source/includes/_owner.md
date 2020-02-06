@@ -13,7 +13,7 @@
 <% t_scope('.upsert.fields', use_html_br: true) { %>
 | <%=t('parameter')%> | <%=t('name')%> | <%=t('remarks')%> | <%=t('required')%> | <%=t('data_form')%> |
 |---------------------|----------------|-------------------|--------------------|---------------------|
-| owner_id | <%=t('.owner_id')%> | | ○ | string |
+| owner_id | <%=t('.owner_id')%> | <%=t('.owner_id_note')%> | ○ | string |
 | corp_flag   | <%=t('.corp_flag')%> | <%=t('.corp_flag_desc')%> | △ | integer |
 | nationality_country_id | [<%=t('.nationality_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | × | integer |
 | residence_country_id | [<%=t('.residence_country_id')%>](#<%=get_header_link(t('references'), t('country'))%>) | | × | integer |
@@ -48,6 +48,8 @@
 | remittance_date | <%=t('.remittance_date')%> | 1 ~ 31 | × | integer |
 | pay_at_month_end | <%=t('.pay_at_month_end')%> | true/false | × | bool |
 | remarks | <%=t('.remarks')%> | <%=t('multilingual_support')%> | × | string |
+| country_code | <%=t('.country_code')%> | <%=t('.country_code_note')%> | × | string |
+| mobile_phone | <%=t('.mobile_phone')%> | | × | string |
 <% } %>
 
 > <%=t('request')%> (<%=t('individual_field')%>)
@@ -125,7 +127,9 @@ curl -v -X POST <%=BASE_PATH%>/owners/1 \
        "remarks": {
          "ja": "5月分の賃料：未送金",
          "en": "Rent of May: not sent"
-       }
+       },
+       "country_code": "81",
+       "mobile_phone": "8012345678"
      }
      ' \
      <%=HEADER_ACCESS_TOKEN%>
@@ -198,7 +202,9 @@ curl -v -X POST <%=BASE_PATH%>/owners/1 \
        "remarks": {
          "ja": "5月分の賃料：未送金",
          "en": "Rent of May: not sent"
-       }
+       },
+       "country_code": "81",
+       "mobile_phone": "8098765432"
      }
      ' \
      <%=HEADER_ACCESS_TOKEN%>
